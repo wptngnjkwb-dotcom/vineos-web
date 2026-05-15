@@ -1,53 +1,1195 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VineOS — Správa vinařství</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f0eb;
-      color: #2a1a0e;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 40px rgba(0,0,0,.10);
-      padding: 3rem 2.5rem;
-      max-width: 480px;
-      width: 90%;
-      text-align: center;
-    }
-    .logo { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    h1 { font-size: 2rem; font-weight: 700; color: #7a1f1f; margin-bottom: 0.5rem; }
-    .sub { font-size: 1.05rem; color: #666; margin-bottom: 2rem; line-height: 1.5; }
-    .badge {
-      display: inline-block;
-      background: #f5f0eb;
-      color: #7a1f1f;
-      border-radius: 20px;
-      padding: 6px 18px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
-    .contact { margin-top: 2rem; font-size: 0.9rem; color: #999; }
-    .contact a { color: #7a1f1f; text-decoration: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VineOS – Operační systém pro moderní vinařství</title>
+<meta name="description" content="Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+/* ─────────────────────────────────────────
+   RESET & ROOT
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #0d1f2d;
+  --navy2:   #162736;
+  --navy3:   #1e3448;
+  --green:   #2d6a4f;
+  --green2:  #52b788;
+  --green3:  #95d5b2;
+  --cream:   #f8f4ee;
+  --cream2:  #ede8df;
+  --cream3:  #e2ddd4;
+  --gold:    #c9a84c;
+  --text:    #1a2e3b;
+  --muted:   #6b7f8a;
+  --red:     #c0392b;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-sans); background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; }
+button { font-family: var(--font-sans); cursor: pointer; }
+
+/* ─────────────────────────────────────────
+   UTILITIES
+───────────────────────────────────────── */
+.section-label {
+  font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase;
+  font-weight: 500; margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--font-serif); font-size: clamp(28px, 4vw, 38px);
+  font-weight: 500; line-height: 1.12; margin-bottom: 12px;
+}
+.section-title em { font-style: italic; color: var(--green); }
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+.nav {
+  background: var(--navy); position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 64px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: var(--font-serif); font-size: 22px; color: var(--cream);
+  letter-spacing: -0.3px; display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.logo-img {
+  width: 32px; height: 32px; border-radius: 7px;
+  background: rgba(82,183,136,0.15); border: 0.5px solid rgba(82,183,136,0.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: var(--green2);
+}
+/* placeholder – swap with <img src="logo.svg"> */
+.logo-img i { font-size: 16px; }
+
+.nav-center {
+  display: flex; align-items: center; gap: 32px;
+}
+.nav-center a {
+  color: rgba(248,244,238,0.55); font-size: 14px; font-weight: 400;
+  transition: color .2s;
+}
+.nav-center a:hover { color: var(--cream); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+.lang-switcher { display: flex; gap: 4px; margin-right: 6px; }
+.lang {
+  font-size: 11px; color: rgba(248,244,238,0.45); padding: 4px 8px;
+  border: 0.5px solid rgba(248,244,238,0.12); border-radius: 4px;
+  cursor: pointer; transition: all .15s; user-select: none;
+}
+.lang:hover { color: rgba(248,244,238,0.75); border-color: rgba(248,244,238,0.3); }
+.lang.active { color: var(--cream); border-color: rgba(248,244,238,0.45); background: rgba(255,255,255,0.06); }
+
+.btn-login {
+  color: var(--green3); font-size: 13px; font-weight: 500;
+  padding: 7px 14px; border-radius: 7px;
+  border: 0.5px solid rgba(82,183,136,0.38);
+  background: rgba(82,183,136,0.08);
+  display: flex; align-items: center; gap: 5px;
+  transition: background .2s, border-color .2s;
+}
+.btn-login:hover { background: rgba(82,183,136,0.16); border-color: rgba(82,183,136,0.55); }
+.btn-login i { font-size: 14px; }
+
+.btn-cta-nav {
+  background: var(--green2); color: var(--navy); font-size: 13px;
+  font-weight: 500; padding: 8px 18px; border-radius: 7px;
+  border: none; transition: background .2s; white-space: nowrap;
+}
+.btn-cta-nav:hover { background: #63c898; }
+
+/* hamburger */
+.nav-hamburger {
+  display: none; background: none; border: none; color: var(--cream);
+  padding: 6px; border-radius: 6px; transition: background .2s;
+}
+.nav-hamburger:hover { background: rgba(255,255,255,0.08); }
+.nav-hamburger i { font-size: 22px; display: block; }
+
+.nav-mobile-menu {
+  display: none; position: absolute; top: 64px; left: 0; right: 0;
+  background: var(--navy2); border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  padding: 8px 20px 20px; flex-direction: column; gap: 2px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-m-link {
+  color: rgba(248,244,238,0.6); font-size: 15px; padding: 12px 4px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-m-link i { font-size: 17px; color: var(--green2); }
+.nav-m-actions { display: flex; gap: 10px; margin-top: 14px; }
+.nav-m-login {
+  flex: 1; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  border: 0.5px solid rgba(82,183,136,0.4); background: rgba(82,183,136,0.08);
+  color: var(--green3); text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+}
+.nav-m-cta {
+  flex: 1; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 500;
+  background: var(--green2); color: var(--navy); text-align: center; border: none;
+}
+.nav-m-lang { display: flex; gap: 6px; margin-top: 14px; }
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 72px 40px 0;
+  overflow: hidden;
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(82,183,136,0.1); border: 0.5px solid rgba(82,183,136,0.28);
+  border-radius: 20px; padding: 5px 14px; font-size: 11px;
+  color: var(--green3); margin-bottom: 26px; letter-spacing: 0.6px;
+}
+.hero-eyebrow i { font-size: 12px; }
+
+.hero h1 {
+  font-family: var(--font-serif); font-size: clamp(40px, 6vw, 64px);
+  color: var(--cream); line-height: 1.04; font-weight: 500;
+  max-width: 620px; margin-bottom: 22px;
+}
+.hero h1 em { font-style: italic; color: var(--green2); }
+
+.hero-sub {
+  color: rgba(248,244,238,0.58); font-size: clamp(15px, 2vw, 18px);
+  max-width: 500px; line-height: 1.65; margin-bottom: 36px; font-weight: 300;
+}
+
+.hero-ctas { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+
+.btn-hero-primary {
+  background: var(--green2); color: var(--navy); font-size: 15px;
+  font-weight: 500; padding: 13px 26px; border-radius: 9px; border: none;
+  transition: background .2s; white-space: nowrap;
+}
+.btn-hero-primary:hover { background: #63c898; }
+
+.btn-hero-secondary {
+  background: transparent; color: var(--cream); font-size: 15px; font-weight: 400;
+  padding: 13px 22px; border-radius: 9px;
+  border: 0.5px solid rgba(248,244,238,0.22);
+  display: flex; align-items: center; gap: 7px;
+  transition: border-color .2s, background .2s; white-space: nowrap;
+}
+.btn-hero-secondary:hover { border-color: rgba(248,244,238,0.45); background: rgba(255,255,255,0.05); }
+.btn-hero-secondary i { font-size: 16px; }
+
+.btn-hero-app {
+  background: rgba(82,183,136,0.1); color: var(--green3); font-size: 15px;
+  font-weight: 400; padding: 13px 22px; border-radius: 9px;
+  border: 0.5px solid rgba(82,183,136,0.32);
+  display: flex; align-items: center; gap: 7px;
+  transition: background .2s, border-color .2s; white-space: nowrap;
+}
+.btn-hero-app:hover { background: rgba(82,183,136,0.18); border-color: rgba(82,183,136,0.5); }
+.btn-hero-app i { font-size: 16px; }
+
+.hero-note { font-size: 12px; color: rgba(248,244,238,0.3); margin-bottom: 48px; }
+
+/* screenshot */
+.hero-screenshot {
+  background: rgba(255,255,255,0.04);
+  border: 0.5px solid rgba(255,255,255,0.09);
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  margin: 0 -40px;
+  max-width: calc(100% + 80px);
+}
+.screenshot-bar {
+  background: rgba(0,0,0,0.28); padding: 11px 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sc-dot { width: 11px; height: 11px; border-radius: 50%; }
+.screenshot-url {
+  background: rgba(255,255,255,0.07); border-radius: 5px;
+  padding: 4px 14px; font-size: 11px; color: rgba(255,255,255,0.3);
+  flex: 1; margin: 0 12px;
+}
+.screenshot-sync {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--green3); white-space: nowrap;
+}
+.sync-pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--green2);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.screenshot-body {
+  height: 280px; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  background: rgba(0,0,0,0.14);
+  border-top: 1.5px dashed rgba(255,255,255,0.1);
+  margin: 12px; border-radius: 8px;
+}
+.screenshot-body i { font-size: 40px; color: rgba(255,255,255,0.12); }
+.screenshot-body p { font-size: 13px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.7; }
+.screenshot-body small { font-size: 11px; color: rgba(255,255,255,0.16); }
+
+/* ─────────────────────────────────────────
+   PROBLEM / SOLUTION
+───────────────────────────────────────── */
+.problem {
+  background: var(--cream); padding: 88px 40px;
+}
+.problem-inner { max-width: 1100px; margin: 0 auto; }
+.problem .section-label { color: var(--green); }
+.problem .section-title { color: var(--navy); max-width: 560px; }
+
+.prob-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px;
+}
+.prob-card { border-radius: 12px; padding: 28px; }
+.prob-card.bad { background: #fff; border: 0.5px solid var(--cream2); }
+.prob-card.good { background: var(--navy); }
+.prob-card-head {
+  font-size: 12px; font-weight: 500; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 7px; letter-spacing: 0.3px;
+}
+.prob-card.bad .prob-card-head { color: var(--red); }
+.prob-card.good .prob-card-head { color: var(--green3); }
+.prob-item {
+  font-size: 14px; line-height: 1.55; margin-bottom: 10px;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.prob-card.bad .prob-item { color: var(--muted); }
+.prob-card.good .prob-item { color: rgba(248,244,238,0.68); }
+.prob-item i { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.prob-card.bad .prob-item i { color: #e55; }
+.prob-card.good .prob-item i { color: var(--green2); }
+
+/* ─────────────────────────────────────────
+   FEATURES
+───────────────────────────────────────── */
+.features { background: var(--navy2); padding: 88px 40px; }
+.features-inner { max-width: 1100px; margin: 0 auto; }
+.features .section-label { color: var(--green3); }
+.features .section-title { color: var(--cream); }
+.feat-sub { color: rgba(248,244,238,0.45); font-size: 15px; margin-bottom: 44px; font-weight: 300; }
+
+.feat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.feat-card {
+  background: rgba(255,255,255,0.04); border: 0.5px solid rgba(255,255,255,0.09);
+  border-radius: 12px; padding: 22px;
+  transition: background .2s, border-color .2s;
+}
+.feat-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.14); }
+.feat-icon {
+  width: 40px; height: 40px; border-radius: 9px;
+  background: rgba(82,183,136,0.14); border: 0.5px solid rgba(82,183,136,0.22);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; color: var(--green2); margin-bottom: 14px;
+}
+.feat-icon.gold {
+  background: rgba(201,168,76,0.13); border-color: rgba(201,168,76,0.28);
+  color: var(--gold);
+}
+.feat-name { font-size: 14px; color: var(--cream); font-weight: 500; margin-bottom: 8px; }
+.feat-desc { font-size: 13px; color: rgba(248,244,238,0.48); line-height: 1.62; font-weight: 300; }
+.badge-soon {
+  display: inline-block; margin-top: 11px; font-size: 10px; padding: 3px 9px;
+  border-radius: 4px; background: rgba(201,168,76,0.13); color: var(--gold);
+  border: 0.5px solid rgba(201,168,76,0.3); letter-spacing: 0.3px;
+}
+.badge-cz {
+  display: inline-block; margin-top: 11px; font-size: 10px; padding: 3px 9px;
+  border-radius: 4px; background: rgba(82,183,136,0.1); color: var(--green3);
+  border: 0.5px solid rgba(82,183,136,0.25); letter-spacing: 0.3px;
+}
+
+/* ─────────────────────────────────────────
+   PRICING
+───────────────────────────────────────── */
+.pricing { background: var(--cream); padding: 88px 40px; }
+.pricing-inner { max-width: 1100px; margin: 0 auto; }
+.pricing .section-label { color: var(--green); }
+.pricing .section-title { color: var(--navy); }
+.pricing-sub { color: var(--muted); font-size: 15px; margin-bottom: 0; font-weight: 300; }
+
+.price-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 40px; max-width: 1000px;
+}
+.price-card.coming {
+  opacity: 0.72;
+  border: 0.5px solid var(--cream2);
+  background: #fafaf8;
+  position: relative;
+}
+.price-card.coming::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: 14px;
+  background: repeating-linear-gradient(
+    -45deg, transparent, transparent 6px,
+    rgba(0,0,0,0.018) 6px, rgba(0,0,0,0.018) 7px
+  );
+  pointer-events: none;
+}
+.badge-coming {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: #fff; font-size: 11px; font-weight: 500;
+  padding: 4px 16px; border-radius: 20px; white-space: nowrap;
+}
+.price-feat.dim { color: #bbb; }
+.price-feat.dim i { color: #ccc; }
+.price-card {
+  background: #fff; border: 0.5px solid var(--cream2);
+  border-radius: 14px; padding: 30px; position: relative;
+}
+.price-card.featured { border: 1.5px solid var(--green2); }
+
+.price-badge {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--green2); color: var(--navy); font-size: 11px; font-weight: 500;
+  padding: 4px 16px; border-radius: 20px; white-space: nowrap;
+}
+.price-tier { font-size: 12px; font-weight: 500; color: var(--muted); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 10px; }
+.price-amount {
+  font-family: var(--font-serif); font-size: 44px; color: var(--navy);
+  font-weight: 500; line-height: 1; margin-bottom: 4px;
+}
+.price-amount span { font-size: 18px; font-family: var(--font-sans); color: var(--muted); font-weight: 300; }
+.price-period { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
+.price-divider { height: 0.5px; background: var(--cream2); margin-bottom: 20px; }
+.price-feat {
+  font-size: 13px; color: var(--text); margin-bottom: 9px;
+  display: flex; align-items: flex-start; gap: 7px; line-height: 1.45;
+}
+.price-feat i { font-size: 14px; flex-shrink: 0; margin-top: 1px; color: var(--green); }
+.price-feat.off { color: var(--cream3); }
+.price-feat.off i { color: var(--cream3); }
+.price-btn {
+  width: 100%; margin-top: 22px; padding: 12px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  font-family: var(--font-sans); border: 0.5px solid var(--cream2);
+  background: transparent; color: var(--navy); transition: background .2s;
+}
+.price-btn:hover { background: var(--cream); }
+.price-btn.primary { background: var(--green2); color: var(--navy); border-color: transparent; }
+.price-btn.primary:hover { background: #63c898; }
+
+/* ─────────────────────────────────────────
+   TRUST
+───────────────────────────────────────── */
+.trust { background: var(--navy); padding: 80px 40px; }
+.trust-inner { max-width: 1100px; margin: 0 auto; }
+.trust .section-label { color: var(--green3); }
+.trust .section-title { color: var(--cream); max-width: 480px; }
+
+.trust-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 36px;
+}
+.trust-item { padding: 24px 16px; text-align: center; }
+.trust-icon { font-size: 30px; color: var(--green2); margin-bottom: 12px; }
+.trust-name { font-size: 14px; color: var(--cream); font-weight: 500; margin-bottom: 6px; }
+.trust-desc { font-size: 13px; color: rgba(248,244,238,0.42); line-height: 1.55; font-weight: 300; }
+
+/* ─────────────────────────────────────────
+   CTA BANNER
+───────────────────────────────────────── */
+.cta-banner {
+  background: var(--navy2); border-top: 0.5px solid rgba(255,255,255,0.06);
+  border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  padding: 72px 40px; text-align: center;
+}
+.cta-banner-inner { max-width: 580px; margin: 0 auto; }
+.cta-banner h2 {
+  font-family: var(--font-serif); font-size: clamp(28px,4vw,40px);
+  color: var(--cream); font-weight: 500; margin-bottom: 16px; line-height: 1.15;
+}
+.cta-banner h2 em { font-style: italic; color: var(--green2); }
+.cta-banner p { color: rgba(248,244,238,0.5); font-size: 15px; font-weight: 300; margin-bottom: 32px; }
+.cta-banner-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.footer {
+  background: var(--navy); padding: 32px 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo {
+  font-family: var(--font-serif); font-size: 20px; color: var(--cream);
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.32); transition: color .2s; }
+.footer-links a:hover { color: rgba(255,255,255,0.65); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE – TABLET ≤ 900px
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .nav-center, .nav-right { display: none; }
+  .nav-hamburger { display: block; }
+
+  .hero { padding: 52px 24px 0; }
+  .hero-screenshot { margin: 0 -24px; max-width: calc(100% + 48px); }
+
+  .problem { padding: 64px 24px; }
+  .features { padding: 64px 24px; }
+  .pricing { padding: 64px 24px; }
+  .trust { padding: 60px 24px; }
+  .cta-banner { padding: 56px 24px; }
+  .footer { padding: 28px 24px; }
+
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .price-grid { max-width: 100%; grid-template-columns: 1fr; }
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE – MOBILE ≤ 560px
+───────────────────────────────────────── */
+@media (max-width: 560px) {
+  .hero { padding: 40px 16px 0; }
+  .hero h1 { font-size: 34px; }
+  .hero-ctas { flex-direction: column; }
+  .btn-hero-primary, .btn-hero-secondary, .btn-hero-app {
+    width: 100%; justify-content: center; padding: 14px 16px;
+  }
+  .hero-note { text-align: center; }
+  .hero-screenshot { margin: 0 -16px; }
+  .screenshot-bar { padding: 9px 12px; }
+  .screenshot-url { display: none; }
+  .screenshot-body { height: 180px; margin: 8px; }
+
+  .problem { padding: 52px 16px; }
+  .prob-grid { grid-template-columns: 1fr; }
+
+  .features { padding: 52px 16px; }
+  .feat-grid { grid-template-columns: 1fr; }
+
+  .pricing { padding: 52px 16px; }
+  .price-card.featured { margin-top: 0; }
+
+  .trust { padding: 52px 16px; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .trust-item { padding: 16px 8px; }
+
+  .cta-banner { padding: 52px 16px; }
+  .cta-banner-btns { flex-direction: column; }
+  .cta-banner-btns button, .cta-banner-btns a { width: 100%; }
+
+  .footer { padding: 24px 16px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .footer-links { gap: 14px; }
+}
+</style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo">🍷</div>
-    <h1>VineOS</h1>
-    <p class="sub">Digitální správa vinařství.<br>Brzy spustíme — připravujeme pro vás něco výjimečného.</p>
-    <span class="badge">Již brzy / Coming soon</span>
-    <p class="contact">Dotazy: <a href="mailto:vineos.info@gmail.com">vineos.info@gmail.com</a></p>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <div class="logo-img"><i class="ti ti-leaf"></i></div>
+    VineOS
+  </a>
+
+  <!-- desktop -->
+  <div class="nav-center">
+    <a href="#features" data-i18n="nav_features">Funkce</a>
+    <a href="#pricing" data-i18n="nav_pricing">Ceník</a>
+    <a href="#demo" data-i18n="nav_demo">Demo</a>
   </div>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <div class="lang active" data-lang="cs">CZ</div>
+      <div class="lang" data-lang="en">EN</div>
+      <div class="lang" data-lang="de">DE</div>
+    </div>
+    <a href="https://app.vineos.com/login" class="btn-login">
+      <i class="ti ti-layout-dashboard"></i>
+      <span data-i18n="nav_login">Přihlásit se</span>
+    </a>
+    <button class="btn-cta-nav" data-i18n="nav_cta">Vyzkoušet zdarma</button>
+  </div>
+
+  <!-- hamburger -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <i class="ti ti-menu-2" id="hamburger-icon"></i>
+  </button>
+
+  <!-- mobile menu -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#features" class="nav-m-link">
+      <i class="ti ti-sparkles"></i><span data-i18n="nav_features">Funkce</span>
+    </a>
+    <a href="#pricing" class="nav-m-link">
+      <i class="ti ti-tag"></i><span data-i18n="nav_pricing">Ceník</span>
+    </a>
+    <a href="#demo" class="nav-m-link">
+      <i class="ti ti-calendar"></i><span data-i18n="nav_demo">Demo</span>
+    </a>
+    <div class="nav-m-actions">
+      <a href="https://app.vineos.com/login" class="nav-m-login">
+        <i class="ti ti-layout-dashboard"></i>
+        <span data-i18n="nav_login">Přihlásit se</span>
+      </a>
+      <button class="nav-m-cta" data-i18n="nav_cta">Vyzkoušet zdarma</button>
+    </div>
+    <div class="nav-m-lang">
+      <div class="lang active" data-lang="cs">CZ</div>
+      <div class="lang" data-lang="en">EN</div>
+      <div class="lang" data-lang="de">DE</div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <i class="ti ti-leaf"></i>
+      <span data-i18n="hero_eyebrow">Operační systém pro moderní vinařství</span>
+    </div>
+    <h1 data-i18n="hero_h1">Od vinice<br>po poslední<br><em>láhev.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.</p>
+    <div class="hero-ctas">
+      <button class="btn-hero-primary" data-i18n="hero_cta1">Vyzkoušet zdarma</button>
+      <button class="btn-hero-secondary">
+        <i class="ti ti-player-play"></i>
+        <span data-i18n="hero_cta2">Domluvit demo</span>
+      </button>
+      <a href="https://app.vineos.com" class="btn-hero-app">
+        <i class="ti ti-layout-dashboard"></i>
+        <span data-i18n="hero_cta3">Otevřít aplikaci</span>
+      </a>
+    </div>
+    <p class="hero-note" data-i18n="hero_note">Bez kreditní karty · Bez závazků · Spuštění za 5 minut</p>
+
+    <div class="hero-screenshot">
+      <div class="screenshot-bar">
+        <div class="sc-dot" style="background:#ff5f57"></div>
+        <div class="sc-dot" style="background:#febc2e"></div>
+        <div class="sc-dot" style="background:#28c840"></div>
+        <div class="screenshot-url">app.vineos.com</div>
+        <div class="screenshot-sync">
+          <div class="sync-pulse"></div>
+          <span data-i18n="screenshot_sync">Synchronizováno</span>
+        </div>
+      </div>
+      <div class="screenshot-body">
+        <i class="ti ti-photo"></i>
+        <!-- SWAP THIS DIV FOR: <img src="screenshot.png" alt="VineOS aplikace"> -->
+        <p data-i18n="screenshot_placeholder">Zde bude screenshot aplikace</p>
+        <small>1280 × 720 px · PNG nebo WebP</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PROBLEM / SOLUTION
+════════════════════════════════════════ -->
+<section class="problem" id="why">
+  <div class="problem-inner">
+    <div class="section-label" data-i18n="prob_label">Proč VineOS?</div>
+    <div class="section-title" data-i18n="prob_title">Vinařství je umění.<br>Administrativa by jím <em>být neměla.</em></div>
+    <div class="prob-grid">
+      <div class="prob-card bad">
+        <div class="prob-card-head">
+          <i class="ti ti-x"></i>
+          <span data-i18n="prob_bad_title">Bez VineOS</span>
+        </div>
+        <div class="prob-item"><i class="ti ti-x"></i><span data-i18n="prob_bad_1">Papírové vinné knihy a nepřehledné tabulky</span></div>
+        <div class="prob-item"><i class="ti ti-x"></i><span data-i18n="prob_bad_2">Stres z každoročních hlášení na úřady</span></div>
+        <div class="prob-item"><i class="ti ti-x"></i><span data-i18n="prob_bad_3">EU digitální etikety? Ještě jedna věc navíc</span></div>
+        <div class="prob-item"><i class="ti ti-x"></i><span data-i18n="prob_bad_4">Žádná jistota o legislativní shodě</span></div>
+      </div>
+      <div class="prob-card good">
+        <div class="prob-card-head">
+          <i class="ti ti-check"></i>
+          <span data-i18n="prob_good_title">S VineOS</span>
+        </div>
+        <div class="prob-item"><i class="ti ti-check"></i><span data-i18n="prob_good_1">Veškerá administrativa v jednom plynulém toku</span></div>
+        <div class="prob-item"><i class="ti ti-check"></i><span data-i18n="prob_good_2">Zákonné sestavy vygenerujete za vteřiny</span></div>
+        <div class="prob-item"><i class="ti ti-check"></i><span data-i18n="prob_good_3">EU e-Label QR kódy přímo z vašich dat</span></div>
+        <div class="prob-item"><i class="ti ti-check"></i><span data-i18n="prob_good_4">VineOS sleduje legislativu a upozorní vás</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════ -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="section-label" data-i18n="feat_label">Moduly</div>
+    <div class="section-title" data-i18n="feat_title">Vše, co vinařství potřebuje.</div>
+    <p class="feat-sub" data-i18n="feat_sub">Na jednom místě. Na každém zařízení.</p>
+    <div class="feat-grid">
+
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-plant-2"></i></div>
+        <div class="feat-name" data-i18n="feat1_name">Vinohrady & Evidence</div>
+        <div class="feat-desc" data-i18n="feat1_desc">Parcely, LPIS, BBCH stupnice, postřiky, příjem sklizně a cukernatost — přímo v terénu.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-droplet"></i></div>
+        <div class="feat-name" data-i18n="feat2_name">Digitální sklep</div>
+        <div class="feat-desc" data-i18n="feat2_desc">Interaktivní mapa nádob, kompletní historie šarží, SO₂, kyseliny, pH s automatickými grafy.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-wifi-off"></i></div>
+        <div class="feat-name" data-i18n="feat3_name">Offline-First</div>
+        <div class="feat-desc" data-i18n="feat3_desc">Funguje bez signálu. Ve sklepě, v poli, kdekoli. Sync proběhne automaticky při připojení.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-file-certificate"></i></div>
+        <div class="feat-name" data-i18n="feat4_name">Vinná kniha & Legislativa</div>
+        <div class="feat-desc" data-i18n="feat4_desc">Zákonné PDF sestavy jedním kliknutím. VineOS sleduje změny legislativy a upozorní vás.</div>
+        <div class="badge-cz" data-i18n="feat4_badge"><i class="ti ti-flag" style="font-size:10px"></i> Nyní pro ČR · další země připravujeme</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon"><i class="ti ti-qrcode"></i></div>
+        <div class="feat-name" data-i18n="feat5_name">EU e-Label</div>
+        <div class="feat-desc" data-i18n="feat5_desc">QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.</div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon gold"><i class="ti ti-robot"></i></div>
+        <div class="feat-name" data-i18n="feat6_name">AI Asistent Vinnie</div>
+        <div class="feat-desc" data-i18n="feat6_desc">„Kolik máme volného Chardonnay?" Vinnie analyzuje data a pomáhá rozhodovat chytře.</div>
+        <div class="badge-soon" data-i18n="feat6_badge">Již brzy</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PRICING
+════════════════════════════════════════ -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label" data-i18n="price_label">Ceník</div>
+    <div class="section-title" data-i18n="price_title">Transparentní ceny. Žádná <em>překvapení.</em></div>
+    <p class="pricing-sub" data-i18n="price_sub">Vyberte plán, který odpovídá vašemu vinařství.</p>
+    <div class="price-grid">
+
+      <div class="price-card">
+        <div class="price-tier" data-i18n="plan1_name">Free</div>
+        <div class="price-amount">0 <span data-i18n="plan1_currency">Kč</span></div>
+        <div class="price-period" data-i18n="plan1_period">navždy zdarma</div>
+        <div class="price-divider"></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f1">Správa až 3 šarží</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f2">Základní evidence vinice a sklepa</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f3">Offline záznamy</span></div>
+        <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f4">Cloud sync</span></div>
+        <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f5">PDF vinná kniha</span></div>
+        <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f6">EU e-Label QR kódy</span></div>
+        <button class="price-btn" data-i18n="plan1_btn">Začít zdarma</button>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge" data-i18n="plan2_badge">Plná výbava</div>
+        <div class="price-tier" data-i18n="plan2_name">Pro</div>
+        <div class="price-amount">2 490 <span data-i18n="plan2_currency">Kč</span></div>
+        <div class="price-period" data-i18n="plan2_period">za rok · nebo 99 € / rok</div>
+        <div class="price-divider"></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f1">Neomezené šarže a záznamy</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f2">Cloud sync (servery EU)</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f3">Automatická vinná kniha (PDF)</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f4">EU e-Label QR kódy</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f5">Windows, Android, iOS</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan2_f6">Prioritní e-mailová podpora</span></div>
+        <button class="price-btn primary" data-i18n="plan2_btn">Vyzkoušet Pro</button>
+      </div>
+
+      <div class="price-card coming">
+        <div class="badge-coming" data-i18n="plan3_badge">Připravujeme</div>
+        <div class="price-tier" data-i18n="plan3_name">Pro + AI</div>
+        <div class="price-amount" style="color:var(--muted)">— <span data-i18n="plan3_currency">Kč</span></div>
+        <div class="price-period" data-i18n="plan3_period">cena bude upřesněna</div>
+        <div class="price-divider"></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan3_f1">Vše z plánu Pro</span></div>
+        <div class="price-feat dim"><i class="ti ti-robot"></i><span data-i18n="plan3_f2">AI Asistent Vinnie</span></div>
+        <div class="price-feat dim"><i class="ti ti-chart-dots"></i><span data-i18n="plan3_f3">Prediktivní analýzy sklizně</span></div>
+        <div class="price-feat dim"><i class="ti ti-messages"></i><span data-i18n="plan3_f4">Dotazy na data přirozeným jazykem</span></div>
+        <div class="price-feat dim"><i class="ti ti-bulb"></i><span data-i18n="plan3_f5">Doporučení ošetření a termínů</span></div>
+        <div class="price-feat dim"><i class="ti ti-sparkles"></i><span data-i18n="plan3_f6">Nové AI funkce jako první</span></div>
+        <button class="price-btn" style="opacity:0.5;cursor:default" disabled data-i18n="plan3_btn">Oznámit dostupnost</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TRUST
+════════════════════════════════════════ -->
+<section class="trust">
+  <div class="trust-inner">
+    <div class="section-label" data-i18n="trust_label">Technické zázemí</div>
+    <div class="section-title" data-i18n="trust_title">Postaveno na pevných základech.</div>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="ti ti-lock"></i></div>
+        <div class="trust-name" data-i18n="trust1_name">Bezpečnost EU</div>
+        <div class="trust-desc" data-i18n="trust1_desc">Šifrovaná data na serverech ve Frankfurtu. GDPR compliant.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="ti ti-devices"></i></div>
+        <div class="trust-name" data-i18n="trust2_name">Multiplatformní</div>
+        <div class="trust-desc" data-i18n="trust2_desc">Windows, Android, iOS. Jedna aplikace, všechna vaše zařízení.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="ti ti-cloud-off"></i></div>
+        <div class="trust-name" data-i18n="trust3_name">Offline-First</div>
+        <div class="trust-desc" data-i18n="trust3_desc">Funguje bez internetu. Sync automaticky při připojení.</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="ti ti-headset"></i></div>
+        <div class="trust-name" data-i18n="trust4_name">Podpora CZ / EN / DE</div>
+        <div class="trust-desc" data-i18n="trust4_desc">Od nastavení prvního tanku po první export hlášení.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     CTA BANNER
+════════════════════════════════════════ -->
+<section class="cta-banner" id="demo">
+  <div class="cta-banner-inner">
+    <h2 data-i18n="cta_title">Připraveni začít?<br>Vaše vinařství <em>na vás čeká.</em></h2>
+    <p data-i18n="cta_sub">Vyzkoušejte VineOS zdarma nebo si domluvte osobní demo — rádi vám ukážeme vše naživo.</p>
+    <div class="cta-banner-btns">
+      <button class="btn-hero-primary" data-i18n="cta_btn1">Vyzkoušet zdarma</button>
+      <button class="btn-hero-secondary" style="color:var(--cream)">
+        <i class="ti ti-calendar"></i>
+        <span data-i18n="cta_btn2">Domluvit demo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="logo-img"><i class="ti ti-leaf"></i></div>
+      VineOS
+    </div>
+    <div class="footer-links">
+      <a href="#features" data-i18n="nav_features">Funkce</a>
+      <a href="#pricing" data-i18n="nav_pricing">Ceník</a>
+      <a href="#" data-i18n="footer_privacy">Ochrana dat</a>
+      <a href="#" data-i18n="footer_terms">Podmínky</a>
+      <a href="mailto:info@vineos.app" data-i18n="footer_contact">Kontakt</a>
+    </div>
+    <div class="footer-copy" data-i18n="footer_copy">© 2025 VineOS. Všechna práva vyhrazena.</div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+// ── TRANSLATIONS ────────────────────────
+const i18n = {
+  cs: {
+    nav_features: "Funkce",
+    nav_pricing: "Ceník",
+    nav_demo: "Demo",
+    nav_login: "Přihlásit se",
+    nav_cta: "Vyzkoušet zdarma",
+    hero_eyebrow: "Operační systém pro moderní vinařství",
+    hero_h1: "Od vinice<br>po poslední<br><em>láhev.</em>",
+    hero_sub: "Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.",
+    hero_cta1: "Vyzkoušet zdarma",
+    hero_cta2: "Domluvit demo",
+    hero_cta3: "Otevřít aplikaci",
+    hero_note: "Bez kreditní karty · Bez závazků · Spuštění za 5 minut",
+    screenshot_sync: "Synchronizováno",
+    screenshot_placeholder: "Zde bude screenshot aplikace",
+    prob_label: "Proč VineOS?",
+    prob_title: "Vinařství je umění.<br>Administrativa by jím <em>být neměla.</em>",
+    prob_bad_title: "Bez VineOS",
+    prob_bad_1: "Papírové vinné knihy a nepřehledné tabulky",
+    prob_bad_2: "Stres z každoročních hlášení na úřady",
+    prob_bad_3: "EU digitální etikety? Ještě jedna věc navíc",
+    prob_bad_4: "Žádná jistota o legislativní shodě",
+    prob_good_title: "S VineOS",
+    prob_good_1: "Veškerá administrativa v jednom plynulém toku",
+    prob_good_2: "Zákonné sestavy vygenerujete za vteřiny",
+    prob_good_3: "EU e-Label QR kódy přímo z vašich dat",
+    prob_good_4: "VineOS sleduje legislativu a upozorní vás",
+    feat_label: "Moduly",
+    feat_title: "Vše, co vinařství potřebuje.",
+    feat_sub: "Na jednom místě. Na každém zařízení.",
+    feat1_name: "Vinohrady & Evidence",
+    feat1_desc: "Parcely, LPIS, BBCH stupnice, postřiky, příjem sklizně a cukernatost — přímo v terénu.",
+    feat2_name: "Digitální sklep",
+    feat2_desc: "Interaktivní mapa nádob, kompletní historie šarží, SO₂, kyseliny, pH s automatickými grafy.",
+    feat3_name: "Offline-First",
+    feat3_desc: "Funguje bez signálu. Ve sklepě, v poli, kdekoli. Sync proběhne automaticky při připojení.",
+    feat4_name: "Vinná kniha & Legislativa",
+    feat4_desc: "Zákonné PDF sestavy jedním kliknutím. VineOS sleduje změny legislativy a upozorní vás.",
+    feat4_badge: "🇨🇿 Nyní pro ČR · další země připravujeme",
+    feat5_name: "EU e-Label",
+    feat5_desc: "QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.",
+    feat6_name: "AI Asistent Vinnie",
+    feat6_desc: "„Kolik máme volného Chardonnay?" Vinnie analyzuje data a pomáhá rozhodovat chytře.",
+    feat6_badge: "Již brzy",
+    price_label: "Ceník",
+    price_title: "Transparentní ceny. Žádná <em>překvapení.</em>",
+    price_sub: "Vyberte plán, který odpovídá vašemu vinařství.",
+    plan1_name: "Free",
+    plan1_currency: "Kč",
+    plan1_period: "navždy zdarma",
+    plan1_f1: "Správa až 3 šarží",
+    plan1_f2: "Základní evidence vinice a sklepa",
+    plan1_f3: "Offline záznamy",
+    plan1_f4: "Cloud sync",
+    plan1_f5: "PDF vinná kniha",
+    plan1_f6: "EU e-Label QR kódy",
+    plan1_btn: "Začít zdarma",
+    plan2_badge: "Plná výbava",
+    plan2_name: "Pro",
+    plan2_currency: "Kč",
+    plan2_period: "za rok · nebo 99 € / rok",
+    plan2_f1: "Neomezené šarže a záznamy",
+    plan2_f2: "Cloud sync (servery EU)",
+    plan2_f3: "Automatická vinná kniha (PDF)",
+    plan2_f4: "EU e-Label QR kódy",
+    plan2_f5: "Windows, Android, iOS",
+    plan2_f6: "Prioritní e-mailová podpora",
+    plan2_btn: "Vyzkoušet Pro",
+    plan3_badge: "Připravujeme",
+    plan3_name: "Pro + AI",
+    plan3_currency: "Kč",
+    plan3_period: "cena bude upřesněna",
+    plan3_f1: "Vše z plánu Pro",
+    plan3_f2: "AI Asistent Vinnie",
+    plan3_f3: "Prediktivní analýzy sklizně",
+    plan3_f4: "Dotazy na data přirozeným jazykem",
+    plan3_f5: "Doporučení ošetření a termínů",
+    plan3_f6: "Nové AI funkce jako první",
+    plan3_btn: "Oznámit dostupnost",
+    trust_label: "Technické zázemí",
+    trust_title: "Postaveno na pevných základech.",
+    trust1_name: "Bezpečnost EU",
+    trust1_desc: "Šifrovaná data na serverech ve Frankfurtu. GDPR compliant.",
+    trust2_name: "Multiplatformní",
+    trust2_desc: "Windows, Android, iOS. Jedna aplikace, všechna vaše zařízení.",
+    trust3_name: "Offline-First",
+    trust3_desc: "Funguje bez internetu. Sync automaticky při připojení.",
+    trust4_name: "Podpora CZ / EN / DE",
+    trust4_desc: "Od nastavení prvního tanku po první export hlášení.",
+    cta_title: "Připraveni začít?<br>Vaše vinařství <em>na vás čeká.</em>",
+    cta_sub: "Vyzkoušejte VineOS zdarma nebo si domluvte osobní demo — rádi vám ukážeme vše naživo.",
+    cta_btn1: "Vyzkoušet zdarma",
+    cta_btn2: "Domluvit demo",
+    footer_privacy: "Ochrana dat",
+    footer_terms: "Podmínky",
+    footer_contact: "Kontakt",
+    footer_copy: "© 2025 VineOS. Všechna práva vyhrazena.",
+    doc_title: "VineOS – Operační systém pro moderní vinařství",
+    doc_description: "Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.",
+  },
+
+  en: {
+    nav_features: "Features",
+    nav_pricing: "Pricing",
+    nav_demo: "Demo",
+    nav_login: "Sign in",
+    nav_cta: "Start for free",
+    hero_eyebrow: "The operating system for the modern winery",
+    hero_h1: "From the vineyard<br>to the last<br><em>bottle.</em>",
+    hero_sub: "Manage your winery smarter, stay legally compliant, and let AI help — anywhere, even offline.",
+    hero_cta1: "Start for free",
+    hero_cta2: "Book a demo",
+    hero_cta3: "Open the app",
+    hero_note: "No credit card · No commitment · Up and running in 5 minutes",
+    screenshot_sync: "Synchronised",
+    screenshot_placeholder: "App screenshot goes here",
+    prob_label: "Why VineOS?",
+    prob_title: "Winemaking is an art.<br>Administration <em>shouldn't be.</em>",
+    prob_bad_title: "Without VineOS",
+    prob_bad_1: "Paper wine books and messy spreadsheets",
+    prob_bad_2: "Annual stress of regulatory reporting",
+    prob_bad_3: "EU digital labels? One more thing to worry about",
+    prob_bad_4: "No guarantee you're actually compliant",
+    prob_good_title: "With VineOS",
+    prob_good_1: "All admin in one seamless flow",
+    prob_good_2: "Compliant reports generated in seconds",
+    prob_good_3: "EU e-Label QR codes straight from your data",
+    prob_good_4: "VineOS monitors regulations and alerts you",
+    feat_label: "Modules",
+    feat_title: "Everything your winery needs.",
+    feat_sub: "In one place. On every device.",
+    feat1_name: "Vineyard Management",
+    feat1_desc: "Plots, land registry, BBCH scale, sprays, harvest intake and must density — straight from the field.",
+    feat2_name: "Digital Cellar",
+    feat2_desc: "Interactive vessel map, full batch history, SO₂, acids, pH — with automatic charts.",
+    feat3_name: "Offline-First",
+    feat3_desc: "Works without signal. In the cellar, in the field, anywhere. Syncs automatically when you reconnect.",
+    feat4_name: "Wine Book & Compliance",
+    feat4_desc: "Legal PDF reports in one click. VineOS tracks regulatory changes and notifies you.",
+    feat4_badge: "🇨🇿 Now for Czech Republic · more countries coming",
+    feat5_name: "EU e-Label",
+    feat5_desc: "QR codes with nutritional values per EU 2023/1615, generated from data already in VineOS.",
+    feat6_name: "AI Assistant Vinnie",
+    feat6_desc: "\"How much free Chardonnay do we have?\" Vinnie analyses your data and helps you decide smarter.",
+    feat6_badge: "Coming soon",
+    price_label: "Pricing",
+    price_title: "Transparent pricing. No <em>surprises.</em>",
+    price_sub: "Choose the plan that fits your winery.",
+    plan1_name: "Free",
+    plan1_currency: "€",
+    plan1_period: "free, forever",
+    plan1_f1: "Manage up to 3 batches",
+    plan1_f2: "Basic vineyard & cellar records",
+    plan1_f3: "Offline logging",
+    plan1_f4: "Cloud sync",
+    plan1_f5: "PDF wine book",
+    plan1_f6: "EU e-Label QR codes",
+    plan1_btn: "Start for free",
+    plan2_badge: "Full package",
+    plan2_name: "Pro",
+    plan2_currency: "€",
+    plan2_period: "per year",
+    plan2_f1: "Unlimited batches & records",
+    plan2_f2: "Cloud sync (EU servers)",
+    plan2_f3: "Automated wine book (PDF)",
+    plan2_f4: "EU e-Label QR codes",
+    plan2_f5: "Windows, Android, iOS",
+    plan2_f6: "Priority email support",
+    plan2_btn: "Try Pro",
+    plan3_badge: "Coming soon",
+    plan3_name: "Pro + AI",
+    plan3_currency: "€",
+    plan3_period: "pricing to be announced",
+    plan3_f1: "Everything in Pro",
+    plan3_f2: "AI Assistant Vinnie",
+    plan3_f3: "Predictive harvest analytics",
+    plan3_f4: "Query your data in plain language",
+    plan3_f5: "Treatment & timing recommendations",
+    plan3_f6: "Early access to new AI features",
+    plan3_btn: "Notify me",
+    trust_label: "Technology",
+    trust_title: "Built on solid foundations.",
+    trust1_name: "EU Security",
+    trust1_desc: "Encrypted data on servers in Frankfurt. GDPR compliant.",
+    trust2_name: "Multi-platform",
+    trust2_desc: "Windows, Android, iOS. One app, all your devices.",
+    trust3_name: "Offline-First",
+    trust3_desc: "Works without internet. Syncs automatically on reconnect.",
+    trust4_name: "Support CZ / EN / DE",
+    trust4_desc: "From setting up your first tank to your first regulatory export.",
+    cta_title: "Ready to start?<br>Your winery <em>is waiting.</em>",
+    cta_sub: "Try VineOS for free or book a personal demo — we'll walk you through everything live.",
+    cta_btn1: "Start for free",
+    cta_btn2: "Book a demo",
+    footer_privacy: "Privacy",
+    footer_terms: "Terms",
+    footer_contact: "Contact",
+    footer_copy: "© 2025 VineOS. All rights reserved.",
+    doc_title: "VineOS – The Operating System for the Modern Winery",
+    doc_description: "From the first vine to the last bottle. Manage your winery smarter, stay compliant, and let AI help — anywhere, offline.",
+  },
+
+  de: {
+    nav_features: "Funktionen",
+    nav_pricing: "Preise",
+    nav_demo: "Demo",
+    nav_login: "Anmelden",
+    nav_cta: "Kostenlos starten",
+    hero_eyebrow: "Das Betriebssystem für moderne Weingüter",
+    hero_h1: "Vom Weinberg<br>bis zur letzten<br><em>Flasche.</em>",
+    hero_sub: "Verwalten Sie Ihr Weingut intelligenter, rechtssicher und mit KI-Unterstützung – überall, sogar offline.",
+    hero_cta1: "Kostenlos starten",
+    hero_cta2: "Demo vereinbaren",
+    hero_cta3: "App öffnen",
+    hero_note: "Keine Kreditkarte · Keine Verpflichtung · In 5 Minuten einsatzbereit",
+    screenshot_sync: "Synchronisiert",
+    screenshot_placeholder: "Hier kommt der App-Screenshot",
+    prob_label: "Warum VineOS?",
+    prob_title: "Weinbau ist Kunst.<br>Verwaltung <em>sollte es nicht sein.</em>",
+    prob_bad_title: "Ohne VineOS",
+    prob_bad_1: "Papierne Weinbücher und unübersichtliche Tabellen",
+    prob_bad_2: "Jährlicher Stress mit Behördenmeldungen",
+    prob_bad_3: "EU-Digitaletikett? Noch eine Aufgabe mehr",
+    prob_bad_4: "Keine Gewissheit über die Gesetzeskonformität",
+    prob_good_title: "Mit VineOS",
+    prob_good_1: "Gesamte Verwaltung in einem reibungslosen Ablauf",
+    prob_good_2: "Rechtskonforme Berichte in Sekunden erstellt",
+    prob_good_3: "EU-e-Label-QR-Codes direkt aus Ihren Daten",
+    prob_good_4: "VineOS überwacht Rechtsänderungen und benachrichtigt Sie",
+    feat_label: "Module",
+    feat_title: "Alles, was Ihr Weingut braucht.",
+    feat_sub: "An einem Ort. Auf jedem Gerät.",
+    feat1_name: "Weinberg & Aufzeichnung",
+    feat1_desc: "Flurstücke, Kataster, BBCH-Skala, Pflanzenschutz, Ernteeingang und Mostgewicht — direkt vor Ort.",
+    feat2_name: "Digitaler Keller",
+    feat2_desc: "Interaktive Behälterkarte, lückenlose Chargenhistorie, SO₂, Säuren, pH mit automatischen Grafiken.",
+    feat3_name: "Offline-First",
+    feat3_desc: "Funktioniert ohne Signal. Im Keller, im Weinberg, überall. Synchronisierung erfolgt automatisch.",
+    feat4_name: "Weinbuch & Gesetzgebung",
+    feat4_desc: "Rechtskonforme PDF-Berichte auf Knopfdruck. VineOS überwacht Rechtsänderungen und informiert Sie.",
+    feat4_badge: "🇨🇿 Jetzt für Tschechien · weitere Länder folgen",
+    feat5_name: "EU-Digitaletikett (e-Label)",
+    feat5_desc: "QR-Codes mit Nährwertangaben gemäß EU 2023/1615 direkt aus bereits in VineOS erfassten Daten.",
+    feat6_name: "KI-Assistent Vinnie",
+    feat6_desc: "„Wie viel freier Chardonnay ist in den Tanks?" Vinnie analysiert Ihre Daten und hilft klüger entscheiden.",
+    feat6_badge: "Demnächst",
+    price_label: "Preise",
+    price_title: "Transparente Preise. Keine <em>Überraschungen.</em>",
+    price_sub: "Wählen Sie den Plan, der zu Ihrem Weingut passt.",
+    plan1_name: "Free",
+    plan1_currency: "€",
+    plan1_period: "kostenlos, für immer",
+    plan1_f1: "Verwaltung von bis zu 3 Chargen",
+    plan1_f2: "Grundlegende Weinberg- & Kelleraufzeichnungen",
+    plan1_f3: "Offline-Erfassung",
+    plan1_f4: "Cloud-Synchronisierung",
+    plan1_f5: "PDF-Weinbuch",
+    plan1_f6: "EU-e-Label-QR-Codes",
+    plan1_btn: "Kostenlos starten",
+    plan2_badge: "Volle Ausstattung",
+    plan2_name: "Pro",
+    plan2_currency: "€",
+    plan2_period: "pro Jahr",
+    plan2_f1: "Unbegrenzte Chargen & Aufzeichnungen",
+    plan2_f2: "Cloud-Sync (EU-Server)",
+    plan2_f3: "Automatisiertes Weinbuch (PDF)",
+    plan2_f4: "EU-e-Label-QR-Codes",
+    plan2_f5: "Windows, Android, iOS",
+    plan2_f6: "Priorisierter E-Mail-Support",
+    plan2_btn: "Pro testen",
+    plan3_badge: "In Vorbereitung",
+    plan3_name: "Pro + KI",
+    plan3_currency: "€",
+    plan3_period: "Preis wird bekanntgegeben",
+    plan3_f1: "Alles aus dem Pro-Plan",
+    plan3_f2: "KI-Assistent Vinnie",
+    plan3_f3: "Prädiktive Ernteanalysen",
+    plan3_f4: "Datenabfragen in natürlicher Sprache",
+    plan3_f5: "Behandlungs- & Terminempfehlungen",
+    plan3_f6: "Früher Zugang zu neuen KI-Funktionen",
+    plan3_btn: "Verfügbarkeit melden",
+    trust_label: "Technologie",
+    trust_title: "Auf soliden Grundlagen gebaut.",
+    trust1_name: "EU-Sicherheit",
+    trust1_desc: "Verschlüsselte Daten auf Servern in Frankfurt. DSGVO-konform.",
+    trust2_name: "Multiplattform",
+    trust2_desc: "Windows, Android, iOS. Eine App, alle Ihre Geräte.",
+    trust3_name: "Offline-First",
+    trust3_desc: "Funktioniert ohne Internet. Synchronisierung automatisch bei Verbindung.",
+    trust4_name: "Support CZ / EN / DE",
+    trust4_desc: "Von der Einrichtung des ersten Tanks bis zum ersten Behördenexport.",
+    cta_title: "Bereit anzufangen?<br>Ihr Weingut <em>wartet auf Sie.</em>",
+    cta_sub: "Testen Sie VineOS kostenlos oder vereinbaren Sie eine persönliche Demo — wir zeigen Ihnen alles live.",
+    cta_btn1: "Kostenlos starten",
+    cta_btn2: "Demo vereinbaren",
+    footer_privacy: "Datenschutz",
+    footer_terms: "Nutzungsbedingungen",
+    footer_contact: "Kontakt",
+    footer_copy: "© 2025 VineOS. Alle Rechte vorbehalten.",
+    doc_title: "VineOS – Das Betriebssystem für moderne Weingüter",
+    doc_description: "Vom ersten Rebstock bis zur letzten Flasche. Verwalten Sie Ihr Weingut intelligenter, rechtssicher und mit KI – überall, offline.",
+  }
+};
+
+// ── LANGUAGE SWITCHER ───────────────────
+let currentLang = 'cs';
+
+function setLang(lang) {
+  if (!i18n[lang]) return;
+  currentLang = lang;
+  const t = i18n[lang];
+
+  // update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // update active lang buttons (both desktop and mobile)
+  document.querySelectorAll('.lang').forEach(el => {
+    el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+  });
+
+  // update html lang attr, title, meta description
+  document.documentElement.lang = lang;
+  if (t.doc_title) document.title = t.doc_title;
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc && t.doc_description) desc.setAttribute('content', t.doc_description);
+
+  // update price display: show CZK for cs, EUR for en/de
+  const isCzech = lang === 'cs';
+  const p1amount = document.querySelector('.price-card:not(.featured) .price-amount');
+  if (p1amount) p1amount.innerHTML = `0 <span>${t.plan1_currency}</span>`;
+  const p2amount = document.querySelector('.price-card.featured .price-amount');
+  if (p2amount) {
+    const val = isCzech ? '2 490' : '99';
+    p2amount.innerHTML = `${val} <span>${t.plan2_currency}</span>`;
+  }
+}
+
+document.querySelectorAll('.lang[data-lang]').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+});
+
+// ── HAMBURGER ───────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+
+hamburger.addEventListener('click', () => {
+  const open = mobileMenu.classList.toggle('open');
+  hamburgerIcon.className = open ? 'ti ti-x' : 'ti ti-menu-2';
+});
+
+// close mobile menu on link click
+mobileMenu.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburgerIcon.className = 'ti ti-menu-2';
+  });
+});
+</script>
 </body>
 </html>
