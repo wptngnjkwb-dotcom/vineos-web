@@ -602,11 +602,8 @@ button { font-family: var(--font-sans); cursor: pointer; }
           <span data-i18n="screenshot_sync">Synchronizováno</span>
         </div>
       </div>
-      <div class="screenshot-body">
-        <i class="ti ti-photo"></i>
-        <!-- SWAP THIS DIV FOR: <img src="screenshot.png" alt="VineOS aplikace"> -->
-        <p data-i18n="screenshot_placeholder">Zde bude screenshot aplikace</p>
-        <small>1280 × 720 px · PNG nebo WebP</small>
+      <div class="screenshot-body" style="padding:0;overflow:hidden;">
+        <img src="screenshot.png" alt="VineOS aplikace — přehled vinařství" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
       </div>
     </div>
   </div>
