@@ -1147,7 +1147,19 @@ const i18n = {
 };
 
 // ── LANGUAGE SWITCHER ───────────────────
-let currentLang = 'cs';
+// Default: localStorage → URL ?lang= → navigator → 'cs'
+let currentLang = (function() {
+  try {
+    const fromUrl = new URLSearchParams(location.search).get('lang');
+    if (fromUrl && ['cs','en','de'].includes(fromUrl)) return fromUrl;
+    const saved = localStorage.getItem('vineos_lang');
+    if (saved && ['cs','en','de'].includes(saved)) return saved;
+    const sys = (navigator.language || '').toLowerCase();
+    if (sys.startsWith('en')) return 'en';
+    if (sys.startsWith('de')) return 'de';
+  } catch {}
+  return 'cs';
+})();
 
 function setLang(lang) {
   if (!i18n[lang]) return;
@@ -1183,8 +1195,28 @@ function setLang(lang) {
 }
 
 document.querySelectorAll('.lang[data-lang]').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+  btn.addEventListener('click', () => {
+    const code = btn.getAttribute('data-lang');
+    try { localStorage.setItem('vineos_lang', code); } catch {}
+    setLang(code);
+    updateAppLinks(code);
+  });
 });
+
+// Připoj ?lang= ke všem odkazům na app.vineos.cz, aby login dědil jazyk
+function updateAppLinks(lang) {
+  document.querySelectorAll('a[href*="app.vineos.cz"]').forEach(a => {
+    try {
+      const u = new URL(a.href);
+      u.searchParams.set('lang', lang);
+      a.href = u.toString();
+    } catch {}
+  });
+}
+
+// Aplikuj výchozí jazyk (z localStorage / URL / navigator)
+setLang(currentLang);
+updateAppLinks(currentLang);
 
 // ── HAMBURGER ───────────────────────────
 const hamburger = document.getElementById('hamburger');
