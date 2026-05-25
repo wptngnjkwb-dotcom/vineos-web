@@ -869,7 +869,7 @@ const i18n = {
     feat5_name: "EU e-Label",
     feat5_desc: "QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.",
     feat6_name: "AI Asistent Vinnie",
-    feat6_desc: "„Kolik mám volného Chardonnay?" Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.",
+    feat6_desc: "&#8222;Kolik mám volného Chardonnay?&#8220; Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.",
     feat6_badge: "Dostupné s vlastním API klíčem",
     price_label: "Ceník",
     price_title: "Transparentní ceny. Žádná <em>překvapení.</em>",
@@ -927,6 +927,10 @@ const i18n = {
     footer_copy: "© 2025 VineOS. Všechna práva vyhrazena.",
     doc_title: "VineOS – Operační systém pro moderní vinařství",
     doc_description: "Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.",
+    cookie_text: "🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.",
+    cookie_more: "Více info",
+    cookie_ok: "Rozumím",
+    cookie_detail: "Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU (Frankfurt) v souladu s GDPR.",
   },
 
   en: {
@@ -1029,6 +1033,10 @@ const i18n = {
     footer_copy: "© 2025 VineOS. All rights reserved.",
     doc_title: "VineOS – The Operating System for the Modern Winery",
     doc_description: "From the first vine to the last bottle. Manage your winery smarter, stay compliant, and let AI help — anywhere, offline.",
+    cookie_text: "🍪 This website uses only essential cookies required for it to function. We use no advertising or tracking cookies.",
+    cookie_more: "More info",
+    cookie_ok: "Got it",
+    cookie_detail: "We use only technical cookies required for login and app functionality (Supabase session). We do not use Google Analytics, Facebook Pixel, or any other tracking tools. Data is stored on EU servers (Frankfurt) in compliance with GDPR.",
   },
 
   de: {
@@ -1073,7 +1081,7 @@ const i18n = {
     feat5_name: "EU-Digitaletikett (e-Label)",
     feat5_desc: "QR-Codes mit Nährwertangaben gemäß EU 2023/1615 direkt aus bereits in VineOS erfassten Daten.",
     feat6_name: "KI-Assistent Vinnie",
-    feat6_desc: "„Wie viel freier Chardonnay ist verfügbar?" Vinnie beantwortet Fragen zu Ihren Daten. Mit eigenem API-Schlüssel für Gemini (kostenlos), Claude oder ChatGPT — VineOS berechnet nichts.",
+    feat6_desc: "&#8222;Wie viel freier Chardonnay ist verfügbar?&#8220; Vinnie beantwortet Fragen zu Ihren Daten. Mit eigenem API-Schlüssel für Gemini (kostenlos), Claude oder ChatGPT — VineOS berechnet nichts.",
     feat6_badge: "Verfügbar mit eigenem API-Schlüssel",
     price_label: "Preise",
     price_title: "Transparente Preise. Keine <em>Überraschungen.</em>",
@@ -1131,6 +1139,10 @@ const i18n = {
     footer_copy: "© 2025 VineOS. Alle Rechte vorbehalten.",
     doc_title: "VineOS – Das Betriebssystem für moderne Weingüter",
     doc_description: "Vom ersten Rebstock bis zur letzten Flasche. Verwalten Sie Ihr Weingut intelligenter, rechtssicher und mit KI – überall, offline.",
+    cookie_text: "🍪 Diese Website verwendet nur technisch notwendige Cookies. Wir verwenden keine Werbe- oder Tracking-Cookies.",
+    cookie_more: "Mehr Info",
+    cookie_ok: "Verstanden",
+    cookie_detail: "Wir verwenden ausschließlich technische Cookies für Login und App-Betrieb (Supabase Session). Wir nutzen kein Google Analytics, kein Facebook Pixel und keine anderen Tracking-Tools. Daten werden auf EU-Servern (Frankfurt) gemäß DSGVO gespeichert.",
   }
 };
 
@@ -1191,6 +1203,45 @@ mobileMenu.querySelectorAll('a, button').forEach(el => {
     hamburgerIcon.className = 'ti ti-menu-2';
   });
 });
+
+// ── COOKIE CONSENT ──────────────────────
+(function() {
+  if (localStorage.getItem('vineos_cookies_ok')) return;
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.innerHTML = `
+    <div style="max-width:720px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="flex:1;min-width:200px;font-size:13px;line-height:1.5;color:#eee;">
+        <span data-i18n="cookie_text">🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.</span>
+        <a href="#" id="cookie-more-link" style="color:#95d5b2;text-decoration:underline;margin-left:4px;" data-i18n="cookie_more">Více info</a>
+      </span>
+      <button id="cookie-ok" style="background:#2d6a4f;color:#fff;border:none;border-radius:6px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;" data-i18n="cookie_ok">
+        Rozumím
+      </button>
+    </div>
+    <div id="cookie-detail" style="display:none;margin-top:10px;font-size:12px;color:#bbb;line-height:1.6;max-width:720px;" data-i18n="cookie_detail">
+      Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU (Frankfurt) v souladu s GDPR.
+    </div>
+  `;
+  Object.assign(banner.style, {
+    position: 'fixed', bottom: '0', left: '0', right: '0',
+    background: '#0d1f2d', borderTop: '1px solid #1e3448',
+    padding: '16px 24px', zIndex: '9999',
+    boxShadow: '0 -4px 20px rgba(0,0,0,.3)',
+  });
+  document.body.appendChild(banner);
+  document.getElementById('cookie-more-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    const d = document.getElementById('cookie-detail');
+    d.style.display = d.style.display === 'none' ? 'block' : 'none';
+  });
+  document.getElementById('cookie-ok').addEventListener('click', () => {
+    localStorage.setItem('vineos_cookies_ok', '1');
+    banner.remove();
+  });
+  // apply current lang immediately
+  setLang(currentLang);
+})();
 </script>
 </body>
 </html>
