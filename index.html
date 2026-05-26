@@ -247,6 +247,39 @@ button { font-family: var(--font-sans); cursor: pointer; }
 .screenshot-body small { font-size: 11px; color: rgba(255,255,255,0.16); }
 
 /* ─────────────────────────────────────────
+   STORY (Founder)
+───────────────────────────────────────── */
+.story {
+  background: var(--cream2); padding: 88px 40px;
+  border-top: 1px solid rgba(45,106,79,0.08);
+  border-bottom: 1px solid rgba(45,106,79,0.08);
+}
+.story-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+.story .section-label { color: var(--green); margin-bottom: 14px; }
+.story-h2 {
+  font-family: var(--font-serif); font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 500; line-height: 1.1; color: var(--navy);
+  margin-bottom: 28px; letter-spacing: -0.5px;
+}
+.story-h2 em { font-style: italic; color: var(--green); font-weight: 400; }
+.story-body p {
+  font-family: var(--font-serif); font-size: 17px; line-height: 1.65;
+  color: var(--text); font-weight: 300; margin-bottom: 18px;
+  font-style: italic;
+}
+.story-sig {
+  margin-top: 24px; font-size: 14px; color: var(--muted);
+  font-weight: 500; letter-spacing: 0.3px;
+}
+@media (max-width: 768px) {
+  .story { padding: 64px 24px; }
+  .story-body p { font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .story { padding: 52px 16px; }
+}
+
+/* ─────────────────────────────────────────
    PROBLEM / SOLUTION
 ───────────────────────────────────────── */
 .problem {
@@ -610,6 +643,22 @@ button { font-family: var(--font-sans); cursor: pointer; }
 </section>
 
 <!-- ════════════════════════════════════════
+     STORY (Founder)
+════════════════════════════════════════ -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="section-label" data-i18n="story_label">Příběh</div>
+    <h2 class="story-h2" data-i18n="story_title">Taky jsem si vedl <em>excel.</em></h2>
+    <div class="story-body">
+      <p data-i18n="story_p1">Jsem vinař z Moravy. Pár let zpátky jsem měl evidenci rozsekanou do tří míst — sešit ve sklepě, tabulka v počítači a část v hlavě. Jednou jsem si uvědomil, že nevím, co jsem stříkal před čtrnácti dny. Musel jsem luštit zápisky ze dvou týdnů zpátky.</p>
+      <p data-i18n="story_p2">Tak jsem začal psát VineOS — nejdřív pro sebe. Aby mi nepřetekl stůl papíry. Aby mi nechyběl přehled, když stojím uprostřed vinohradu. Aby mě nezabilo papírování.</p>
+      <p data-i18n="story_p3">Dnes ho používám každý den. A pomalu ho otevírám dalším vinařům, kteří znají ten stejný pocit.</p>
+    </div>
+    <div class="story-sig" data-i18n="story_signature">— Jan, vinař a tvůrce VineOS</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
      PROBLEM / SOLUTION
 ════════════════════════════════════════ -->
 <section class="problem" id="why">
@@ -833,42 +882,48 @@ const i18n = {
     nav_demo: "Demo",
     nav_login: "Přihlásit se",
     nav_cta: "Vyzkoušet zdarma",
-    hero_eyebrow: "Operační systém pro moderní vinařství",
-    hero_h1: "Od vinice<br>po poslední<br><em>láhev.</em>",
-    hero_sub: "Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.",
+    hero_eyebrow: "Od vinaře pro vinaře",
+    hero_h1: "Konec chaosu.<br>Klid v <em>hlavě.</em>",
+    hero_sub: "Co jsem stříkal před 14 dny? Kolik mám vína ve sklepě? Kdy mám podat hlášení? VineOS ví. Vy se můžete věnovat vinici.",
     hero_cta1: "Vyzkoušet zdarma",
     hero_cta2: "Domluvit demo",
     hero_cta3: "Otevřít aplikaci",
     hero_note: "Bez kreditní karty · Bez závazků · Spuštění za 5 minut",
     screenshot_sync: "Synchronizováno",
     screenshot_placeholder: "Zde bude screenshot aplikace",
+    story_label: "Příběh",
+    story_title: "Taky jsem si vedl <em>excel.</em>",
+    story_p1: "Jsem vinař z Moravy. Pár let zpátky jsem měl evidenci rozsekanou do tří míst — sešit ve sklepě, tabulka v počítači a část v hlavě. Jednou jsem si uvědomil, že nevím, co jsem stříkal před čtrnácti dny. Musel jsem luštit zápisky ze dvou týdnů zpátky.",
+    story_p2: "Tak jsem začal psát VineOS — nejdřív pro sebe. Aby mi nepřetekl stůl papíry. Aby mi nechyběl přehled, když stojím uprostřed vinohradu. Aby mě nezabilo papírování.",
+    story_p3: "Dnes ho používám každý den. A pomalu ho otevírám dalším vinařům, kteří znají ten stejný pocit.",
+    story_signature: "— Jan, vinař a tvůrce VineOS",
     prob_label: "Proč VineOS?",
-    prob_title: "Vinařství je umění.<br>Administrativa by jím <em>být neměla.</em>",
+    prob_title: "Znáte ten <em>pocit?</em>",
     prob_bad_title: "Bez VineOS",
-    prob_bad_1: "Papírové vinné knihy a nepřehledné tabulky",
-    prob_bad_2: "Stres z každoročních hlášení na úřady",
-    prob_bad_3: "EU digitální etikety? Ještě jedna věc navíc",
-    prob_bad_4: "Žádná jistota o legislativní shodě",
+    prob_bad_1: "Sešit, do kterého stejně zapomenete napsat",
+    prob_bad_2: "&#8222;Kdy to mám podat? A co tam vlastně patří?&#8220;",
+    prob_bad_3: "Další věc, na kterou není čas",
+    prob_bad_4: "Strach, že jste něco přehlédli",
     prob_good_title: "S VineOS",
-    prob_good_1: "Veškerá administrativa v jednom plynulém toku",
-    prob_good_2: "Zákonné sestavy vygenerujete za vteřiny",
-    prob_good_3: "EU e-Label QR kódy přímo z vašich dat",
-    prob_good_4: "VineOS sleduje legislativu a upozorní vás",
+    prob_good_1: "Všechno na jednom místě, vždy po ruce",
+    prob_good_2: "Hlášení na úřad? Pár kliknutí, hotovo",
+    prob_good_3: "EU etikety bez zbytečné práce navíc",
+    prob_good_4: "Nikdy nezaspíte žádnou změnu",
     feat_label: "Moduly",
     feat_title: "Vše, co vinařství potřebuje.",
     feat_sub: "Na jednom místě. Na každém zařízení.",
-    feat1_name: "Vinohrady & Evidence",
+    feat1_name: "Vždy víte, co se děje na vinici",
     feat1_desc: "Parcely, LPIS, BBCH stupnice, postřiky, příjem sklizně a cukernatost — přímo v terénu.",
-    feat2_name: "Digitální sklep",
+    feat2_name: "Celý sklep přehledně — i z telefonu",
     feat2_desc: "Interaktivní mapa nádob, kompletní historie šarží, SO₂, kyseliny, pH s automatickými grafy.",
-    feat3_name: "Offline-First",
+    feat3_name: "Funguje i tam, kde není signál",
     feat3_desc: "Funguje bez signálu. Ve sklepě, v poli, kdekoli. Sync proběhne automaticky při připojení.",
-    feat4_name: "Vinná kniha & Legislativa",
+    feat4_name: "Hlášení na úřad za minutu, ne za den",
     feat4_desc: "Zákonné PDF sestavy jedním kliknutím. VineOS sleduje změny legislativy a upozorní vás.",
     feat4_badge: "🇨🇿 Nyní pro ČR · další země připravujeme",
-    feat5_name: "EU e-Label",
+    feat5_name: "Povinné etikety bez zbytečné práce",
     feat5_desc: "QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.",
-    feat6_name: "AI Asistent Vinnie",
+    feat6_name: "&#8222;Kolik mám volného Chardonnay?&#8220;",
     feat6_desc: "&#8222;Kolik mám volného Chardonnay?&#8220; Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.",
     feat6_badge: "Dostupné s vlastním API klíčem",
     price_label: "Ceník",
@@ -917,16 +972,16 @@ const i18n = {
     trust3_desc: "Funguje bez internetu. Sync automaticky při připojení.",
     trust4_name: "Podpora CZ",
     trust4_desc: "Od nastavení prvního tanku po první export hlášení.",
-    cta_title: "Připraveni začít?<br>Vaše vinařství <em>na vás čeká.</em>",
-    cta_sub: "Vyzkoušejte VineOS zdarma nebo si domluvte osobní demo — rádi vám ukážeme vše naživo.",
+    cta_title: "Zkuste to. Zadarmo. <em>Bez rizika.</em>",
+    cta_sub: "Stačí pět minut a uvidíte, jestli to pro vás dává smysl. Pokud ne, nic jste neztratili.",
     cta_btn1: "Vyzkoušet zdarma",
     cta_btn2: "Domluvit demo",
     footer_privacy: "Ochrana dat",
     footer_terms: "Podmínky",
     footer_contact: "Kontakt",
     footer_copy: "© 2025 VineOS. Všechna práva vyhrazena.",
-    doc_title: "VineOS – Operační systém pro moderní vinařství",
-    doc_description: "Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.",
+    doc_title: "VineOS – Od vinaře pro vinaře",
+    doc_description: "Konec chaosu, klid v hlavě. Sklep, vinice, hlášení na úřad i EU etikety na jednom místě. Od vinaře pro vinaře, kdekoli a offline.",
     cookie_text: "🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.",
     cookie_more: "Více info",
     cookie_ok: "Rozumím",
@@ -939,42 +994,48 @@ const i18n = {
     nav_demo: "Demo",
     nav_login: "Sign in",
     nav_cta: "Start for free",
-    hero_eyebrow: "The operating system for the modern winery",
-    hero_h1: "From the vineyard<br>to the last<br><em>bottle.</em>",
-    hero_sub: "Manage your winery smarter, stay legally compliant, and let AI help — anywhere, even offline.",
+    hero_eyebrow: "Made by a winemaker, for winemakers",
+    hero_h1: "End the chaos.<br>Peace of <em>mind.</em>",
+    hero_sub: "What did I spray two weeks ago? How much wine is left in the cellar? When's the next compliance report due? VineOS knows. You take care of the vines.",
     hero_cta1: "Start for free",
     hero_cta2: "Book a demo",
     hero_cta3: "Open the app",
     hero_note: "No credit card · No commitment · Up and running in 5 minutes",
     screenshot_sync: "Synchronised",
     screenshot_placeholder: "App screenshot goes here",
+    story_label: "Story",
+    story_title: "I used to keep an <em>Excel sheet too.</em>",
+    story_p1: "I'm a winemaker from Moravia. A few years back my records were scattered across three places — a notebook in the cellar, a spreadsheet on my computer, and the rest in my head. One day I realised I had no idea what I'd sprayed two weeks earlier. I had to dig through notes from days back to find out.",
+    story_p2: "So I started building VineOS — first for myself. To stop my desk drowning in paper. To have everything in one place when I'm standing in the middle of the vineyard. So paperwork wouldn't eat me alive.",
+    story_p3: "Today I use it every day. And slowly I'm opening it up to other winemakers who know that same feeling.",
+    story_signature: "— Jan, winemaker and VineOS founder",
     prob_label: "Why VineOS?",
-    prob_title: "Winemaking is an art.<br>Administration <em>shouldn't be.</em>",
+    prob_title: "Sound <em>familiar?</em>",
     prob_bad_title: "Without VineOS",
-    prob_bad_1: "Paper wine books and messy spreadsheets",
-    prob_bad_2: "Annual stress of regulatory reporting",
-    prob_bad_3: "EU digital labels? One more thing to worry about",
-    prob_bad_4: "No guarantee you're actually compliant",
+    prob_bad_1: "A notebook you keep forgetting to fill in",
+    prob_bad_2: "&#8222;When's it due? And what goes in it?&#8220;",
+    prob_bad_3: "Yet another thing you don't have time for",
+    prob_bad_4: "Worry that you've missed something",
     prob_good_title: "With VineOS",
-    prob_good_1: "All admin in one seamless flow",
-    prob_good_2: "Compliant reports generated in seconds",
-    prob_good_3: "EU e-Label QR codes straight from your data",
-    prob_good_4: "VineOS monitors regulations and alerts you",
+    prob_good_1: "Everything in one place, always at hand",
+    prob_good_2: "Compliance reports? A few clicks, done",
+    prob_good_3: "EU labels without the extra busywork",
+    prob_good_4: "Never miss a regulation change",
     feat_label: "Modules",
     feat_title: "Everything your winery needs.",
     feat_sub: "In one place. On every device.",
-    feat1_name: "Vineyard Management",
+    feat1_name: "Always know what's happening in the vineyard",
     feat1_desc: "Plots, land registry, BBCH scale, sprays, harvest intake and must density — straight from the field.",
-    feat2_name: "Digital Cellar",
+    feat2_name: "Your whole cellar — even from your phone",
     feat2_desc: "Interactive vessel map, full batch history, SO₂, acids, pH — with automatic charts.",
-    feat3_name: "Offline-First",
+    feat3_name: "Works even where there's no signal",
     feat3_desc: "Works without signal. In the cellar, in the field, anywhere. Syncs automatically when you reconnect.",
-    feat4_name: "Wine Book & Compliance",
+    feat4_name: "Compliance reports in a minute, not a day",
     feat4_desc: "Legal PDF reports in one click. VineOS tracks regulatory changes and notifies you.",
     feat4_badge: "🇨🇿 Now for Czech Republic · more countries coming",
-    feat5_name: "EU e-Label",
+    feat5_name: "Mandatory labels, no extra busywork",
     feat5_desc: "QR codes with nutritional values per EU 2023/1615, generated from data already in VineOS.",
-    feat6_name: "AI Assistant Vinnie",
+    feat6_name: "&#8222;How much free Chardonnay do I have?&#8220;",
     feat6_desc: "\"How much free Chardonnay do I have?\" Vinnie answers questions about your data. Use your own API key for Gemini (free), Claude or ChatGPT — VineOS bills nothing.",
     feat6_badge: "Available with your own API key",
     price_label: "Pricing",
@@ -1023,16 +1084,16 @@ const i18n = {
     trust3_desc: "Works without internet. Syncs automatically on reconnect.",
     trust4_name: "Support CZ",
     trust4_desc: "From setting up your first tank to your first regulatory export.",
-    cta_title: "Ready to start?<br>Your winery <em>is waiting.</em>",
-    cta_sub: "Try VineOS for free or book a personal demo — we'll walk you through everything live.",
+    cta_title: "Try it. Free. <em>No risk.</em>",
+    cta_sub: "Five minutes and you'll see if it makes sense for you. If not, you've lost nothing.",
     cta_btn1: "Start for free",
     cta_btn2: "Book a demo",
     footer_privacy: "Privacy",
     footer_terms: "Terms",
     footer_contact: "Contact",
     footer_copy: "© 2025 VineOS. All rights reserved.",
-    doc_title: "VineOS – The Operating System for the Modern Winery",
-    doc_description: "From the first vine to the last bottle. Manage your winery smarter, stay compliant, and let AI help — anywhere, offline.",
+    doc_title: "VineOS – Made by a winemaker, for winemakers",
+    doc_description: "End the chaos, peace of mind. Cellar, vineyard, compliance reports and EU labels in one place. Built by a winemaker, anywhere and offline.",
     cookie_text: "🍪 This website uses only essential cookies required for it to function. We use no advertising or tracking cookies.",
     cookie_more: "More info",
     cookie_ok: "Got it",
@@ -1045,42 +1106,48 @@ const i18n = {
     nav_demo: "Demo",
     nav_login: "Anmelden",
     nav_cta: "Kostenlos starten",
-    hero_eyebrow: "Das Betriebssystem für moderne Weingüter",
-    hero_h1: "Vom Weinberg<br>bis zur letzten<br><em>Flasche.</em>",
-    hero_sub: "Verwalten Sie Ihr Weingut intelligenter, rechtssicher und mit KI-Unterstützung – überall, sogar offline.",
+    hero_eyebrow: "Vom Winzer für Winzer",
+    hero_h1: "Schluss mit dem Chaos.<br>Ruhe im <em>Kopf.</em>",
+    hero_sub: "Was habe ich vor 14 Tagen gespritzt? Wie viel Wein ist noch im Keller? Wann ist die Meldung fällig? VineOS weiß es. Sie kümmern sich um die Reben.",
     hero_cta1: "Kostenlos starten",
     hero_cta2: "Demo vereinbaren",
     hero_cta3: "App öffnen",
     hero_note: "Keine Kreditkarte · Keine Verpflichtung · In 5 Minuten einsatzbereit",
     screenshot_sync: "Synchronisiert",
     screenshot_placeholder: "Hier kommt der App-Screenshot",
+    story_label: "Geschichte",
+    story_title: "Ich hatte auch eine <em>Excel-Tabelle.</em>",
+    story_p1: "Ich bin Winzer aus Mähren. Vor ein paar Jahren waren meine Aufzeichnungen auf drei Orte verteilt — ein Heft im Keller, eine Tabelle am Computer und der Rest im Kopf. Eines Tages merkte ich, dass ich nicht mehr wusste, was ich vor zwei Wochen gespritzt hatte. Ich musste mich durch Notizen wühlen.",
+    story_p2: "Also begann ich VineOS zu schreiben — zuerst für mich selbst. Damit mein Schreibtisch nicht unter Papier erstickt. Damit ich den Überblick behalte, wenn ich mitten im Weinberg stehe. Damit mich die Bürokratie nicht auffrisst.",
+    story_p3: "Heute benutze ich es jeden Tag. Und nach und nach öffne ich es für andere Winzer, die das gleiche Gefühl kennen.",
+    story_signature: "— Jan, Winzer und Gründer von VineOS",
     prob_label: "Warum VineOS?",
-    prob_title: "Weinbau ist Kunst.<br>Verwaltung <em>sollte es nicht sein.</em>",
+    prob_title: "Kommt Ihnen das <em>bekannt vor?</em>",
     prob_bad_title: "Ohne VineOS",
-    prob_bad_1: "Papierne Weinbücher und unübersichtliche Tabellen",
-    prob_bad_2: "Jährlicher Stress mit Behördenmeldungen",
-    prob_bad_3: "EU-Digitaletikett? Noch eine Aufgabe mehr",
-    prob_bad_4: "Keine Gewissheit über die Gesetzeskonformität",
+    prob_bad_1: "Ein Heft, das Sie ohnehin vergessen zu führen",
+    prob_bad_2: "&#8222;Wann muss ich was einreichen? Und was gehört rein?&#8220;",
+    prob_bad_3: "Noch eine Aufgabe, für die keine Zeit bleibt",
+    prob_bad_4: "Die Sorge, etwas übersehen zu haben",
     prob_good_title: "Mit VineOS",
-    prob_good_1: "Gesamte Verwaltung in einem reibungslosen Ablauf",
-    prob_good_2: "Rechtskonforme Berichte in Sekunden erstellt",
-    prob_good_3: "EU-e-Label-QR-Codes direkt aus Ihren Daten",
-    prob_good_4: "VineOS überwacht Rechtsänderungen und benachrichtigt Sie",
+    prob_good_1: "Alles an einem Ort, immer zur Hand",
+    prob_good_2: "Meldung an die Behörde? Ein paar Klicks, fertig",
+    prob_good_3: "EU-Etiketten ohne unnötige Mehrarbeit",
+    prob_good_4: "Verpassen Sie nie eine Gesetzesänderung",
     feat_label: "Module",
     feat_title: "Alles, was Ihr Weingut braucht.",
     feat_sub: "An einem Ort. Auf jedem Gerät.",
-    feat1_name: "Weinberg & Aufzeichnung",
+    feat1_name: "Immer wissen, was im Weinberg läuft",
     feat1_desc: "Flurstücke, Kataster, BBCH-Skala, Pflanzenschutz, Ernteeingang und Mostgewicht — direkt vor Ort.",
-    feat2_name: "Digitaler Keller",
+    feat2_name: "Der ganze Keller — auch vom Handy",
     feat2_desc: "Interaktive Behälterkarte, lückenlose Chargenhistorie, SO₂, Säuren, pH mit automatischen Grafiken.",
-    feat3_name: "Offline-First",
+    feat3_name: "Funktioniert auch ohne Signal",
     feat3_desc: "Funktioniert ohne Signal. Im Keller, im Weinberg, überall. Synchronisierung erfolgt automatisch.",
-    feat4_name: "Weinbuch & Gesetzgebung",
+    feat4_name: "Meldung in einer Minute, nicht einen Tag",
     feat4_desc: "Rechtskonforme PDF-Berichte auf Knopfdruck. VineOS überwacht Rechtsänderungen und informiert Sie.",
     feat4_badge: "🇨🇿 Jetzt für Tschechien · weitere Länder folgen",
-    feat5_name: "EU-Digitaletikett (e-Label)",
+    feat5_name: "Pflicht-Etiketten ohne Mehrarbeit",
     feat5_desc: "QR-Codes mit Nährwertangaben gemäß EU 2023/1615 direkt aus bereits in VineOS erfassten Daten.",
-    feat6_name: "KI-Assistent Vinnie",
+    feat6_name: "&#8222;Wie viel freier Chardonnay ist verfügbar?&#8220;",
     feat6_desc: "&#8222;Wie viel freier Chardonnay ist verfügbar?&#8220; Vinnie beantwortet Fragen zu Ihren Daten. Mit eigenem API-Schlüssel für Gemini (kostenlos), Claude oder ChatGPT — VineOS berechnet nichts.",
     feat6_badge: "Verfügbar mit eigenem API-Schlüssel",
     price_label: "Preise",
@@ -1129,16 +1196,16 @@ const i18n = {
     trust3_desc: "Funktioniert ohne Internet. Synchronisierung automatisch bei Verbindung.",
     trust4_name: "Support CZ",
     trust4_desc: "Von der Einrichtung des ersten Tanks bis zum ersten Behördenexport.",
-    cta_title: "Bereit anzufangen?<br>Ihr Weingut <em>wartet auf Sie.</em>",
-    cta_sub: "Testen Sie VineOS kostenlos oder vereinbaren Sie eine persönliche Demo — wir zeigen Ihnen alles live.",
+    cta_title: "Probieren Sie's. Kostenlos. <em>Risikofrei.</em>",
+    cta_sub: "Fünf Minuten und Sie sehen, ob es für Sie Sinn ergibt. Wenn nicht, haben Sie nichts verloren.",
     cta_btn1: "Kostenlos starten",
     cta_btn2: "Demo vereinbaren",
     footer_privacy: "Datenschutz",
     footer_terms: "Nutzungsbedingungen",
     footer_contact: "Kontakt",
     footer_copy: "© 2025 VineOS. Alle Rechte vorbehalten.",
-    doc_title: "VineOS – Das Betriebssystem für moderne Weingüter",
-    doc_description: "Vom ersten Rebstock bis zur letzten Flasche. Verwalten Sie Ihr Weingut intelligenter, rechtssicher und mit KI – überall, offline.",
+    doc_title: "VineOS – Vom Winzer für Winzer",
+    doc_description: "Schluss mit dem Chaos, Ruhe im Kopf. Keller, Weinberg, Behördenmeldung und EU-Etiketten an einem Ort. Vom Winzer für Winzer, überall und offline.",
     cookie_text: "🍪 Diese Website verwendet nur technisch notwendige Cookies. Wir verwenden keine Werbe- oder Tracking-Cookies.",
     cookie_more: "Mehr Info",
     cookie_ok: "Verstanden",
