@@ -242,6 +242,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   border-top: 1.5px dashed rgba(255,255,255,0.1);
   margin: 12px; border-radius: 8px;
 }
+.screenshot-body--tall { height: 400px; }
 .screenshot-body i { font-size: 40px; color: rgba(255,255,255,0.12); }
 .screenshot-body p { font-size: 13px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.7; }
 .screenshot-body small { font-size: 11px; color: rgba(255,255,255,0.16); }
@@ -515,6 +516,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   .screenshot-bar { padding: 9px 12px; }
   .screenshot-url { display: none; }
   .screenshot-body { height: 180px; margin: 8px; }
+  .screenshot-body--tall { height: 240px; }
 
   .problem { padding: 52px 16px; }
   .prob-grid { grid-template-columns: 1fr; }
@@ -536,6 +538,93 @@ button { font-family: var(--font-sans); cursor: pointer; }
   .footer { padding: 24px 16px; }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: 18px; }
   .footer-links { gap: 14px; }
+}
+
+/* ─────────────────────────────────────────
+   SHOWCASE — spotlighty se screenshoty
+───────────────────────────────────────── */
+.showcase {
+  background: var(--navy2); padding: 88px 40px;
+  border-top: 0.5px solid rgba(255,255,255,0.06);
+}
+.showcase-inner { max-width: 1100px; margin: 0 auto; }
+.showcase .section-label { color: var(--green3); }
+.showcase .section-title { color: var(--cream); margin-bottom: 72px; }
+.showcase .section-title em { font-style: italic; color: var(--green2); }
+
+.spotlight {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: center; margin-bottom: 88px;
+}
+.spotlight:last-child { margin-bottom: 0; }
+.spotlight-flip .spotlight-img { order: -1; }
+
+.spotlight-tag {
+  font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--green2); font-weight: 500; margin-bottom: 14px;
+}
+.spotlight h3 {
+  font-family: var(--font-serif); font-size: clamp(24px, 3vw, 34px);
+  color: var(--cream); font-weight: 500; line-height: 1.1; margin-bottom: 18px;
+}
+.spotlight-desc {
+  font-size: 15px; color: rgba(248,244,238,0.52); line-height: 1.72;
+  font-weight: 300; margin-bottom: 22px;
+}
+.spotlight-feat {
+  font-size: 13px; color: rgba(248,244,238,0.65);
+  display: flex; align-items: center; gap: 8px; margin-bottom: 9px;
+}
+.spotlight-feat i { color: var(--green2); font-size: 14px; flex-shrink: 0; }
+.spotlight-img {
+  border-radius: 14px; overflow: hidden;
+  border: 0.5px solid rgba(255,255,255,0.11);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.spotlight-img img { width: 100%; height: auto; display: block; }
+
+/* ─────────────────────────────────────────
+   APP GRID — více modulů
+───────────────────────────────────────── */
+.appgrid { background: var(--cream); padding: 88px 40px; }
+.appgrid-inner { max-width: 1100px; margin: 0 auto; }
+.appgrid .section-label { color: var(--green); }
+.appgrid .section-title { color: var(--navy); margin-bottom: 40px; }
+.appgrid .section-title em { color: var(--green); }
+
+.appgrid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.appgrid-card {
+  background: #fff; border: 0.5px solid var(--cream2);
+  border-radius: 14px; overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+.appgrid-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); }
+.appgrid-ss {
+  width: 100%; height: 180px; overflow: hidden;
+  border-bottom: 0.5px solid var(--cream2);
+}
+.appgrid-ss img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block;
+}
+.appgrid-body { padding: 18px 20px 22px; }
+.appgrid-name { font-size: 14px; color: var(--navy); font-weight: 500; margin-bottom: 6px; }
+.appgrid-desc { font-size: 13px; color: var(--muted); line-height: 1.55; font-weight: 300; }
+
+/* ── responsive showcase & appgrid ── */
+@media (max-width: 900px) {
+  .showcase { padding: 64px 24px; }
+  .spotlight { grid-template-columns: 1fr; gap: 28px; margin-bottom: 56px; }
+  .spotlight-flip .spotlight-img { order: 0; }
+  .showcase .section-title { margin-bottom: 48px; }
+  .appgrid { padding: 64px 24px; }
+  .appgrid-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .showcase { padding: 52px 16px; }
+  .showcase .section-title { margin-bottom: 36px; }
+  .spotlight { gap: 20px; margin-bottom: 44px; }
+  .appgrid { padding: 52px 16px; }
+  .appgrid-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -635,8 +724,8 @@ button { font-family: var(--font-sans); cursor: pointer; }
           <span data-i18n="screenshot_sync">Synchronizováno</span>
         </div>
       </div>
-      <div class="screenshot-body" style="padding:0;overflow:hidden;">
-        <img src="screenshot.png" alt="VineOS aplikace — přehled vinařství" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+      <div class="screenshot-body screenshot-body--tall" style="padding:0;overflow:hidden;">
+        <img src="img/hero-prehled.png" alt="VineOS — Přehled vinařství" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
       </div>
     </div>
   </div>
@@ -736,6 +825,123 @@ button { font-family: var(--font-sans); cursor: pointer; }
         <div class="feat-name" data-i18n="feat6_name">AI Asistent Vinnie</div>
         <div class="feat-desc" data-i18n="feat6_desc">„Kolik mám volného Chardonnay?" Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.</div>
         <div class="badge-soon" data-i18n="feat6_badge">Dostupné s vlastním API klíčem</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SHOWCASE — screenshoty v praxi
+════════════════════════════════════════ -->
+<section class="showcase" id="showcase">
+  <div class="showcase-inner">
+    <div class="section-label" data-i18n="showcase_label">VineOS v praxi</div>
+    <div class="section-title" data-i18n="showcase_title">Uvidíte sami.<br><em>Slova nestačí.</em></div>
+
+    <!-- Spotlight 1: ÚKZÚZ -->
+    <div class="spotlight">
+      <div class="spotlight-text">
+        <div class="spotlight-tag" data-i18n="sp1_tag">Legislativa &amp; Hlášení</div>
+        <h3 data-i18n="sp1_title">Hlášení na ÚKZÚZ<br>za minutu.</h3>
+        <p class="spotlight-desc" data-i18n="sp1_desc">Prohlášení o zásobách, produkci, Vinařský fond. VineOS vyplní formuláře z dat, která už evidujete — stačí kliknout PDF nebo XML. Žádné přepisování, žádný stres z termínů.</p>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp1_f1">Export PDF, XLSX i XML na jeden klik</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp1_f2">Automaticky vyplněno z vašich dat</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp1_f3">Termíny podání vždy přehledně</span></div>
+      </div>
+      <div class="spotlight-img">
+        <img src="img/ukzuz.png" alt="ÚKZÚZ Hlášení — zákonné sestavy ve VineOS">
+      </div>
+    </div>
+
+    <!-- Spotlight 2: Rizika -->
+    <div class="spotlight spotlight-flip">
+      <div class="spotlight-text">
+        <div class="spotlight-tag" data-i18n="sp2_tag">Ochrana vinice</div>
+        <h3 data-i18n="sp2_title">Víte, co číhá<br>na vašich vinicích?</h3>
+        <p class="spotlight-desc" data-i18n="sp2_desc">Riziko peronosporary, oidia a botrytidy v reálném čase — pro každou parcelu zvlášť. 48hodinový výhled, tlak, rosa a doporučené okno pro postřik. VineOS ví dřív než choroba udeří.</p>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp2_f1">Model dle skutečného počasí ICON-EU</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp2_f2">Zohledňuje odrůdovou náchylnost</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp2_f3">Ochranný účinek postřiku v reálném čase</span></div>
+      </div>
+      <div class="spotlight-img">
+        <img src="img/rizika-table.png" alt="Rizika chorob ve VineOS — přehled parcel">
+      </div>
+    </div>
+
+    <!-- Spotlight 3: Sklad -->
+    <div class="spotlight">
+      <div class="spotlight-text">
+        <div class="spotlight-tag" data-i18n="sp3_tag">Sklep &amp; Prodej</div>
+        <h3 data-i18n="sp3_title">Od lahve ke kupci.<br>Bez excelek.</h3>
+        <p class="spotlight-desc" data-i18n="sp3_desc">Zásoby podle míst skladu, rezervace, prodeje — vše přehledně a živě. Víte přesně, kolik lahví máte volných, kolik čeká na zákazníka a kde každá lahev leží.</p>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp3_f1">Zásoby rozdělené po místech skladu</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp3_f2">Rezervace a prodeje v reálném čase</span></div>
+        <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp3_f3">VO i MO ceny pro každé víno</span></div>
+      </div>
+      <div class="spotlight-img">
+        <img src="img/sklad.png" alt="Přehled skladu lahví ve VineOS">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     APP GRID — více modulů
+════════════════════════════════════════ -->
+<section class="appgrid">
+  <div class="appgrid-inner">
+    <div class="section-label" data-i18n="appgrid_label">Více modulů</div>
+    <div class="section-title" data-i18n="appgrid_title">A to není <em>vše.</em></div>
+    <div class="appgrid-grid">
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/nadoby.png" alt="Nádoby ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag1_name">Sklep jedním kliknutím</div>
+          <div class="appgrid-desc" data-i18n="ag1_desc">Přetočit, dosíření, lahvovat — vše přímo z přehledu nádob.</div>
+        </div>
+      </div>
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/chemie.png" alt="Sklad chemie ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag2_name">Přípravky pod kontrolou</div>
+          <div class="appgrid-desc" data-i18n="ag2_desc">Evidence fungicidů a hnojiv, zásoby, karence a roční spotřeba na sezónu.</div>
+        </div>
+      </div>
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/evidence-vina.png" alt="Evidence vína ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag3_name">Celá šarže od sklizně</div>
+          <div class="appgrid-desc" data-i18n="ag3_desc">Analýzy, umístění v nádobách a kompletní historie vína na jednom místě.</div>
+        </div>
+      </div>
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/lahvovani.png" alt="Lahvování a prodej ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag4_name">Od tanku k zákazníkovi</div>
+          <div class="appgrid-desc" data-i18n="ag4_desc">Lahvování, VO/MO ceny, objednávky a sklad lahví v jednom toku.</div>
+        </div>
+      </div>
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/rizika-chart.png" alt="Rizika chorob — 48h průběh ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag5_name">48hodinový výhled rizik</div>
+          <div class="appgrid-desc" data-i18n="ag5_desc">Grafy peronosporary, teploty a srážek pro každou parcelu — 24h zpět i výhled dopředu.</div>
+        </div>
+      </div>
+
+      <div class="appgrid-card">
+        <div class="appgrid-ss"><img src="img/ai-fakturoid.png" alt="AI Asistent a Fakturoid ve VineOS"></div>
+        <div class="appgrid-body">
+          <div class="appgrid-name" data-i18n="ag6_name">AI a účetní propojení</div>
+          <div class="appgrid-desc" data-i18n="ag6_desc">AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury do Fakturoidu jedním kliknutím.</div>
+        </div>
       </div>
 
     </div>
@@ -986,6 +1192,40 @@ const i18n = {
     cookie_more: "Více info",
     cookie_ok: "Rozumím",
     cookie_detail: "Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU (Frankfurt) v souladu s GDPR.",
+    showcase_label: "VineOS v praxi",
+    showcase_title: "Uvidíte sami.<br><em>Slova nestačí.</em>",
+    sp1_tag: "Legislativa & Hlášení",
+    sp1_title: "Hlášení na ÚKZÚZ<br>za minutu.",
+    sp1_desc: "Prohlášení o zásobách, produkci, Vinařský fond. VineOS vyplní formuláře z dat, která už evidujete — stačí kliknout PDF nebo XML. Žádné přepisování, žádný stres z termínů.",
+    sp1_f1: "Export PDF, XLSX i XML na jeden klik",
+    sp1_f2: "Automaticky vyplněno z vašich dat",
+    sp1_f3: "Termíny podání vždy přehledně",
+    sp2_tag: "Ochrana vinice",
+    sp2_title: "Víte, co číhá<br>na vašich vinicích?",
+    sp2_desc: "Riziko peronosporary, oidia a botrytidy v reálném čase — pro každou parcelu zvlášť. 48hodinový výhled, tlak, rosa a doporučené okno pro postřik. VineOS ví dřív než choroba udeří.",
+    sp2_f1: "Model dle skutečného počasí ICON-EU",
+    sp2_f2: "Zohledňuje odrůdovou náchylnost",
+    sp2_f3: "Ochranný účinek postřiku v reálném čase",
+    sp3_tag: "Sklep & Prodej",
+    sp3_title: "Od lahve ke kupci.<br>Bez excelek.",
+    sp3_desc: "Zásoby podle míst skladu, rezervace, prodeje — vše přehledně a živě. Víte přesně, kolik lahví máte volných, kolik čeká na zákazníka a kde každá lahev leží.",
+    sp3_f1: "Zásoby rozdělené po místech skladu",
+    sp3_f2: "Rezervace a prodeje v reálném čase",
+    sp3_f3: "VO i MO ceny pro každé víno",
+    appgrid_label: "Více modulů",
+    appgrid_title: "A to není <em>vše.</em>",
+    ag1_name: "Sklep jedním kliknutím",
+    ag1_desc: "Přetočit, dosíření, lahvovat — vše přímo z přehledu nádob.",
+    ag2_name: "Přípravky pod kontrolou",
+    ag2_desc: "Evidence fungicidů a hnojiv, zásoby, karence a roční spotřeba na sezónu.",
+    ag3_name: "Celá šarže od sklizně",
+    ag3_desc: "Analýzy, umístění v nádobách a kompletní historie vína na jednom místě.",
+    ag4_name: "Od tanku k zákazníkovi",
+    ag4_desc: "Lahvování, VO/MO ceny, objednávky a sklad lahví v jednom toku.",
+    ag5_name: "48hodinový výhled rizik",
+    ag5_desc: "Grafy peronosporary, teploty a srážek pro každou parcelu — 24h zpět i výhled dopředu.",
+    ag6_name: "AI a účetní propojení",
+    ag6_desc: "AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury do Fakturoidu jedním kliknutím.",
   },
 
   en: {
@@ -1098,6 +1338,40 @@ const i18n = {
     cookie_more: "More info",
     cookie_ok: "Got it",
     cookie_detail: "We use only technical cookies required for login and app functionality (Supabase session). We do not use Google Analytics, Facebook Pixel, or any other tracking tools. Data is stored on EU servers (Frankfurt) in compliance with GDPR.",
+    showcase_label: "VineOS in action",
+    showcase_title: "See for yourself.<br><em>Words aren't enough.</em>",
+    sp1_tag: "Compliance & Reporting",
+    sp1_title: "Regulatory reports<br>in one minute.",
+    sp1_desc: "Stock declarations, production reports, Wine Fund returns. VineOS fills in the forms from data you already have — just click PDF or XML. No retyping, no deadline stress.",
+    sp1_f1: "One-click PDF, XLSX and XML export",
+    sp1_f2: "Forms auto-filled from your existing data",
+    sp1_f3: "Submission deadlines always visible",
+    sp2_tag: "Vineyard protection",
+    sp2_title: "Know what's lurking<br>in your vineyard.",
+    sp2_desc: "Downy mildew, powdery mildew and botrytis risk in real time — per plot. 48-hour forecast, pressure, dew point and recommended spray window. VineOS knows before disease strikes.",
+    sp2_f1: "ICON-EU weather model",
+    sp2_f2: "Accounts for variety susceptibility",
+    sp2_f3: "Spray protection level in real time",
+    sp3_tag: "Cellar & Sales",
+    sp3_title: "From bottle to buyer.<br>No spreadsheets.",
+    sp3_desc: "Stock by storage location, reservations, sales — clear and live. Know exactly how many bottles are free, how many are reserved, and where every bottle is.",
+    sp3_f1: "Stock split by storage location",
+    sp3_f2: "Reservations and sales in real time",
+    sp3_f3: "Wholesale & retail prices per wine",
+    appgrid_label: "More modules",
+    appgrid_title: "And that's not <em>all.</em>",
+    ag1_name: "Cellar in one click",
+    ag1_desc: "Transfer, SO₂, bottle — all from the vessel overview.",
+    ag2_name: "Spray inventory under control",
+    ag2_desc: "Fungicide and fertiliser records, stock, withholding periods and seasonal use.",
+    ag3_name: "Full batch from harvest",
+    ag3_desc: "Analysis, vessel location and complete wine history in one place.",
+    ag4_name: "Tank to customer",
+    ag4_desc: "Bottling, wholesale/retail prices, orders and bottle stock in one flow.",
+    ag5_name: "48-hour risk forecast",
+    ag5_desc: "Downy mildew, temperature and rainfall charts per plot — 24h back and 24h ahead.",
+    ag6_name: "AI and accounting integration",
+    ag6_desc: "AI assistant Vinnie answers questions about your data. Invoices to Fakturoid in one click.",
   },
 
   de: {
@@ -1210,6 +1484,40 @@ const i18n = {
     cookie_more: "Mehr Info",
     cookie_ok: "Verstanden",
     cookie_detail: "Wir verwenden ausschließlich technische Cookies für Login und App-Betrieb (Supabase Session). Wir nutzen kein Google Analytics, kein Facebook Pixel und keine anderen Tracking-Tools. Daten werden auf EU-Servern (Frankfurt) gemäß DSGVO gespeichert.",
+    showcase_label: "VineOS in der Praxis",
+    showcase_title: "Überzeugen Sie sich selbst.<br><em>Worte reichen nicht.</em>",
+    sp1_tag: "Gesetzgebung & Meldungen",
+    sp1_title: "Behördenmeldungen<br>in einer Minute.",
+    sp1_desc: "Bestandserklärungen, Produktionsmeldungen, Weinfonds-Abgaben. VineOS füllt die Formulare aus Ihren bereits erfassten Daten aus — einfach PDF oder XML klicken. Kein Abtippen, kein Fristenstress.",
+    sp1_f1: "Ein-Klick-Export als PDF, XLSX und XML",
+    sp1_f2: "Formulare automatisch aus Ihren Daten befüllt",
+    sp1_f3: "Einreichungsfristen immer übersichtlich",
+    sp2_tag: "Weinbergschutz",
+    sp2_title: "Wissen Sie, was in Ihrem<br>Weinberg lauert?",
+    sp2_desc: "Peronospora-, Oidium- und Botrytisrisiko in Echtzeit — für jedes Flurstück einzeln. 48-Stunden-Vorschau, Luftdruck, Taupunkt und empfohlenes Spritzfenster. VineOS weiß es, bevor die Krankheit zuschlägt.",
+    sp2_f1: "ICON-EU-Wettermodell",
+    sp2_f2: "Berücksichtigt Sortenanfälligkeit",
+    sp2_f3: "Schutzwirkung des Spritzens in Echtzeit",
+    sp3_tag: "Keller & Verkauf",
+    sp3_title: "Von der Flasche zum Käufer.<br>Ohne Tabellen.",
+    sp3_desc: "Bestände nach Lagerort, Reservierungen, Verkäufe — übersichtlich und live. Sie wissen genau, wie viele Flaschen frei sind, wie viele reserviert sind und wo jede Flasche liegt.",
+    sp3_f1: "Bestände nach Lagerort aufgeschlüsselt",
+    sp3_f2: "Reservierungen und Verkäufe in Echtzeit",
+    sp3_f3: "Groß- und Einzelhandelspreise pro Wein",
+    appgrid_label: "Weitere Module",
+    appgrid_title: "Und das ist noch nicht <em>alles.</em>",
+    ag1_name: "Keller auf einen Klick",
+    ag1_desc: "Umfüllen, SO₂, Abfüllen — alles direkt aus der Behälterübersicht.",
+    ag2_name: "Pflanzenschutz im Griff",
+    ag2_desc: "Evidenz von Fungiziden und Düngemitteln, Bestände, Wartezeiten und Saisonverbrauch.",
+    ag3_name: "Komplette Charge ab Ernte",
+    ag3_desc: "Analysen, Behälterstandort und vollständige Weinhistorie an einem Ort.",
+    ag4_name: "Vom Tank zum Kunden",
+    ag4_desc: "Abfüllung, Groß-/Einzelhandelspreise, Bestellungen und Flaschenbestand in einem Ablauf.",
+    ag5_name: "48-Stunden-Risikovorschau",
+    ag5_desc: "Peronospora-, Temperatur- und Niederschlagsdiagramme je Flurstück — 24h zurück und 24h voraus.",
+    ag6_name: "KI und Buchhaltungsintegration",
+    ag6_desc: "KI-Assistent Vinnie beantwortet Fragen zu Ihren Daten. Rechnungen an Fakturoid mit einem Klick.",
   }
 };
 
@@ -1296,10 +1604,15 @@ hamburger.addEventListener('click', () => {
 });
 
 // close mobile menu on link click
+// anchor links (#pricing atd.) — krátká prodleva, aby prohlížeč stihl navigaci dřív než menu zmizí
 mobileMenu.querySelectorAll('a, button').forEach(el => {
   el.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburgerIcon.className = 'ti ti-menu-2';
+    const href = el.getAttribute('href') || '';
+    const delay = href.startsWith('#') ? 80 : 0;
+    setTimeout(() => {
+      mobileMenu.classList.remove('open');
+      hamburgerIcon.className = 'ti ti-menu-2';
+    }, delay);
   });
 });
 
