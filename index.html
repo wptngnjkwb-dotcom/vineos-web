@@ -3,17 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VineOS – Operační systém pro moderní vinařství</title>
-<meta name="description" content="Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.">
+<title>VineOS – software pro vinaře: evidence vína a hlášení ÚKZÚZ</title>
+<meta name="description" content="Software pro vinaře od vinaře: evidence vína, nádob a skladu, lahvování, vinná kniha a hlášení ÚKZÚZ. Funguje offline, plán zdarma.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://vineos.cz/">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="VineOS">
 <meta property="og:url" content="https://vineos.cz/">
-<meta property="og:title" content="VineOS – Operační systém pro moderní vinařství">
-<meta property="og:description" content="Od první sazenice ve vinici po poslední láhev ve sklepě. Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.">
-<meta property="og:image" content="https://vineos.cz/img/hero-prehled.png">
+<meta property="og:title" content="VineOS – software pro vinaře: evidence vína a hlášení ÚKZÚZ">
+<meta property="og:description" content="Software pro vinaře od vinaře: evidence vína, nádob a skladu, lahvování, vinná kniha a hlášení ÚKZÚZ. Funguje offline, plán zdarma.">
+<meta property="og:image" content="https://vineos.cz/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="613">
+<meta property="og:image:alt" content="Přehled vinařství ve VineOS: nádoby, šarže a sklad na jedné obrazovce">
 <meta property="og:locale" content="cs_CZ">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VineOS – software pro vinaře: evidence vína a hlášení ÚKZÚZ">
+<meta name="twitter:description" content="Software pro vinaře od vinaře: evidence vína, nádob a skladu, lahvování, vinná kniha a hlášení ÚKZÚZ. Funguje offline, plán zdarma.">
+<meta name="twitter:image" content="https://vineos.cz/img/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://vineos.cz/#website",
+      "url": "https://vineos.cz/",
+      "name": "VineOS",
+      "inLanguage": "cs"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://vineos.cz/#software",
+      "name": "VineOS",
+      "url": "https://vineos.cz/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Windows, Android, iOS",
+      "inLanguage": ["cs", "en", "de"],
+      "description": "Software pro vinaře: evidence vinice, vína, nádob a skladu, lahvování, vinná kniha a zákonná hlášení (ÚKZÚZ, Vinařský fond). Funguje offline.",
+      "offers": [
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "CZK", "description": "Až 3 šarže, základní evidence vinice a sklepa" },
+        { "@type": "Offer", "name": "Pro", "price": "2490", "priceCurrency": "CZK", "description": "Roční předplatné (nebo 99 EUR ročně), neomezené šarže a záznamy" }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -1195,8 +1231,8 @@ const i18n = {
     footer_terms: "Podmínky",
     footer_contact: "Kontakt",
     footer_copy: "© 2025 VineOS. Všechna práva vyhrazena.",
-    doc_title: "VineOS – Od vinaře pro vinaře",
-    doc_description: "Konec chaosu, klid v hlavě. Sklep, vinice, hlášení na úřad i EU etikety na jednom místě. Od vinaře pro vinaře, kdekoli a offline.",
+    doc_title: "VineOS – software pro vinaře: evidence vína a hlášení ÚKZÚZ",
+    doc_description: "Software pro vinaře od vinaře: evidence vína, nádob a skladu, lahvování, vinná kniha a hlášení ÚKZÚZ. Funguje offline, plán zdarma.",
     cookie_text: "🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.",
     cookie_more: "Více info",
     cookie_ok: "Rozumím",
@@ -1531,16 +1567,15 @@ const i18n = {
 };
 
 // ── LANGUAGE SWITCHER ───────────────────
-// Default: localStorage → URL ?lang= → navigator → 'cs'
+// Default: URL ?lang= → localStorage → 'cs'
+// Bez detekce z navigator.language (SEO): vyhledávací roboty mají en-US a po vykreslení
+// by místo češtiny indexovaly angličtinu (jiný <title>, popis i obsah než v HTML).
 let currentLang = (function() {
   try {
     const fromUrl = new URLSearchParams(location.search).get('lang');
     if (fromUrl && ['cs','en','de'].includes(fromUrl)) return fromUrl;
     const saved = localStorage.getItem('vineos_lang');
     if (saved && ['cs','en','de'].includes(saved)) return saved;
-    const sys = (navigator.language || '').toLowerCase();
-    if (sys.startsWith('en')) return 'en';
-    if (sys.startsWith('de')) return 'de';
   } catch {}
   return 'cs';
 })();
