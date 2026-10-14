@@ -7,7 +7,9 @@
 <meta name="description" content="Software pro vinaře od vinaře: evidence vína, nádob a skladu, lahvování, vinná kniha a hlášení ÚKZÚZ. Funguje offline, plán zdarma.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://vineos.cz/">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VineOS">
 <meta property="og:url" content="https://vineos.cz/">
@@ -989,8 +991,9 @@ body { font-family: var(--font-sans); background: var(--cream); }
 .lang { border-radius: 2px; font-family: var(--font-mono); }
 
 /* logo */
-.logo-mark { width: 34px; height: 34px; display: inline-flex; flex-shrink: 0; }
-.logo-mark svg { width: 100%; height: 100%; display: block; }
+.logo-mark { height: 36px; display: inline-flex; align-items: center; flex-shrink: 0; }
+.logo-mark img { height: 36px; width: auto; display: block; }
+@media (max-width: 560px) { .logo-mark, .logo-mark img { height: 30px; } }
 .nav { background: rgba(10,27,40,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .nav-logo { font-size: 26px; letter-spacing: 0; }
 .footer-logo { font-size: 24px; }
@@ -1197,7 +1200,7 @@ body { font-family: var(--font-sans); background: var(--cream); }
 ════════════════════════════════════════ -->
 <nav class="nav">
   <a href="/" class="nav-logo">
-    <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 34 34"><rect x="0.5" y="0.5" width="33" height="33" rx="3" fill="#183548" stroke="#c8a24b"/><path d="M9 10 L17 25 L25 10" fill="none" stroke="#c8a24b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="8" r="2.2" fill="#5cc392"/></svg></span>
+    <span class="logo-mark" aria-hidden="true"><picture><source srcset="/img/brand/vineos-mark-light.webp" type="image/webp"><img src="/img/brand/vineos-mark-light.png" alt="" width="38" height="72"></picture></span>
     VineOS
   </a>
 
@@ -1973,7 +1976,7 @@ body { font-family: var(--font-sans); background: var(--cream); }
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">
-      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 34 34"><rect x="0.5" y="0.5" width="33" height="33" rx="3" fill="#183548" stroke="#c8a24b"/><path d="M9 10 L17 25 L25 10" fill="none" stroke="#c8a24b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="8" r="2.2" fill="#5cc392"/></svg></span>
+      <span class="logo-mark" aria-hidden="true"><picture><source srcset="/img/brand/vineos-mark-light.webp" type="image/webp"><img src="/img/brand/vineos-mark-light.png" alt="" width="38" height="72"></picture></span>
       VineOS
     </div>
     <div class="footer-links">
@@ -2913,7 +2916,7 @@ function updateAppLinks(lang) {
 
 // ── PORADNA: telefon ────────────────────
 // Doplňte číslo, např. '+420 123 456 789'. Dokud je prázdné, telefon ani tlačítko „Zavolat" se nezobrazí.
-const CONTACT_PHONE = '';
+const CONTACT_PHONE = '+420 728 445 786';
 if (CONTACT_PHONE) {
   const row = document.getElementById('contactPhone');
   const btn = document.getElementById('contactCallBtn');
