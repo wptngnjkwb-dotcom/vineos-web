@@ -43,8 +43,111 @@
       "inLanguage": ["cs", "en", "de"],
       "description": "Software pro vinaře: evidence vinice, vína, nádob a skladu, lahvování, vinná kniha a zákonná hlášení (ÚKZÚZ, Vinařský fond). Funguje offline.",
       "offers": [
-        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "CZK", "description": "Až 3 šarže, základní evidence vinice a sklepa" },
+        { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "CZK", "description": "Až 3 vína (šarže) a 2 parcely, základní evidence vinice a sklepa, cloudová synchronizace" },
         { "@type": "Offer", "name": "Pro", "price": "2490", "priceCurrency": "CZK", "description": "Roční předplatné (nebo 99 EUR ročně), neomezené šarže a záznamy" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://vineos.cz/#faq",
+      "inLanguage": "cs",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Co je VineOS a pro koho je?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "VineOS je aplikace pro vinaře. Drží evidenci vinice, sklepa, lahvování, skladu a prodeje na jednom místě a pomáhá připravit podklady pro hlášení. Hodí se pro rodinná vinařství i větší producenty."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kolik VineOS stojí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free je zdarma navždy, s limitem 3 vín a 2 parcel, včetně synchronizace mezi zařízeními. Pro stojí 2 490 Kč ročně (99 € ročně) a odemyká neomezené záznamy, exporty a QR kódy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Můžu si VineOS vyzkoušet zdarma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Založte si účet, v Nastavení zadejte kód VINE-TRIAL-14 a 14 dní máte plnou verzi Pro. Kartu nezadáváte a nic se samo neúčtuje."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Funguje VineOS na mobilu a bez internetu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Aplikace běží na počítači, tabletu i telefonu. Bez signálu zapisujete dál a po připojení se data synchronizují."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kde jsou moje data a můžu je dostat pryč?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Data jsou šifrovaně uložena na serverech v EU. Celé vinařství si kdykoli zálohujete do souboru JSON a obnovíte zpět, takže nejste na VineOS vázáni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Připraví VineOS hlášení pro ÚKZÚZ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Z vašich záznamů vyplní podklady pro hlášení (zásoby, produkce, Vinařský fond) a exportuje je do PDF, XLSX nebo XML. Správnost a včasné podání hlášení ale zůstává na vás, proto podklady vždy zkontrolujte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zvládne VineOS i šumivá vína?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Evidence výroby šumivých vín zahrnuje tradiční metodu, pét-nat i sekundární kvašení s hroznovým moštem: tiráž, degoržování, dosage i tlak v lahvích."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co je QR stránka vína a e-label?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Je to veřejná stránka vína, na kterou vede QR kód na etiketě. Ukáže údaje o víně, nutriční hodnoty, složení a alergeny podle nařízení (EU) 2021/2117 a (EU) 2023/1606, platných od 8. 12. 2023. Za správnost údajů na etiketě je vždy odpovědný výrobce."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak je to s fakturami a účetnictvím?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fakturu z objednávky vystavíte ve Fakturoidu nebo iDokladu. Sklad lahví můžete předat do Pohody jako XML soubor. Účetnictví samotné VineOS nevede."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Můžu přenést data z Excelu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vína nahrajete z Excelu (import xlsx). S většími tabulkami nebo se sešitem vám rádi pomůžeme v poradně."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co je AI asistent Vinnie a kolik stojí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vinnie odpovídá na otázky o vašich datech. Použijete vlastní klíč ke Gemini (zdarma), Claude nebo ChatGPT. VineOS za AI nic neúčtuje."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Můžu předplatné zrušit a kde sehnat pomoc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Předplatné zrušíte kdykoli a Pro vám zůstane do konce zaplaceného období. Pomoc dostanete přímo v poradně."
+          }
+        }
       ]
     }
   ]
@@ -52,7 +155,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.44.0/dist/tabler-icons.min.css">
 <style>
 /* ─────────────────────────────────────────
@@ -468,6 +571,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 .price-btn:hover { background: var(--cream); }
 .price-btn.primary { background: var(--green2); color: var(--navy); border-color: transparent; }
 .price-btn.primary:hover { background: #63c898; }
+a.price-btn { display: block; text-align: center; }
 
 /* ─────────────────────────────────────────
    TRUST
@@ -554,7 +658,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
   .hero h1 { font-size: 34px; }
   .hero-ctas { flex-direction: column; }
   .btn-hero-primary, .btn-hero-secondary, .btn-hero-app {
-    width: 100%; justify-content: center; padding: 14px 16px;
+    width: 100%; justify-content: center; text-align: center; padding: 14px 16px;
   }
   .hero-note { text-align: center; }
   .hero-screenshot { margin: 0 -16px; }
@@ -671,6 +775,419 @@ button { font-family: var(--font-sans); cursor: pointer; }
   .appgrid { padding: 52px 16px; }
   .appgrid-grid { grid-template-columns: 1fr; }
 }
+
+/* ═════════════════════════════════════════
+   ETAPA A — nové sekce
+═════════════════════════════════════════ */
+section[id] { scroll-margin-top: 64px; }
+.sec-sub { font-size: 15px; font-weight: 300; line-height: 1.7; max-width: 640px; color: var(--muted); }
+.btn-solid {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--green2); color: var(--navy); font-size: 15px; font-weight: 500;
+  padding: 13px 26px; border-radius: 9px; border: none; transition: background .2s; white-space: nowrap;
+}
+.btn-solid:hover { background: #63c898; }
+.btn-solid[hidden], .contact-row[hidden] { display: none; }
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: var(--cream); font-size: 15px; padding: 13px 22px; border-radius: 9px;
+  border: 0.5px solid rgba(248,244,238,0.28); transition: background .2s, border-color .2s; white-space: nowrap;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.06); border-color: rgba(248,244,238,0.5); }
+.start a:focus-visible, .btn-solid:focus-visible, .btn-ghost:focus-visible, .contact-row:focus-visible { outline: 2px solid var(--green2); outline-offset: 3px; }
+
+/* START */
+.start { background: var(--cream); padding: 88px 40px; }
+.start-inner { max-width: 1100px; margin: 0 auto; }
+.start .section-label { color: var(--green); }
+.start .section-title { color: var(--navy); }
+.start .section-title em { color: var(--green); }
+.steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+.step { background: #fff; border: 0.5px solid var(--cream2); border-radius: 12px; padding: 24px 22px; }
+.step-no { font-family: var(--font-serif); font-size: 34px; line-height: 1; color: var(--green); margin-bottom: 16px; }
+.step-name { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.62; font-weight: 300; }
+.step-desc strong {
+  color: var(--navy); font-weight: 500; font-size: 12px; background: var(--cream2);
+  padding: 1px 7px; border-radius: 4px; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.start-cta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+.start-note { font-size: 13px; color: var(--muted); }
+
+/* DIFF */
+.diff { background: var(--cream); padding: 88px 40px; border-top: 0.5px solid var(--cream2); }
+.diff-inner { max-width: 1100px; margin: 0 auto; }
+.diff .section-label { color: var(--green); }
+.diff .section-title { color: var(--navy); max-width: 640px; }
+.diff .section-title em { color: var(--green); }
+.diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.diff-card { background: #fff; border: 0.5px solid var(--cream2); border-radius: 12px; padding: 24px; }
+.diff-card .feat-icon { background: rgba(45,106,79,0.09); border-color: rgba(45,106,79,0.2); color: var(--green); }
+.diff-name { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
+.diff-desc { font-size: 13px; color: var(--muted); line-height: 1.64; font-weight: 300; }
+
+/* QR */
+.qr { background: var(--navy); padding: 88px 40px; border-top: 0.5px solid rgba(255,255,255,0.06); }
+.qr-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
+.qr .section-label { color: var(--green3); }
+.qr .section-title { color: var(--cream); }
+.qr .section-title em { color: var(--green2); font-style: italic; }
+.qr .sec-sub { color: rgba(248,244,238,0.58); margin-bottom: 24px; }
+.qr-list, .acc-list, .poradna-list { list-style: none; }
+.qr-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: rgba(248,244,238,0.78); margin-bottom: 9px; }
+.qr-list i, .acc-list i, .poradna-list i { color: var(--green2); font-size: 15px; margin-top: 3px; flex-shrink: 0; }
+.qr-flow { list-style: none; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 26px 0 6px; }
+.qr-chip {
+  display: inline-flex; align-items: center; gap: 7px; font-size: 12px; color: var(--cream);
+  background: rgba(255,255,255,0.05); border: 0.5px solid rgba(255,255,255,0.14); border-radius: 20px; padding: 6px 13px;
+}
+.qr-chip i { color: var(--green2); font-size: 14px; }
+.qr-arrow { color: rgba(248,244,238,0.3); font-size: 14px; display: flex; }
+.qr-note { font-size: 12px; color: rgba(248,244,238,0.42); margin-top: 18px; }
+.phone {
+  width: min(300px, 100%); margin: 0 auto; border-radius: 40px; padding: 10px; background: #08141d;
+  border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 30px 70px rgba(0,0,0,0.55);
+}
+.phone img { width: 100%; height: auto; border-radius: 31px; }
+
+/* ACC */
+.acc { background: var(--cream2); padding: 88px 40px; }
+.acc-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.acc .section-label { color: var(--green); }
+.acc .section-title { color: var(--navy); }
+.acc .section-title em { color: var(--green); }
+.acc .sec-sub { margin-bottom: 22px; }
+.acc-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text); margin-bottom: 10px; line-height: 1.55; }
+.acc-list i { color: var(--green); }
+.acc-img { border-radius: 14px; overflow: hidden; border: 0.5px solid var(--cream3); box-shadow: 0 20px 50px rgba(13,31,45,0.16); background: #fff; }
+.acc-img img { width: 100%; height: auto; }
+
+/* PRAXE */
+.praxe { background: #fffdf9; padding: 88px 40px; }
+.praxe-inner { max-width: 1100px; margin: 0 auto; }
+.praxe .section-label { color: var(--green); }
+.praxe .section-title { color: var(--navy); }
+.praxe .section-title em { color: var(--green); }
+.praxe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.praxe-card { background: var(--cream); border: 0.5px solid var(--cream3); border-radius: 14px; padding: 28px 26px; }
+.praxe-tag { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); font-weight: 500; margin-bottom: 14px; }
+.praxe-title { font-family: var(--font-serif); font-size: 23px; font-weight: 500; line-height: 1.2; color: var(--navy); margin-bottom: 12px; }
+.praxe-desc { font-size: 14px; color: var(--muted); line-height: 1.68; font-weight: 300; }
+
+/* ceník: pruh se zkušebním kódem */
+.price-trial {
+  display: flex; align-items: center; gap: 12px; margin-top: 26px; padding: 14px 18px; border-radius: 10px;
+  background: rgba(82,183,136,0.12); border: 0.5px solid rgba(45,106,79,0.32); color: var(--navy); font-size: 14px; line-height: 1.5;
+}
+.price-trial i { color: var(--green); font-size: 22px; flex-shrink: 0; }
+.price-trial strong { font-weight: 500; background: #fff; padding: 2px 8px; border-radius: 5px; white-space: nowrap; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+
+/* PORADNA */
+.poradna { background: var(--cream2); padding: 88px 40px; }
+.poradna-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
+.poradna .section-label { color: var(--green); }
+.poradna .section-title { color: var(--navy); }
+.poradna .section-title em { color: var(--green); }
+.poradna .sec-sub { margin-bottom: 26px; }
+.poradna-list-title { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 12px; }
+.poradna-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text); margin-bottom: 9px; }
+.poradna-list i { color: var(--green); }
+.contact-card { background: var(--navy); border-radius: 16px; padding: 30px; color: var(--cream); }
+.contact-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 0.5px solid rgba(255,255,255,0.1); color: var(--cream); }
+.contact-row:last-of-type { border-bottom: none; }
+.contact-ic { width: 42px; height: 42px; border-radius: 10px; background: rgba(82,183,136,0.14); border: 0.5px solid rgba(82,183,136,0.25); display: flex; align-items: center; justify-content: center; color: var(--green2); font-size: 19px; flex-shrink: 0; }
+.contact-lab { display: block; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--green3); margin-bottom: 2px; }
+.contact-val { display: block; font-family: var(--font-serif); font-size: 20px; line-height: 1.25; overflow-wrap: anywhere; }
+.contact-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+
+/* FAQ */
+.faq { background: var(--cream); padding: 88px 40px; }
+.faq-inner { max-width: 820px; margin: 0 auto; }
+.faq .section-label { color: var(--green); }
+.faq .section-title { color: var(--navy); }
+.faq .section-title em { color: var(--green); }
+.faq-list { margin-top: 34px; display: flex; flex-direction: column; gap: 10px; }
+.faq-item { background: #fff; border: 0.5px solid var(--cream2); border-radius: 12px; }
+.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 22px; border-radius: 12px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:focus-visible { outline: 2px solid var(--green2); outline-offset: 2px; }
+.faq-q { font-size: 15px; font-weight: 500; color: var(--navy); line-height: 1.4; }
+.faq-item summary i { color: var(--green); font-size: 18px; flex-shrink: 0; transition: transform .2s; }
+.faq-item[open] summary i { transform: rotate(180deg); }
+.faq-a { padding: 0 22px 20px; font-size: 14px; line-height: 1.72; color: var(--muted); font-weight: 300; }
+@media (prefers-reduced-motion: reduce) { .faq-item summary i { transition: none; } html { scroll-behavior: auto; } }
+
+@media (max-width: 900px) {
+  .start, .diff, .qr, .acc, .praxe, .poradna, .faq { padding: 64px 24px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .diff-grid { grid-template-columns: 1fr 1fr; }
+  .qr-inner, .acc-inner, .poradna-inner { grid-template-columns: 1fr; gap: 40px; }
+  .praxe-grid { grid-template-columns: 1fr; }
+  .nav-center { gap: 22px; }
+}
+@media (max-width: 560px) {
+  .start, .diff, .qr, .acc, .praxe, .poradna, .faq { padding: 52px 16px; }
+  .steps, .diff-grid { grid-template-columns: 1fr; }
+  .start-cta .btn-solid { width: 100%; }
+  .contact-card { padding: 22px; }
+  .contact-btns .btn-solid, .contact-btns .btn-ghost { width: 100%; }
+  .faq-item summary { padding: 16px 16px; }
+  .faq-a { padding: 0 16px 18px; }
+  .price-trial { align-items: flex-start; }
+}
+
+/* ═════════════════════════════════════════════════════════
+   VARIANTA B — vlastní identita: inkoust · réva · zlato
+   Vrství se na základ výše; mění tokeny, písmo a tvary.
+═════════════════════════════════════════════════════════ */
+:root {
+  --navy:   #0a1b28;
+  --navy2:  #102636;
+  --navy3:  #183548;
+  --green:  #2a7653;
+  --green2: #5cc392;
+  --green3: #a6e0c2;
+  --cream:  #f1f3ee;
+  --cream2: #e6eae3;
+  --cream3: #d3dacd;
+  --gold:   #c8a24b;
+  --gold-deep: #94722a;
+  --text:   #14262f;
+  --muted:  #587076;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --font-sans:  'Schibsted Grotesk', system-ui, sans-serif;
+  --font-mono:  'IBM Plex Mono', ui-monospace, Menlo, monospace;
+}
+body { font-family: var(--font-sans); background: var(--cream); }
+/* Instrument Serif má jen jednu tloušťku — žádné syntetické tučné */
+.nav-logo, .hero h1, .story-h2, .story-body p, .section-title, .price-amount, .cta-banner h2, .footer-logo,
+.spotlight h3, .step-no, .praxe-title, .contact-val { font-weight: 400; }
+.hero h1 em, .section-title em, .story-h2 em, .cta-banner h2 em { font-style: italic; font-weight: 400; }
+.section-title { font-size: clamp(34px, 4.6vw, 52px); line-height: 1.04; letter-spacing: -0.01em; }
+.story-h2 { font-size: clamp(36px, 5vw, 56px); }
+.sec-sub, .hero-sub, .feat-sub { font-weight: 400; }
+
+/* štítky sekcí — mono s linkou */
+.section-label {
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.16em; font-weight: 500;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.story .section-label { justify-content: center; }
+.start .section-label, .diff .section-label, .acc .section-label, .praxe .section-label, .poradna .section-label, .faq .section-label,
+.problem .section-label, .appgrid .section-label, .pricing .section-label { color: var(--gold-deep); }
+.features .section-label, .showcase .section-label, .qr .section-label, .trust .section-label { color: var(--gold); }
+
+/* tlačítka — ostřejší, zlatá jako hlavní akce */
+.btn-hero-primary, .btn-cta-nav, .btn-solid, .price-btn.primary, .nav-m-cta {
+  background: var(--gold); color: var(--navy); border-radius: 3px; font-weight: 600; letter-spacing: 0.01em;
+}
+.btn-hero-primary:hover, .btn-cta-nav:hover, .btn-solid:hover, .price-btn.primary:hover { background: #d8b45c; }
+.btn-hero-secondary, .btn-hero-app, .btn-ghost, .btn-login, .price-btn, .nav-m-login { border-radius: 3px; }
+.btn-hero-app, .btn-login { color: var(--green3); }
+.btn-hero-primary, .btn-hero-secondary, .btn-hero-app { padding: 14px 24px; }
+.lang { border-radius: 2px; font-family: var(--font-mono); }
+
+/* logo */
+.logo-mark { width: 34px; height: 34px; display: inline-flex; flex-shrink: 0; }
+.logo-mark svg { width: 100%; height: 100%; display: block; }
+.nav { background: rgba(10,27,40,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.nav-logo { font-size: 26px; letter-spacing: 0; }
+.footer-logo { font-size: 24px; }
+
+/* ── HERO ── */
+.hero { position: relative; background: var(--navy); padding: 84px 40px 0; overflow: hidden; }
+.hero-contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-inner { position: relative; max-width: 1200px; display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: end; }
+.hero-copy { padding-bottom: 72px; align-self: center; }
+.hero-eyebrow {
+  background: none; border: none; padding: 0; border-radius: 0; font-family: var(--font-mono); font-size: 11.5px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; gap: 12px;
+}
+.hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.hero-eyebrow i { display: none; }
+.hero .btn-hero-app { display: none; }
+.hero h1 { font-size: clamp(54px, 7.4vw, 104px); line-height: 0.94; letter-spacing: -0.02em; max-width: none; margin-bottom: 26px; }
+.hero h1 em { color: var(--green2); }
+.hero-sub { font-size: clamp(16px, 1.6vw, 19px); color: rgba(241,243,238,0.7); max-width: 470px; margin-bottom: 34px; }
+.hero-note { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.04em; color: rgba(241,243,238,0.5); margin-bottom: 0; }
+.hero-stage { position: relative; align-self: end; min-height: 480px; }
+.stage-browser {
+  background: #0d2030; border: 1px solid rgba(241,243,238,0.14); border-bottom: none; border-radius: 8px 8px 0 0;
+  overflow: hidden; box-shadow: 0 -10px 80px rgba(0,0,0,0.45);
+}
+.stage-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(241,243,238,0.08); }
+.stage-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(241,243,238,0.18); }
+.stage-bar span { font-family: var(--font-mono); font-size: 11px; color: rgba(241,243,238,0.4); margin-left: 8px; }
+.stage-browser img { width: 100%; height: 420px; object-fit: cover; object-position: top left; }
+.stage-phone {
+  position: absolute; right: -14px; bottom: 0; width: 33%; min-width: 150px; padding: 7px; background: #06121b;
+  border: 1px solid rgba(241,243,238,0.2); border-bottom: none; border-radius: 26px 26px 0 0;
+  box-shadow: -18px 0 50px rgba(0,0,0,0.5);
+}
+.stage-phone img { width: 100%; border-radius: 20px 20px 0 0; height: 330px; object-fit: cover; object-position: top; }
+.stage-tag {
+  position: absolute; left: -18px; top: 74px; display: flex; flex-direction: column; gap: 4px; padding: 12px 16px;
+  background: var(--gold); color: var(--navy); border-radius: 3px; box-shadow: 0 14px 40px rgba(0,0,0,0.4); transform: rotate(-2.5deg);
+}
+.stage-tag small { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; }
+.stage-tag b { font-family: var(--font-mono); font-size: 15px; font-weight: 600; letter-spacing: 0.02em; }
+@keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero-copy > *, .hero-stage { animation: riseIn .7s cubic-bezier(.2,.7,.2,1) both; }
+.hero-copy > *:nth-child(2) { animation-delay: .06s; } .hero-copy > *:nth-child(3) { animation-delay: .12s; }
+.hero-copy > *:nth-child(4) { animation-delay: .18s; } .hero-copy > *:nth-child(5) { animation-delay: .24s; }
+.hero-stage { animation-delay: .2s; }
+
+/* ── sekce ── */
+.story { background: var(--navy2); border: none; }
+.story .section-label, .story-sig { color: var(--gold); }
+.story-h2 { color: var(--cream); }
+.story-h2 em { color: var(--green2); }
+.story-body p { color: rgba(241,243,238,0.82); font-size: clamp(18px, 2vw, 22px); line-height: 1.55; font-style: normal; }
+
+.step, .diff-card, .appgrid-card, .faq-item, .price-card, .prob-card, .praxe-card, .contact-card, .feat-card { border-radius: 4px; }
+.step { background: transparent; border: none; border-top: 1px solid var(--navy); border-radius: 0; padding: 22px 6px 0 0; }
+.step-no { font-size: 64px; color: var(--gold-deep); margin-bottom: 14px; }
+.step-name { font-size: 17px; }
+.diff-grid { gap: 0; border-top: 1px solid var(--cream3); border-left: 1px solid var(--cream3); }
+.diff-card { background: transparent; border: none; border-right: 1px solid var(--cream3); border-bottom: 1px solid var(--cream3); border-radius: 0; padding: 30px 28px; transition: background .2s; }
+.diff-card:hover { background: rgba(255,255,255,0.55); }
+.diff-card .feat-icon { background: none; border: 1px solid var(--gold); color: var(--gold-deep); border-radius: 50%; }
+.diff-name { font-size: 17px; }
+.feat-card { border-radius: 4px; }
+.feat-icon { border-radius: 50%; }
+.feat-icon.gold { color: var(--gold); border-color: rgba(200,162,75,0.45); }
+.prob-card.good { background: var(--navy); }
+.spotlight-img, .acc-img, .appgrid-card { border-radius: 6px; }
+.showcase { background: var(--navy2); }
+.spotlight-tag { font-family: var(--font-mono); letter-spacing: 0.14em; color: var(--gold); }
+.spotlight h3 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.04; }
+.appgrid-card:hover { box-shadow: 0 10px 30px rgba(10,27,40,0.12); }
+.qr { background: var(--navy); }
+.qr-chip { border-radius: 2px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.02em; }
+.phone { border-radius: 38px; }
+.acc { background: var(--cream2); }
+.acc-img { border-radius: 6px; }
+
+/* příklady z praxe — etiketa s dvojitým rámem */
+.praxe { background: var(--cream); }
+.praxe-card {
+  background: #fbfbf8; border: 1px solid var(--navy); padding: 34px 30px; border-radius: 2px;
+  box-shadow: inset 0 0 0 5px #fbfbf8, inset 0 0 0 6px var(--gold); text-align: center;
+}
+.praxe-tag { font-family: var(--font-mono); color: var(--gold-deep); letter-spacing: 0.16em; }
+.praxe-title { font-size: 28px; }
+
+.pricing { background: var(--cream2); }
+.price-card { border-radius: 4px; }
+.price-card.featured { border: 1px solid var(--navy); box-shadow: 0 0 0 4px var(--cream2), 0 0 0 5px var(--gold); }
+.price-badge { background: var(--gold); color: var(--navy); border-radius: 2px; font-family: var(--font-mono); letter-spacing: 0.08em; }
+.price-tier { font-family: var(--font-mono); letter-spacing: 0.16em; }
+.price-amount { font-size: 56px; }
+.price-trial { border-radius: 3px; background: #fbf4e0; border: 1px solid var(--gold); }
+.price-trial i { color: var(--gold-deep); }
+.price-trial strong { border-radius: 2px; border: 1px solid var(--cream3); }
+.step-desc strong { border-radius: 2px; background: #fbf4e0; border: 1px solid #e3cf98; }
+
+.trust { background: var(--navy); }
+.trust-icon { color: var(--gold); }
+.poradna { background: var(--cream); }
+.contact-card { background: var(--navy); border-radius: 4px; box-shadow: 10px 10px 0 var(--gold); }
+.contact-ic { border-radius: 50%; border-color: rgba(200,162,75,0.5); background: none; color: var(--gold); }
+.contact-lab { font-family: var(--font-mono); color: var(--gold); }
+.faq { background: var(--cream2); }
+.faq-item { border-radius: 4px; background: var(--cream); }
+.faq-item[open] { border-color: var(--gold); }
+.faq-q { font-size: 16px; }
+.cta-banner { background: var(--navy2); }
+.cta-banner h2 { font-size: clamp(36px, 5vw, 60px); }
+.footer { background: var(--navy); }
+
+@media (max-width: 1000px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .hero-copy { padding-bottom: 8px; }
+  .stage-browser img { height: 320px; }
+  .stage-phone img { height: 260px; }
+  .stage-tag { left: 8px; top: 56px; }
+}
+@media (max-width: 900px) {
+  .hero { padding: 56px 24px 0; }
+  .nav { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--navy); }
+}
+@media (max-width: 560px) {
+  .hero { padding: 44px 16px 0; }
+  .hero h1 { font-size: clamp(46px, 14vw, 60px); }
+  .hero-stage { min-height: 0; }
+  .stage-browser img { height: 220px; }
+  .stage-phone { right: 4px; width: 38%; min-width: 0; }
+  .stage-phone img { height: 190px; }
+  .stage-tag { left: 4px; top: 44px; }
+  .step-no { font-size: 52px; }
+  .praxe-card { padding: 28px 22px; }
+  .contact-card { box-shadow: 6px 6px 0 var(--gold); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-copy > *, .hero-stage { animation: none; } }
+
+/* ═════ GALERIE — snímky aplikace ═════ */
+.gallery { background: var(--cream2); padding: 88px 40px; border-top: 1px solid var(--cream3); }
+.gallery-inner { max-width: 1200px; margin: 0 auto; }
+.gallery .section-label { color: var(--gold-deep); }
+.gallery .section-title { color: var(--navy); }
+.gallery .section-title em { color: var(--green); }
+.gal-tabs { display: flex; gap: 6px; margin: 34px 0 22px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
+.gal-tabs::-webkit-scrollbar { display: none; }
+.gal-tab {
+  flex-shrink: 0; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 1px solid var(--cream3); border-radius: 3px; padding: 11px 16px;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.gal-tab:hover { color: var(--navy); border-color: var(--navy); }
+.gal-tab[aria-selected="true"] { background: var(--navy); color: var(--cream); border-color: var(--navy); box-shadow: 0 3px 0 var(--gold); }
+.gal-tab:focus-visible { outline: 2px solid var(--green2); outline-offset: 3px; }
+.gal-panel { margin: 0; }
+.gal-panel[hidden] { display: none; }
+.gal-frame { background: #fff; border: 1px solid var(--navy); border-radius: 6px; overflow: hidden; box-shadow: 14px 14px 0 rgba(10,27,40,0.08), 0 30px 60px rgba(10,27,40,0.14); }
+.gal-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: var(--navy); }
+.gal-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(241,243,238,0.22); }
+.gal-bar span { font-family: var(--font-mono); font-size: 11px; color: rgba(241,243,238,0.5); margin-left: 8px; }
+.gal-frame img { width: 100%; height: auto; display: block; }
+.gal-panel figcaption { margin-top: 26px; max-width: 640px; }
+.gal-panel figcaption h3 { font-family: var(--font-serif); font-weight: 400; font-size: 30px; line-height: 1.1; color: var(--navy); margin-bottom: 8px; }
+.gal-panel figcaption p { font-size: 15px; line-height: 1.65; color: var(--muted); }
+.gal-note { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--muted); margin-top: 14px; }
+.gal-mobile { margin-top: 84px; padding-top: 56px; border-top: 1px solid var(--cream3); }
+.gal-m-title { font-family: var(--font-serif); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.08; color: var(--navy); margin-bottom: 8px; }
+.gal-phones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 36px; align-items: start; }
+.gal-phone { margin: 0; }
+.gal-phone .phone { width: 100%; margin: 0; border-radius: 30px; padding: 7px; box-shadow: 0 18px 40px rgba(10,27,40,0.22); }
+.gal-phone .phone img { border-radius: 24px; }
+.gal-phone figcaption { margin-top: 14px; text-align: center; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 900px) {
+  .gallery { padding: 64px 24px; }
+  .gal-phones { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 18px; margin: 30px -24px 0; padding: 4px 24px 18px; scrollbar-width: none; }
+  .gal-phones::-webkit-scrollbar { display: none; }
+  .gal-phone { flex: 0 0 min(62vw, 250px); scroll-snap-align: center; }
+  .gal-mobile { margin-top: 56px; padding-top: 40px; }
+  .gal-frame { box-shadow: 8px 8px 0 rgba(10,27,40,0.08), 0 18px 40px rgba(10,27,40,0.14); }
+}
+@media (max-width: 560px) {
+  .gallery { padding: 52px 16px; }
+  .gal-phones { margin: 26px -16px 0; padding: 4px 16px 18px; }
+  .gal-panel figcaption h3 { font-size: 26px; }
+}
+
+@media (max-width: 700px) {
+  .gal-frame { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .gal-frame img, .gal-bar { min-width: 720px; }
+}
+
+/* nav: s šesti odkazy se do užších oken nevejde → hamburger už od 1040 px */
+@media (max-width: 1040px) {
+  .nav { padding: 0 20px; }
+  .nav-center, .nav-right { display: none; }
+  .nav-hamburger { display: block; }
+}
+
 </style>
 </head>
 <body>
@@ -680,14 +1197,17 @@ button { font-family: var(--font-sans); cursor: pointer; }
 ════════════════════════════════════════ -->
 <nav class="nav">
   <a href="/" class="nav-logo">
-    <div class="logo-img"><i class="ti ti-leaf"></i></div>
+    <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 34 34"><rect x="0.5" y="0.5" width="33" height="33" rx="3" fill="#183548" stroke="#c8a24b"/><path d="M9 10 L17 25 L25 10" fill="none" stroke="#c8a24b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="8" r="2.2" fill="#5cc392"/></svg></span>
     VineOS
   </a>
 
   <!-- desktop -->
   <div class="nav-center">
     <a href="#features" data-i18n="nav_features">Funkce</a>
+    <a href="#app" data-i18n="nav_app">Aplikace</a>
     <a href="#pricing" data-i18n="nav_pricing">Ceník</a>
+    <a href="#poradna" data-i18n="nav_poradna">Poradna</a>
+    <a href="#faq" data-i18n="nav_faq">FAQ</a>
     <a href="#demo" data-i18n="nav_demo">Demo</a>
   </div>
   <div class="nav-right">
@@ -713,8 +1233,17 @@ button { font-family: var(--font-sans); cursor: pointer; }
     <a href="#features" class="nav-m-link">
       <i class="ti ti-sparkles"></i><span data-i18n="nav_features">Funkce</span>
     </a>
+    <a href="#app" class="nav-m-link">
+      <i class="ti ti-device-desktop"></i><span data-i18n="nav_app">Aplikace</span>
+    </a>
     <a href="#pricing" class="nav-m-link">
       <i class="ti ti-tag"></i><span data-i18n="nav_pricing">Ceník</span>
+    </a>
+    <a href="#poradna" class="nav-m-link">
+      <i class="ti ti-message-circle"></i><span data-i18n="nav_poradna">Poradna</span>
+    </a>
+    <a href="#faq" class="nav-m-link">
+      <i class="ti ti-help-circle"></i><span data-i18n="nav_faq">FAQ</span>
     </a>
     <a href="#demo" class="nav-m-link">
       <i class="ti ti-calendar"></i><span data-i18n="nav_demo">Demo</span>
@@ -738,40 +1267,67 @@ button { font-family: var(--font-sans); cursor: pointer; }
      HERO
 ════════════════════════════════════════ -->
 <section class="hero">
+  <svg class="hero-contours" id="contours" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 1440 760"></svg>
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <i class="ti ti-leaf"></i>
-      <span data-i18n="hero_eyebrow">Operační systém pro moderní vinařství</span>
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span data-i18n="hero_eyebrow">Od vinaře pro vinaře</span></div>
+      <h1 data-i18n="hero_h1">Konec chaosu.<br>Klid v <em>hlavě.</em></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Co jsem stříkal před 14 dny? Kolik mám vína ve sklepě? Kdy mám podat hlášení? VineOS ví. Vy se můžete věnovat vinici.</p>
+      <div class="hero-ctas">
+        <a href="https://app.vineos.cz/register" class="btn-hero-primary" data-i18n="hero_cta1">Vyzkoušet zdarma</a>
+        <a href="mailto:vineos.info@gmail.com?subject=Demo%20VineOS" class="btn-hero-secondary">
+          <i class="ti ti-player-play"></i><span data-i18n="hero_cta2">Domluvit demo</span>
+        </a>
+        <a href="https://app.vineos.cz/login" class="btn-hero-app">
+          <i class="ti ti-layout-dashboard"></i><span data-i18n="hero_cta3">Otevřít aplikaci</span>
+        </a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note">14 dní plné verze zdarma · Bez kreditní karty · Spuštění za 5 minut</p>
     </div>
-    <h1 data-i18n="hero_h1">Od vinice<br>po poslední<br><em>láhev.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">Spravujte své vinařství chytře, legálně a s pomocí AI – kdekoli a offline.</p>
-    <div class="hero-ctas">
-      <a href="https://app.vineos.cz/register" class="btn-hero-primary" data-i18n="hero_cta1">Vyzkoušet zdarma</a>
-      <a href="mailto:vineos.info@gmail.com?subject=Demo%20VineOS" class="btn-hero-secondary">
-        <i class="ti ti-player-play"></i>
-        <span data-i18n="hero_cta2">Domluvit demo</span>
-      </a>
-      <a href="https://app.vineos.cz/login" class="btn-hero-app">
-        <i class="ti ti-layout-dashboard"></i>
-        <span data-i18n="hero_cta3">Otevřít aplikaci</span>
-      </a>
+    <div class="hero-stage">
+      <div class="stage-browser">
+        <div class="stage-bar"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+        <img src="img/app/app-prehled.webp" alt="VineOS — Přehled vinařství" width="1800" height="1125">
+      </div>
+      <div class="stage-phone"><img src="img/wine-page.png" alt="Stránka vína ve VineOS na telefonu" width="780" height="1688"></div>
+      <div class="stage-tag"><small data-i18n="hero_tag">Zkušební kód</small><b>VINE-TRIAL-14</b></div>
     </div>
-    <p class="hero-note" data-i18n="hero_note">Bez kreditní karty · Bez závazků · Spuštění za 5 minut</p>
+  </div>
+</section>
 
-    <div class="hero-screenshot">
-      <div class="screenshot-bar">
-        <div class="sc-dot" style="background:#ff5f57"></div>
-        <div class="sc-dot" style="background:#febc2e"></div>
-        <div class="sc-dot" style="background:#28c840"></div>
-        <div class="screenshot-url">app.vineos.cz</div>
-        <div class="screenshot-sync">
-          <div class="sync-pulse"></div>
-          <span data-i18n="screenshot_sync">Synchronizováno</span>
-        </div>
-      </div>
-      <div class="screenshot-body screenshot-body--tall" style="padding:0;overflow:hidden;">
-        <img src="img/hero-prehled.png" alt="VineOS — Přehled vinařství" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
-      </div>
+<!-- ════════════════════════════════════════
+     START — začnete za 5 minut
+════════════════════════════════════════ -->
+<section class="start" id="start">
+  <div class="start-inner">
+    <div class="section-label" data-i18n="start_label">Jak začít</div>
+    <h2 class="section-title" data-i18n="start_title">Začnete za <em>5 minut.</em></h2>
+    <p class="sec-sub" data-i18n="start_sub">Bez instalace a bez školení. Stačí e-mail a pár kliknutí.</p>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-no" aria-hidden="true">1</div>
+        <h3 class="step-name" data-i18n="start1_name">Založte si účet</h3>
+        <p class="step-desc" data-i18n="start1_desc">E-mail a heslo, kreditní karta se nezadává. Účet je zdarma.</p>
+      </li>
+      <li class="step">
+        <div class="step-no" aria-hidden="true">2</div>
+        <h3 class="step-name" data-i18n="start2_name">Odemkněte 14 dní plné verze</h3>
+        <p class="step-desc" data-i18n="start2_desc">V Nastavení zadejte do pole „Máte aktivační kód?“ kód <strong>VINE-TRIAL-14</strong>. Vyzkoušíte i exporty a QR kódy.</p>
+      </li>
+      <li class="step">
+        <div class="step-no" aria-hidden="true">3</div>
+        <h3 class="step-name" data-i18n="start3_name">Zapište první víno</h3>
+        <p class="step-desc" data-i18n="start3_desc">Přidejte nádoby a šarže, nebo si vína nahrajte z Excelu (import xlsx).</p>
+      </li>
+      <li class="step">
+        <div class="step-no" aria-hidden="true">4</div>
+        <h3 class="step-name" data-i18n="start4_name">Pracujte, kde zrovna jste</h3>
+        <p class="step-desc" data-i18n="start4_desc">Na počítači, tabletu i telefonu. Bez signálu zapisujete dál, data se synchronizují po připojení.</p>
+      </li>
+    </ol>
+    <div class="start-cta">
+      <a href="https://app.vineos.cz/register" class="btn-solid" data-i18n="start_cta">Založit účet zdarma</a>
+      <span class="start-note" data-i18n="start_note">Po 14 dnech se nic neúčtuje. Účet přejde na verzi Free.</span>
     </div>
   </div>
 </section>
@@ -798,7 +1354,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="problem" id="why">
   <div class="problem-inner">
     <div class="section-label" data-i18n="prob_label">Proč VineOS?</div>
-    <div class="section-title" data-i18n="prob_title">Vinařství je umění.<br>Administrativa by jím <em>být neměla.</em></div>
+    <h2 class="section-title" data-i18n="prob_title">Vinařství je umění.<br>Administrativa by jím <em>být neměla.</em></h2>
     <div class="prob-grid">
       <div class="prob-card bad">
         <div class="prob-card-head">
@@ -830,48 +1386,91 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="features" id="features">
   <div class="features-inner">
     <div class="section-label" data-i18n="feat_label">Moduly</div>
-    <div class="section-title" data-i18n="feat_title">Vše, co vinařství potřebuje.</div>
+    <h2 class="section-title" data-i18n="feat_title">Vše, co vinařství potřebuje.</h2>
     <p class="feat-sub" data-i18n="feat_sub">Na jednom místě. Na každém zařízení.</p>
     <div class="feat-grid">
 
       <div class="feat-card">
         <div class="feat-icon"><i class="ti ti-plant-2"></i></div>
-        <div class="feat-name" data-i18n="feat1_name">Vinohrady & Evidence</div>
+        <h3 class="feat-name" data-i18n="feat1_name">Vinohrady & Evidence</h3>
         <div class="feat-desc" data-i18n="feat1_desc">Parcely, LPIS, BBCH stupnice, postřiky, příjem sklizně a cukernatost — přímo v terénu.</div>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon"><i class="ti ti-droplet"></i></div>
-        <div class="feat-name" data-i18n="feat2_name">Digitální sklep</div>
+        <h3 class="feat-name" data-i18n="feat2_name">Digitální sklep</h3>
         <div class="feat-desc" data-i18n="feat2_desc">Interaktivní mapa nádob, kompletní historie šarží, SO₂, kyseliny, pH s automatickými grafy.</div>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon"><i class="ti ti-wifi-off"></i></div>
-        <div class="feat-name" data-i18n="feat3_name">Offline-First</div>
+        <h3 class="feat-name" data-i18n="feat3_name">Offline-First</h3>
         <div class="feat-desc" data-i18n="feat3_desc">Funguje bez signálu. Ve sklepě, v poli, kdekoli. Sync proběhne automaticky při připojení.</div>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon"><i class="ti ti-file-certificate"></i></div>
-        <div class="feat-name" data-i18n="feat4_name">Vinná kniha & Legislativa</div>
+        <h3 class="feat-name" data-i18n="feat4_name">Vinná kniha & Legislativa</h3>
         <div class="feat-desc" data-i18n="feat4_desc">Zákonné PDF sestavy jedním kliknutím. VineOS sleduje změny legislativy a upozorní vás.</div>
         <div class="badge-cz" data-i18n="feat4_badge"><i class="ti ti-flag" style="font-size:10px"></i> Nyní pro ČR · další země připravujeme</div>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon"><i class="ti ti-qrcode"></i></div>
-        <div class="feat-name" data-i18n="feat5_name">EU e-Label</div>
-        <div class="feat-desc" data-i18n="feat5_desc">QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.</div>
+        <h3 class="feat-name" data-i18n="feat5_name">EU e-Label</h3>
+        <div class="feat-desc" data-i18n="feat5_desc">QR kódy s nutričními hodnotami dle nařízení (EU) 2021/2117 a (EU) 2023/1606, platných od 8. 12. 2023, přímo z dat, která již máte ve VineOS.</div>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon gold"><i class="ti ti-robot"></i></div>
-        <div class="feat-name" data-i18n="feat6_name">AI Asistent Vinnie</div>
+        <h3 class="feat-name" data-i18n="feat6_name">AI Asistent Vinnie</h3>
         <div class="feat-desc" data-i18n="feat6_desc">„Kolik mám volného Chardonnay?" Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.</div>
         <div class="badge-soon" data-i18n="feat6_badge">Dostupné s vlastním API klíčem</div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     DIFF — čím se VineOS liší
+════════════════════════════════════════ -->
+<section class="diff" id="different">
+  <div class="diff-inner">
+    <div class="section-label" data-i18n="diff_label">Čím se liší</div>
+    <h2 class="section-title" data-i18n="diff_title">Postaveno vinařem. <em>Je to poznat.</em></h2>
+    <p class="sec-sub" data-i18n="diff_sub">Ne další univerzální evidence. VineOS vznikl ve sklepě a ve vinici a podle toho se ovládá.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-history"></i></div>
+        <h3 class="diff-name" data-i18n="diff1_name">Evidence, která se nepřepisuje</h3>
+        <p class="diff-desc" data-i18n="diff1_desc">Záznamy se nemažou ani nepřepisují. Oprava se zapíše s důvodem a časem a celý řetězec záznamů jde ověřit.</p>
+      </div>
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-sparkles"></i></div>
+        <h3 class="diff-name" data-i18n="diff2_name">Šumivá vína od tirážních lahví</h3>
+        <p class="diff-desc" data-i18n="diff2_desc">Tradiční metoda, pét-nat i sekundární kvašení s moštem. Tiráž, degoržování, dosage i tlak v lahvích na jednom místě.</p>
+      </div>
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-robot"></i></div>
+        <h3 class="diff-name" data-i18n="diff3_name">AI asistent s vaším klíčem</h3>
+        <p class="diff-desc" data-i18n="diff3_desc">Ptáte se na vlastní data. Použijete klíč ke Gemini, Claude nebo ChatGPT; VineOS za AI nic neúčtuje.</p>
+      </div>
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-wifi-off"></i></div>
+        <h3 class="diff-name" data-i18n="diff4_name">Funguje bez signálu</h3>
+        <p class="diff-desc" data-i18n="diff4_desc">Ve sklepě i ve vinici zapisujete dál. Po připojení se vše samo sesynchronizuje i do dalších zařízení.</p>
+      </div>
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-qrcode"></i></div>
+        <h3 class="diff-name" data-i18n="diff5_name">QR stránka každého vína</h3>
+        <p class="diff-desc" data-i18n="diff5_desc">Z dat, která už máte, vznikne stránka vína pro zákazníka. Stačí QR kód na etiketě.</p>
+      </div>
+      <div class="diff-card">
+        <div class="feat-icon"><i class="ti ti-leaf"></i></div>
+        <h3 class="diff-name" data-i18n="diff6_name">Od vinaře pro vinaře</h3>
+        <p class="diff-desc" data-i18n="diff6_desc">Autor VineOS dělá víno a aplikaci používá každý den. Poradíte se s někým, kdo stejné problémy řeší sám.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -882,7 +1481,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="showcase" id="showcase">
   <div class="showcase-inner">
     <div class="section-label" data-i18n="showcase_label">VineOS v praxi</div>
-    <div class="section-title" data-i18n="showcase_title">Uvidíte sami.<br><em>Slova nestačí.</em></div>
+    <h2 class="section-title" data-i18n="showcase_title">Uvidíte sami.<br><em>Slova nestačí.</em></h2>
 
     <!-- Spotlight 1: ÚKZÚZ -->
     <div class="spotlight">
@@ -895,7 +1494,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
         <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp1_f3">Termíny podání vždy přehledně</span></div>
       </div>
       <div class="spotlight-img">
-        <img src="img/ukzuz.png" alt="ÚKZÚZ Hlášení — zákonné sestavy ve VineOS" loading="lazy" decoding="async" width="2000" height="957">
+        <img src="img/app/app-ukzuz.webp" alt="Reporty ve VineOS: Prohlášení o zásobách s exportem do PDF, XLSX a XML" loading="lazy" decoding="async" width="1700" height="997">
       </div>
     </div>
 
@@ -910,7 +1509,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
         <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp2_f3">Ochranný účinek postřiku v reálném čase</span></div>
       </div>
       <div class="spotlight-img">
-        <img src="img/rizika-table.png" alt="Rizika chorob ve VineOS — přehled parcel" loading="lazy" decoding="async" width="2000" height="453">
+        <img src="img/app/app-rizika-tabulka.webp" alt="Rizika chorob ve VineOS — přehled parcel" loading="lazy" decoding="async" width="1700" height="771">
       </div>
     </div>
 
@@ -925,7 +1524,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
         <div class="spotlight-feat"><i class="ti ti-check"></i><span data-i18n="sp3_f3">VO i MO ceny pro každé víno</span></div>
       </div>
       <div class="spotlight-img">
-        <img src="img/sklad.png" alt="Přehled skladu lahví ve VineOS" loading="lazy" decoding="async" width="2000" height="1262">
+        <img src="img/app/app-lahvovani.webp" alt="Lahvování a prodej ve VineOS: sklad, prodáno a ceny VO a MO" loading="lazy" decoding="async" width="1700" height="857">
       </div>
     </div>
 
@@ -938,57 +1537,225 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="appgrid">
   <div class="appgrid-inner">
     <div class="section-label" data-i18n="appgrid_label">Více modulů</div>
-    <div class="section-title" data-i18n="appgrid_title">A to není <em>vše.</em></div>
+    <h2 class="section-title" data-i18n="appgrid_title">A to není <em>vše.</em></h2>
     <div class="appgrid-grid">
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/nadoby.png" alt="Nádoby ve VineOS" loading="lazy" decoding="async" width="2000" height="1002"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-akce.webp" alt="Akce nad nádobou ve VineOS: přečerpání, rozdělení, síření, doplňování a lahvování" loading="lazy" decoding="async" width="1500" height="938"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag1_name">Sklep jedním kliknutím</div>
+          <h3 class="appgrid-name" data-i18n="ag1_name">Sklep jedním kliknutím</h3>
           <div class="appgrid-desc" data-i18n="ag1_desc">Přetočit, dosíření, lahvovat — vše přímo z přehledu nádob.</div>
         </div>
       </div>
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/chemie.png" alt="Sklad chemie ve VineOS" loading="lazy" decoding="async" width="2000" height="1101"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-chemie.webp" alt="Sklad chemie ve VineOS" loading="lazy" decoding="async" width="1200" height="605"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag2_name">Přípravky pod kontrolou</div>
+          <h3 class="appgrid-name" data-i18n="ag2_name">Přípravky pod kontrolou</h3>
           <div class="appgrid-desc" data-i18n="ag2_desc">Evidence fungicidů a hnojiv, zásoby, karence a roční spotřeba na sezónu.</div>
         </div>
       </div>
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/evidence-vina.png" alt="Evidence vína ve VineOS" loading="lazy" decoding="async" width="2000" height="1276"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-rozbory.webp" alt="Detail vína ve VineOS s rodokmenem a laboratorními rozbory" loading="lazy" decoding="async" width="1200" height="605"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag3_name">Celá šarže od sklizně</div>
+          <h3 class="appgrid-name" data-i18n="ag3_name">Celá šarže od sklizně</h3>
           <div class="appgrid-desc" data-i18n="ag3_desc">Analýzy, umístění v nádobách a kompletní historie vína na jednom místě.</div>
         </div>
       </div>
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/lahvovani.png" alt="Lahvování a prodej ve VineOS" loading="lazy" decoding="async" width="1190" height="1338"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-objednavky.webp" alt="Objednávky ve VineOS" loading="lazy" decoding="async" width="1200" height="605"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag4_name">Od tanku k zákazníkovi</div>
+          <h3 class="appgrid-name" data-i18n="ag4_name">Od tanku k zákazníkovi</h3>
           <div class="appgrid-desc" data-i18n="ag4_desc">Lahvování, VO/MO ceny, objednávky a sklad lahví v jednom toku.</div>
         </div>
       </div>
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/rizika-chart.png" alt="Rizika chorob — 48h průběh ve VineOS" loading="lazy" decoding="async" width="2000" height="1352"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-rizika-48h.webp" alt="Rizika chorob — 48hodinový průběh ve VineOS" loading="lazy" decoding="async" width="1200" height="645"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag5_name">48hodinový výhled rizik</div>
+          <h3 class="appgrid-name" data-i18n="ag5_name">48hodinový výhled rizik</h3>
           <div class="appgrid-desc" data-i18n="ag5_desc">Grafy peronospory, teploty a srážek pro každou parcelu — 24h zpět i výhled dopředu.</div>
         </div>
       </div>
 
       <div class="appgrid-card">
-        <div class="appgrid-ss"><img src="img/ai-fakturoid.png" alt="AI Asistent a Fakturoid ve VineOS" loading="lazy" decoding="async" width="2000" height="1316"></div>
+        <div class="appgrid-ss"><img src="img/app/app-a-ai.webp" alt="AI asistent Vinnie v nastavení VineOS" loading="lazy" decoding="async" width="1200" height="605"></div>
         <div class="appgrid-body">
-          <div class="appgrid-name" data-i18n="ag6_name">AI a účetní propojení</div>
-          <div class="appgrid-desc" data-i18n="ag6_desc">AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury do Fakturoidu jedním kliknutím.</div>
+          <h3 class="appgrid-name" data-i18n="ag6_name">AI a účetní propojení</h3>
+          <div class="appgrid-desc" data-i18n="ag6_desc">AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury přes Fakturoid nebo iDoklad jedním kliknutím.</div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     GALERIE — snímky aplikace
+════════════════════════════════════════ -->
+<section class="gallery" id="app">
+  <div class="gallery-inner">
+    <div class="section-label" data-i18n="gal_label">Aplikace v detailu</div>
+    <h2 class="section-title" data-i18n="gal_title">Tak vypadá VineOS <em>doopravdy.</em></h2>
+    <p class="sec-sub" data-i18n="gal_sub">Snímky z ukázkového vinařství s fiktivními daty. Ve vašich datech to funguje stejně.</p>
+    <div class="gal-tabs" role="tablist" aria-label="VineOS">
+        <button class="gal-tab" role="tab" id="gtab-prehled" aria-controls="gpanel-prehled" aria-selected="true" tabindex="0" data-i18n="gal_t1">Přehled</button>
+        <button class="gal-tab" role="tab" id="gtab-vinohrady" aria-controls="gpanel-vinohrady" aria-selected="false" tabindex="-1" data-i18n="gal_t2">Vinohrad</button>
+        <button class="gal-tab" role="tab" id="gtab-nadoby" aria-controls="gpanel-nadoby" aria-selected="false" tabindex="-1" data-i18n="gal_t3">Sklep</button>
+        <button class="gal-tab" role="tab" id="gtab-vino" aria-controls="gpanel-vino" aria-selected="false" tabindex="-1" data-i18n="gal_t4">Víno</button>
+        <button class="gal-tab" role="tab" id="gtab-sklad" aria-controls="gpanel-sklad" aria-selected="false" tabindex="-1" data-i18n="gal_t5">Sklad</button>
+        <button class="gal-tab" role="tab" id="gtab-kniha" aria-controls="gpanel-kniha" aria-selected="false" tabindex="-1" data-i18n="gal_t6">Vinná kniha</button>
+    </div>
+    <div class="gal-stage">
+      <figure class="gal-panel" role="tabpanel" id="gpanel-prehled" aria-labelledby="gtab-prehled">
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-prehled.webp" alt="Přehled vinařství ve VineOS: nádoby, sklad a prodeje" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c1_t">Celý podnik na jedné obrazovce</h3><p data-i18n="gal_c1_d">Zásoby v nádobách, lahve na skladě a prodeje hned po otevření aplikace.</p></figcaption>
+      </figure>
+      <figure class="gal-panel" role="tabpanel" id="gpanel-vinohrady" aria-labelledby="gtab-vinohrady" hidden>
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-vinohrady.webp" alt="Evidence vinohradu a parcel ve VineOS" loading="lazy" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c2_t">Parcely a odrůdy</h3><p data-i18n="gal_c2_d">Katastr, kód vinice, odrůdy a plochy. U každé parcely historie, ošetření i sklizně.</p></figcaption>
+      </figure>
+      <figure class="gal-panel" role="tabpanel" id="gpanel-nadoby" aria-labelledby="gtab-nadoby" hidden>
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-nadoby.webp" alt="Přehled nádob a jejich obsahu ve VineOS" loading="lazy" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c3_t">Každá nádoba a její obsah</h3><p data-i18n="gal_c3_d">Naplnění, víno v nádobě, přečerpání a historie operací na jedno kliknutí.</p></figcaption>
+      </figure>
+      <figure class="gal-panel" role="tabpanel" id="gpanel-vino" aria-labelledby="gtab-vino" hidden>
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-vino.webp" alt="Detail vína ve VineOS s rodokmenem, odrůdami, rozbory a QR kódem" loading="lazy" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c4_t">Rodný list každého vína</h3><p data-i18n="gal_c4_d">Od sklizně přes nádobu a lahvování až po prodej. S odrůdami, rozbory a QR kódem pro zákazníka.</p></figcaption>
+      </figure>
+      <figure class="gal-panel" role="tabpanel" id="gpanel-sklad" aria-labelledby="gtab-sklad" hidden>
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-sklad.webp" alt="Sklad lahví podle míst skladu ve VineOS" loading="lazy" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c5_t">Zásoby podle míst skladu</h3><p data-i18n="gal_c5_d">Lahve po sklepích, prodeje a rezervace, ceny VO i MO u každého vína.</p></figcaption>
+      </figure>
+      <figure class="gal-panel" role="tabpanel" id="gpanel-kniha" aria-labelledby="gtab-kniha" hidden>
+        <div class="gal-frame">
+          <div class="gal-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.vineos.cz</span></div>
+          <img src="img/app/app-kniha.webp" alt="Vinná kniha ve VineOS: chronologická evidence operací" loading="lazy" decoding="async" width="1800" height="1125">
+        </div>
+        <figcaption><h3 data-i18n="gal_c6_t">Chronologická evidence</h3><p data-i18n="gal_c6_d">Příjem hroznů, výroba, lahvování a expedice v jedné tabulce, s exportem do PDF.</p></figcaption>
+      </figure>
+    </div>
+    <p class="gal-note" data-i18n="gal_note">Ukázková data fiktivního vinařství.</p>
+    <div class="gal-mobile">
+      <h3 class="gal-m-title" data-i18n="gal_m_title">A stejná aplikace v telefonu.</h3>
+      <p class="sec-sub" data-i18n="gal_m_sub">Rozhraní se přizpůsobí telefonu i tabletu. Ve vinici a ve sklepě zapisujete dál, i bez signálu.</p>
+      <div class="gal-phones">
+        <figure class="gal-phone">
+          <div class="phone"><img src="img/app/app-m-prehled.webp" alt="Přehled ve VineOS na telefonu" loading="lazy" decoding="async" width="780" height="1688"></div>
+          <figcaption data-i18n="gal_m1">Přehled</figcaption>
+        </figure>
+        <figure class="gal-phone">
+          <div class="phone"><img src="img/app/app-m-nadoby.webp" alt="Nádoby ve VineOS na telefonu" loading="lazy" decoding="async" width="780" height="1688"></div>
+          <figcaption data-i18n="gal_m2">Nádoby</figcaption>
+        </figure>
+        <figure class="gal-phone">
+          <div class="phone"><img src="img/app/app-m-lahvovani.webp" alt="Lahvování a prodej ve VineOS na telefonu" loading="lazy" decoding="async" width="780" height="1688"></div>
+          <figcaption data-i18n="gal_m3">Lahvování</figcaption>
+        </figure>
+        <figure class="gal-phone">
+          <div class="phone"><img src="img/app/app-m-sklad.webp" alt="Sklad lahví ve VineOS na telefonu" loading="lazy" decoding="async" width="780" height="1688"></div>
+          <figcaption data-i18n="gal_m4">Sklad</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     QR — stránka vína
+════════════════════════════════════════ -->
+<section class="qr" id="qr">
+  <div class="qr-inner">
+    <div class="qr-text">
+      <div class="section-label" data-i18n="qr_label">QR stránka vína</div>
+      <h2 class="section-title" data-i18n="qr_title">Dejte každé láhvi <em>její příběh.</em></h2>
+      <p class="sec-sub" data-i18n="qr_sub">Z dat, která už ve VineOS máte, vznikne veřejná stránka vína. Zákazník naskenuje QR kód na etiketě a za pár vteřin vidí, co mu chcete ukázat. Stránka je česky, anglicky, německy i francouzsky.</p>
+      <ul class="qr-list">
+        <li><i class="ti ti-check"></i><span data-i18n="qr_f1">Víno, ročník, šarže, alkohol a typ</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="qr_f2">Odrůdy, vinice a způsob výroby</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="qr_f3">Nutriční hodnoty, složení a alergeny (EU e-label)</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="qr_f4">Sami určíte, které části se zobrazí</span></li>
+      </ul>
+      <ol class="qr-flow">
+        <li class="qr-chip"><i class="ti ti-bottle"></i><span data-i18n="qr_flow1">Láhev</span></li>
+        <li class="qr-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></li>
+        <li class="qr-chip"><i class="ti ti-qrcode"></i><span data-i18n="qr_flow2">QR kód na etiketě</span></li>
+        <li class="qr-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></li>
+        <li class="qr-chip"><i class="ti ti-device-mobile"></i><span data-i18n="qr_flow3">Telefon zákazníka</span></li>
+        <li class="qr-arrow" aria-hidden="true"><i class="ti ti-arrow-right"></i></li>
+        <li class="qr-chip"><i class="ti ti-glass-full"></i><span data-i18n="qr_flow4">Stránka vína</span></li>
+      </ol>
+      <p class="qr-note" data-i18n="qr_note">QR kódy jsou součástí verze Pro i 14denní zkoušky.</p>
+    </div>
+    <div class="phone">
+      <img src="img/wine-page.png" alt="Veřejná stránka vína ve VineOS na telefonu" loading="lazy" decoding="async" width="780" height="1688">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     ACC — faktury a účetnictví
+════════════════════════════════════════ -->
+<section class="acc" id="accounting">
+  <div class="acc-inner">
+    <div class="acc-text">
+      <div class="section-label" data-i18n="acc_label">Faktury a účetnictví</div>
+      <h2 class="section-title" data-i18n="acc_title">Od objednávky k faktuře <em>bez přepisování.</em></h2>
+      <p class="sec-sub" data-i18n="acc_sub">Prodej zapíšete jednou. Fakturu vystavíte ve Fakturoidu nebo iDokladu a sklad lahví předáte do Pohody.</p>
+      <ul class="acc-list">
+        <li><i class="ti ti-check"></i><span data-i18n="acc_f1">Faktura z objednávky na jedno kliknutí (Fakturoid nebo iDoklad, připojíte v Nastavení)</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="acc_f2">Skladové karty lahví do Pohody jako XML soubor</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="acc_f3">Ceny VO i MO a přehled zásob při každém prodeji</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="acc_f4">Kalkulace nákladů na láhev, takže víte, kolik na ní vyděláte</span></li>
+      </ul>
+    </div>
+    <div class="acc-img">
+      <img src="img/app/app-fakturace.webp" alt="Účetní systém v nastavení VineOS: Fakturoid, iDoklad a Pohoda" loading="lazy" decoding="async" width="1400" height="536">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PRAXE — příklady z praxe
+════════════════════════════════════════ -->
+<section class="praxe" id="praxe">
+  <div class="praxe-inner">
+    <div class="section-label" data-i18n="praxe_label">V praxi</div>
+    <h2 class="section-title" data-i18n="praxe_title">Tři situace, které <em>znáte.</em></h2>
+    <p class="sec-sub" data-i18n="praxe_sub">Ilustrativní příklady, jak vypadá práce s VineOS.</p>
+    <div class="praxe-grid">
+      <article class="praxe-card">
+        <div class="praxe-tag" data-i18n="praxe1_tag">Sezóna ve vinici</div>
+        <h3 class="praxe-title" data-i18n="praxe1_title">„Můžu už sklízet?“</h3>
+        <p class="praxe-desc" data-i18n="praxe1_desc">Zapíšete postřik a VineOS u parcely hlídá ochrannou lhůtu před sklizní i zásobu přípravku. Před sklizní otevřete telefon a víte, které parcely jsou volné.</p>
+      </article>
+      <article class="praxe-card">
+        <div class="praxe-tag" data-i18n="praxe2_tag">Sklep</div>
+        <h3 class="praxe-title" data-i18n="praxe2_title">„Kolik mám volného Chardonnay?“</h3>
+        <p class="praxe-desc" data-i18n="praxe2_desc">Objem v nádobách, historii šarže i poslední analýzy vidíte na jednom místě. Bez listování sešitem.</p>
+      </article>
+      <article class="praxe-card">
+        <div class="praxe-tag" data-i18n="praxe3_tag">Cena láhve</div>
+        <h3 class="praxe-title" data-i18n="praxe3_title">„Neprodávám pod cenou?“</h3>
+        <p class="praxe-desc" data-i18n="praxe3_desc">Do kalkulace zadáte hrozny, přípravky, obaly a práci. U šarže pak vidíte náklad na láhev, zisk a marži podle ceníku.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -999,8 +1766,9 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="pricing" id="pricing">
   <div class="pricing-inner">
     <div class="section-label" data-i18n="price_label">Ceník</div>
-    <div class="section-title" data-i18n="price_title">Transparentní ceny. Žádná <em>překvapení.</em></div>
+    <h2 class="section-title" data-i18n="price_title">Transparentní ceny. Žádná <em>překvapení.</em></h2>
     <p class="pricing-sub" data-i18n="price_sub">Vyberte plán, který odpovídá vašemu vinařství.</p>
+    <div class="price-trial"><i class="ti ti-gift"></i><span data-i18n="price_trial">Chcete Pro vyzkoušet? Po registraci zadejte v Nastavení kód <strong>VINE-TRIAL-14</strong> a 14 dní máte plnou verzi zdarma, bez karty.</span></div>
     <div class="price-grid">
 
       <div class="price-card">
@@ -1008,10 +1776,10 @@ button { font-family: var(--font-sans); cursor: pointer; }
         <div class="price-amount">0 <span data-i18n="plan1_currency">Kč</span></div>
         <div class="price-period" data-i18n="plan1_period">navždy zdarma</div>
         <div class="price-divider"></div>
-        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f1">Správa až 3 šarží</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f1">Až 3 vína a 2 parcely</span></div>
         <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f2">Základní evidence vinice a sklepa</span></div>
         <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f3">Offline záznamy</span></div>
-        <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f4">Cloud sync</span></div>
+        <div class="price-feat"><i class="ti ti-check"></i><span data-i18n="plan1_f4">Cloudová synchronizace</span></div>
         <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f5">PDF vinná kniha</span></div>
         <div class="price-feat off"><i class="ti ti-x"></i><span data-i18n="plan1_f6">EU e-Label QR kódy</span></div>
         <a href="https://app.vineos.cz/register" class="price-btn" data-i18n="plan1_btn">Začít zdarma</a>
@@ -1058,28 +1826,126 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="trust">
   <div class="trust-inner">
     <div class="section-label" data-i18n="trust_label">Technické zázemí</div>
-    <div class="section-title" data-i18n="trust_title">Postaveno na pevných základech.</div>
+    <h2 class="section-title" data-i18n="trust_title">Postaveno na pevných základech.</h2>
     <div class="trust-grid">
       <div class="trust-item">
         <div class="trust-icon"><i class="ti ti-lock"></i></div>
-        <div class="trust-name" data-i18n="trust1_name">Bezpečnost EU</div>
-        <div class="trust-desc" data-i18n="trust1_desc">Šifrovaná data na serverech ve Frankfurtu. GDPR compliant.</div>
+        <h3 class="trust-name" data-i18n="trust1_name">Bezpečnost EU</h3>
+        <div class="trust-desc" data-i18n="trust1_desc">Šifrovaná data na serverech v EU. Zpracování osobních údajů podle GDPR.</div>
       </div>
       <div class="trust-item">
         <div class="trust-icon"><i class="ti ti-devices"></i></div>
-        <div class="trust-name" data-i18n="trust2_name">Multiplatformní</div>
+        <h3 class="trust-name" data-i18n="trust2_name">Multiplatformní</h3>
         <div class="trust-desc" data-i18n="trust2_desc">Windows, Android, iOS. Jedna aplikace, všechna vaše zařízení.</div>
       </div>
       <div class="trust-item">
         <div class="trust-icon"><i class="ti ti-cloud-off"></i></div>
-        <div class="trust-name" data-i18n="trust3_name">Offline-First</div>
+        <h3 class="trust-name" data-i18n="trust3_name">Offline-First</h3>
         <div class="trust-desc" data-i18n="trust3_desc">Funguje bez internetu. Sync automaticky při připojení.</div>
       </div>
       <div class="trust-item">
-        <div class="trust-icon"><i class="ti ti-headset"></i></div>
-        <div class="trust-name" data-i18n="trust4_name">Podpora CZ</div>
-        <div class="trust-desc" data-i18n="trust4_desc">Od nastavení prvního tanku po první export hlášení.</div>
+        <div class="trust-icon"><i class="ti ti-database-export"></i></div>
+        <h3 class="trust-name" data-i18n="trust4_name">Vaše data jsou vaše</h3>
+        <div class="trust-desc" data-i18n="trust4_desc">Celé vinařství si kdykoli zálohujete do souboru JSON a obnovíte zpět.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PORADNA — kontakt a poradenství
+════════════════════════════════════════ -->
+<section class="poradna" id="poradna">
+  <div class="poradna-inner">
+    <div class="poradna-text">
+      <div class="section-label" data-i18n="poradna_label">Poradna</div>
+      <h2 class="section-title" data-i18n="poradna_title">Nevíte, jak začít? <em>Ozvěte se.</em></h2>
+      <p class="sec-sub" data-i18n="poradna_sub">Poradím s nastavením vinařství, přenosem dat z Excelu i s první sezónou. Odpovídá přímo autor VineOS, vinař.</p>
+      <h3 class="poradna-list-title" data-i18n="poradna_list_title">S čím vám poradím</h3>
+      <ul class="poradna-list">
+        <li><i class="ti ti-check"></i><span data-i18n="poradna_l1">Jak založit vinici, nádoby a první šarže</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="poradna_l2">Jak převést data z Excelu nebo ze sešitu</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="poradna_l3">Jak v aplikaci připravit podklady pro hlášení</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="poradna_l4">Který plán se hodí pro vaše vinařství</span></li>
+        <li><i class="ti ti-check"></i><span data-i18n="poradna_l5">Jak zapnout AI asistenta s vlastním klíčem</span></li>
+      </ul>
+    </div>
+    <div class="contact-card">
+      <!-- Telefon: číslo se doplní v JS konstantě CONTACT_PHONE (dole); dokud je prázdná, řádek i tlačítko Zavolat zůstanou skryté. -->
+      <a class="contact-row" id="contactPhone" hidden>
+        <span class="contact-ic"><i class="ti ti-phone"></i></span>
+        <span><span class="contact-lab" data-i18n="poradna_phone_label">Telefon</span><span class="contact-val" id="contactPhoneVal"></span></span>
+      </a>
+      <a class="contact-row" href="mailto:vineos.info@gmail.com">
+        <span class="contact-ic"><i class="ti ti-mail"></i></span>
+        <span><span class="contact-lab" data-i18n="poradna_mail_label">E-mail</span><span class="contact-val">vineos.info@gmail.com</span></span>
+      </a>
+      <div class="contact-btns">
+        <a class="btn-solid" id="contactCallBtn" hidden><i class="ti ti-phone"></i><span data-i18n="poradna_call">Zavolat</span></a>
+        <a class="btn-solid" href="mailto:vineos.info@gmail.com"><i class="ti ti-mail"></i><span data-i18n="poradna_mail">Napsat e-mail</span></a>
+        <a class="btn-ghost" href="mailto:vineos.info@gmail.com?subject=Demo%20VineOS"><i class="ti ti-calendar"></i><span data-i18n="poradna_demo">Domluvit ukázku</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FAQ — časté otázky
+════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="section-label" data-i18n="faq_label">Časté otázky</div>
+    <h2 class="section-title" data-i18n="faq_title">Co potřebujete <em>vědět.</em></h2>
+    <p class="sec-sub" data-i18n="faq_sub">Nenašli jste odpověď? Ozvěte se do poradny.</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq1_q">Co je VineOS a pro koho je?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq1_a">VineOS je aplikace pro vinaře. Drží evidenci vinice, sklepa, lahvování, skladu a prodeje na jednom místě a pomáhá připravit podklady pro hlášení. Hodí se pro rodinná vinařství i větší producenty.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq2_q">Kolik VineOS stojí?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq2_a">Free je zdarma navždy, s limitem 3 vín a 2 parcel, včetně synchronizace mezi zařízeními. Pro stojí 2 490 Kč ročně (99 € ročně) a odemyká neomezené záznamy, exporty a QR kódy.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq3_q">Můžu si VineOS vyzkoušet zdarma?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq3_a">Ano. Založte si účet, v Nastavení zadejte kód VINE-TRIAL-14 a 14 dní máte plnou verzi Pro. Kartu nezadáváte a nic se samo neúčtuje.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq4_q">Funguje VineOS na mobilu a bez internetu?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq4_a">Ano. Aplikace běží na počítači, tabletu i telefonu. Bez signálu zapisujete dál a po připojení se data synchronizují.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq5_q">Kde jsou moje data a můžu je dostat pryč?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq5_a">Data jsou šifrovaně uložena na serverech v EU. Celé vinařství si kdykoli zálohujete do souboru JSON a obnovíte zpět, takže nejste na VineOS vázáni.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq6_q">Připraví VineOS hlášení pro ÚKZÚZ?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq6_a">Z vašich záznamů vyplní podklady pro hlášení (zásoby, produkce, Vinařský fond) a exportuje je do PDF, XLSX nebo XML. Správnost a včasné podání hlášení ale zůstává na vás, proto podklady vždy zkontrolujte.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq7_q">Zvládne VineOS i šumivá vína?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq7_a">Ano. Evidence výroby šumivých vín zahrnuje tradiční metodu, pét-nat i sekundární kvašení s hroznovým moštem: tiráž, degoržování, dosage i tlak v lahvích.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq8_q">Co je QR stránka vína a e-label?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq8_a">Je to veřejná stránka vína, na kterou vede QR kód na etiketě. Ukáže údaje o víně, nutriční hodnoty, složení a alergeny podle nařízení (EU) 2021/2117 a (EU) 2023/1606, platných od 8. 12. 2023. Za správnost údajů na etiketě je vždy odpovědný výrobce.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq9_q">Jak je to s fakturami a účetnictvím?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq9_a">Fakturu z objednávky vystavíte ve Fakturoidu nebo iDokladu. Sklad lahví můžete předat do Pohody jako XML soubor. Účetnictví samotné VineOS nevede.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq10_q">Můžu přenést data z Excelu?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq10_a">Vína nahrajete z Excelu (import xlsx). S většími tabulkami nebo se sešitem vám rádi pomůžeme v poradně.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq11_q">Co je AI asistent Vinnie a kolik stojí?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq11_a">Vinnie odpovídá na otázky o vašich datech. Použijete vlastní klíč ke Gemini (zdarma), Claude nebo ChatGPT. VineOS za AI nic neúčtuje.</div>
+      </details>
+      <details class="faq-item">
+        <summary><h3 class="faq-q" data-i18n="faq12_q">Můžu předplatné zrušit a kde sehnat pomoc?</h3><i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
+        <div class="faq-a" data-i18n="faq12_a">Předplatné zrušíte kdykoli a Pro vám zůstane do konce zaplaceného období. Pomoc dostanete přímo v poradně.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -1090,7 +1956,7 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <section class="cta-banner" id="demo">
   <div class="cta-banner-inner">
     <h2 data-i18n="cta_title">Připraveni začít?<br>Vaše vinařství <em>na vás čeká.</em></h2>
-    <p data-i18n="cta_sub">Vyzkoušejte VineOS zdarma nebo si domluvte osobní demo — rádi vám ukážeme vše naživo.</p>
+    <p data-i18n="cta_sub">Začněte zdarma, s kódem VINE-TRIAL-14 získáte 14 dní plné verze. Nebo si domluvte osobní ukázku, rádi vám vše ukážeme naživo.</p>
     <div class="cta-banner-btns">
       <a href="https://app.vineos.cz/register" class="btn-hero-primary" data-i18n="cta_btn1">Vyzkoušet zdarma</a>
       <a href="mailto:vineos.info@gmail.com?subject=Demo%20VineOS" class="btn-hero-secondary" style="color:var(--cream)">
@@ -1107,12 +1973,14 @@ button { font-family: var(--font-sans); cursor: pointer; }
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-logo">
-      <div class="logo-img"><i class="ti ti-leaf"></i></div>
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 34 34"><rect x="0.5" y="0.5" width="33" height="33" rx="3" fill="#183548" stroke="#c8a24b"/><path d="M9 10 L17 25 L25 10" fill="none" stroke="#c8a24b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="8" r="2.2" fill="#5cc392"/></svg></span>
       VineOS
     </div>
     <div class="footer-links">
       <a href="#features" data-i18n="nav_features">Funkce</a>
       <a href="#pricing" data-i18n="nav_pricing">Ceník</a>
+      <a href="#poradna" data-i18n="footer_poradna">Poradna</a>
+      <a href="#faq" data-i18n="footer_faq">Časté otázky</a>
       <a href="/ochrana-osobnich-udaju.html" data-i18n="footer_privacy">Ochrana dat</a>
       <a href="/podminky.html" data-i18n="footer_terms">Podmínky</a>
       <a href="mailto:vineos.info@gmail.com" data-i18n="footer_contact">Kontakt</a>
@@ -1139,7 +2007,8 @@ const i18n = {
     hero_cta1: "Vyzkoušet zdarma",
     hero_cta2: "Domluvit demo",
     hero_cta3: "Otevřít aplikaci",
-    hero_note: "Bez kreditní karty · Bez závazků · Spuštění za 5 minut",
+    hero_note: "14 dní plné verze zdarma · Bez kreditní karty · Spuštění za 5 minut",
+    hero_tag: "Zkušební kód",
     screenshot_sync: "Synchronizováno",
     screenshot_placeholder: "Zde bude screenshot aplikace",
     story_label: "Příběh",
@@ -1173,8 +2042,8 @@ const i18n = {
     feat4_desc: "Zákonné PDF sestavy jedním kliknutím. VineOS sleduje změny legislativy a upozorní vás.",
     feat4_badge: "🇨🇿 Nyní pro ČR · další země připravujeme",
     feat5_name: "Povinné etikety bez zbytečné práce",
-    feat5_desc: "QR kódy s nutričními hodnotami dle EU 2023/1615 přímo z dat, která již máte ve VineOS.",
-    feat6_name: "&#8222;Kolik mám volného Chardonnay?&#8220;",
+    feat5_desc: "QR kódy s nutričními hodnotami dle nařízení (EU) 2021/2117 a (EU) 2023/1606, platných od 8. 12. 2023, přímo z dat, která již máte ve VineOS.",
+    feat6_name: "AI asistent Vinnie",
     feat6_desc: "&#8222;Kolik mám volného Chardonnay?&#8220; Vinnie odpovídá na otázky o vašich datech. Použijete vlastní API klíč Gemini (zdarma), Claude nebo ChatGPT — VineOS nic neúčtuje.",
     feat6_badge: "Dostupné s vlastním API klíčem",
     price_label: "Ceník",
@@ -1183,10 +2052,10 @@ const i18n = {
     plan1_name: "Free",
     plan1_currency: "Kč",
     plan1_period: "navždy zdarma",
-    plan1_f1: "Správa až 3 šarží",
+    plan1_f1: "Až 3 vína a 2 parcely",
     plan1_f2: "Základní evidence vinice a sklepa",
     plan1_f3: "Offline záznamy",
-    plan1_f4: "Cloud sync",
+    plan1_f4: "Cloudová synchronizace",
     plan1_f5: "PDF vinná kniha",
     plan1_f6: "EU e-Label QR kódy",
     plan1_btn: "Začít zdarma",
@@ -1216,15 +2085,15 @@ const i18n = {
     trust_label: "Technické zázemí",
     trust_title: "Postaveno na pevných základech.",
     trust1_name: "Bezpečnost EU",
-    trust1_desc: "Šifrovaná data na serverech ve Frankfurtu. GDPR compliant.",
+    trust1_desc: "Šifrovaná data na serverech v EU. Zpracování osobních údajů podle GDPR.",
     trust2_name: "Multiplatformní",
     trust2_desc: "Windows, Android, iOS. Jedna aplikace, všechna vaše zařízení.",
     trust3_name: "Offline-First",
     trust3_desc: "Funguje bez internetu. Sync automaticky při připojení.",
-    trust4_name: "Podpora CZ",
-    trust4_desc: "Od nastavení prvního tanku po první export hlášení.",
+    trust4_name: "Vaše data jsou vaše",
+    trust4_desc: "Celé vinařství si kdykoli zálohujete do souboru JSON a obnovíte zpět.",
     cta_title: "Zkuste to. Zadarmo. <em>Bez rizika.</em>",
-    cta_sub: "Stačí pět minut a uvidíte, jestli to pro vás dává smysl. Pokud ne, nic jste neztratili.",
+    cta_sub: "Začněte zdarma, s kódem VINE-TRIAL-14 získáte 14 dní plné verze. Nebo si domluvte osobní ukázku, rádi vám vše ukážeme naživo.",
     cta_btn1: "Vyzkoušet zdarma",
     cta_btn2: "Domluvit demo",
     footer_privacy: "Ochrana dat",
@@ -1236,7 +2105,7 @@ const i18n = {
     cookie_text: "🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.",
     cookie_more: "Více info",
     cookie_ok: "Rozumím",
-    cookie_detail: "Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU (Frankfurt) v souladu s GDPR. Více v dokumentu <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Ochrana osobních údajů</a>.",
+    cookie_detail: "Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU v souladu s GDPR. Více v dokumentu <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Ochrana osobních údajů</a>.",
     showcase_label: "VineOS v praxi",
     showcase_title: "Uvidíte sami.<br><em>Slova nestačí.</em>",
     sp1_tag: "Legislativa & Hlášení",
@@ -1270,7 +2139,141 @@ const i18n = {
     ag5_name: "48hodinový výhled rizik",
     ag5_desc: "Grafy peronospory, teploty a srážek pro každou parcelu — 24h zpět i výhled dopředu.",
     ag6_name: "AI a účetní propojení",
-    ag6_desc: "AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury do Fakturoidu jedním kliknutím.",
+    ag6_desc: "AI asistent Vinnie odpovídá na otázky o vašich datech. Faktury přes Fakturoid nebo iDoklad jedním kliknutím.",
+    gal_label: "Aplikace v detailu",
+    gal_title: "Tak vypadá VineOS <em>doopravdy.</em>",
+    gal_sub: "Snímky z ukázkového vinařství s fiktivními daty. Ve vašich datech to funguje stejně.",
+    gal_t1: "Přehled",
+    gal_t2: "Vinohrad",
+    gal_t3: "Sklep",
+    gal_t4: "Víno",
+    gal_t5: "Sklad",
+    gal_t6: "Vinná kniha",
+    gal_c1_t: "Celý podnik na jedné obrazovce",
+    gal_c1_d: "Zásoby v nádobách, lahve na skladě a prodeje hned po otevření aplikace.",
+    gal_c2_t: "Parcely a odrůdy",
+    gal_c2_d: "Katastr, kód vinice, odrůdy a plochy. U každé parcely historie, ošetření i sklizně.",
+    gal_c3_t: "Každá nádoba a její obsah",
+    gal_c3_d: "Naplnění, víno v nádobě, přečerpání a historie operací na jedno kliknutí.",
+    gal_c4_t: "Rodný list každého vína",
+    gal_c4_d: "Od sklizně přes nádobu a lahvování až po prodej. S odrůdami, rozbory a QR kódem pro zákazníka.",
+    gal_c5_t: "Zásoby podle míst skladu",
+    gal_c5_d: "Lahve po sklepích, prodeje a rezervace, ceny VO i MO u každého vína.",
+    gal_c6_t: "Chronologická evidence",
+    gal_c6_d: "Příjem hroznů, výroba, lahvování a expedice v jedné tabulce, s exportem do PDF.",
+    gal_note: "Ukázková data fiktivního vinařství.",
+    gal_m_title: "A stejná aplikace v telefonu.",
+    gal_m_sub: "Rozhraní se přizpůsobí telefonu i tabletu. Ve vinici a ve sklepě zapisujete dál, i bez signálu.",
+    gal_m1: "Přehled",
+    gal_m2: "Nádoby",
+    gal_m3: "Lahvování",
+    gal_m4: "Sklad",
+    nav_poradna: "Poradna",
+    nav_faq: "FAQ",
+    nav_app: "Aplikace",
+    start_label: "Jak začít",
+    start_title: "Začnete za <em>5 minut.</em>",
+    start_sub: "Bez instalace a bez školení. Stačí e-mail a pár kliknutí.",
+    start1_name: "Založte si účet",
+    start1_desc: "E-mail a heslo, kreditní karta se nezadává. Účet je zdarma.",
+    start2_name: "Odemkněte 14 dní plné verze",
+    start2_desc: "V Nastavení zadejte do pole „Máte aktivační kód?“ kód <strong>VINE-TRIAL-14</strong>. Vyzkoušíte i exporty a QR kódy.",
+    start3_name: "Zapište první víno",
+    start3_desc: "Přidejte nádoby a šarže, nebo si vína nahrajte z Excelu (import xlsx).",
+    start4_name: "Pracujte, kde zrovna jste",
+    start4_desc: "Na počítači, tabletu i telefonu. Bez signálu zapisujete dál, data se synchronizují po připojení.",
+    start_cta: "Založit účet zdarma",
+    start_note: "Po 14 dnech se nic neúčtuje. Účet přejde na verzi Free.",
+    diff_label: "Čím se liší",
+    diff_title: "Postaveno vinařem. <em>Je to poznat.</em>",
+    diff_sub: "Ne další univerzální evidence. VineOS vznikl ve sklepě a ve vinici a podle toho se ovládá.",
+    diff1_name: "Evidence, která se nepřepisuje",
+    diff1_desc: "Záznamy se nemažou ani nepřepisují. Oprava se zapíše s důvodem a časem a celý řetězec záznamů jde ověřit.",
+    diff2_name: "Šumivá vína od tirážních lahví",
+    diff2_desc: "Tradiční metoda, pét-nat i sekundární kvašení s moštem. Tiráž, degoržování, dosage i tlak v lahvích na jednom místě.",
+    diff3_name: "AI asistent s vaším klíčem",
+    diff3_desc: "Ptáte se na vlastní data. Použijete klíč ke Gemini, Claude nebo ChatGPT; VineOS za AI nic neúčtuje.",
+    diff4_name: "Funguje bez signálu",
+    diff4_desc: "Ve sklepě i ve vinici zapisujete dál. Po připojení se vše samo sesynchronizuje i do dalších zařízení.",
+    diff5_name: "QR stránka každého vína",
+    diff5_desc: "Z dat, která už máte, vznikne stránka vína pro zákazníka. Stačí QR kód na etiketě.",
+    diff6_name: "Od vinaře pro vinaře",
+    diff6_desc: "Autor VineOS dělá víno a aplikaci používá každý den. Poradíte se s někým, kdo stejné problémy řeší sám.",
+    qr_label: "QR stránka vína",
+    qr_title: "Dejte každé láhvi <em>její příběh.</em>",
+    qr_sub: "Z dat, která už ve VineOS máte, vznikne veřejná stránka vína. Zákazník naskenuje QR kód na etiketě a za pár vteřin vidí, co mu chcete ukázat. Stránka je česky, anglicky, německy i francouzsky.",
+    qr_f1: "Víno, ročník, šarže, alkohol a typ",
+    qr_f2: "Odrůdy, vinice a způsob výroby",
+    qr_f3: "Nutriční hodnoty, složení a alergeny (EU e-label)",
+    qr_f4: "Sami určíte, které části se zobrazí",
+    qr_flow1: "Láhev",
+    qr_flow2: "QR kód na etiketě",
+    qr_flow3: "Telefon zákazníka",
+    qr_flow4: "Stránka vína",
+    qr_note: "QR kódy jsou součástí verze Pro i 14denní zkoušky.",
+    acc_label: "Faktury a účetnictví",
+    acc_title: "Od objednávky k faktuře <em>bez přepisování.</em>",
+    acc_sub: "Prodej zapíšete jednou. Fakturu vystavíte ve Fakturoidu nebo iDokladu a sklad lahví předáte do Pohody.",
+    acc_f1: "Faktura z objednávky na jedno kliknutí (Fakturoid nebo iDoklad, připojíte v Nastavení)",
+    acc_f2: "Skladové karty lahví do Pohody jako XML soubor",
+    acc_f3: "Ceny VO i MO a přehled zásob při každém prodeji",
+    acc_f4: "Kalkulace nákladů na láhev, takže víte, kolik na ní vyděláte",
+    praxe_label: "V praxi",
+    praxe_title: "Tři situace, které <em>znáte.</em>",
+    praxe_sub: "Ilustrativní příklady, jak vypadá práce s VineOS.",
+    praxe1_tag: "Sezóna ve vinici",
+    praxe1_title: "„Můžu už sklízet?“",
+    praxe1_desc: "Zapíšete postřik a VineOS u parcely hlídá ochrannou lhůtu před sklizní i zásobu přípravku. Před sklizní otevřete telefon a víte, které parcely jsou volné.",
+    praxe2_tag: "Sklep",
+    praxe2_title: "„Kolik mám volného Chardonnay?“",
+    praxe2_desc: "Objem v nádobách, historii šarže i poslední analýzy vidíte na jednom místě. Bez listování sešitem.",
+    praxe3_tag: "Cena láhve",
+    praxe3_title: "„Neprodávám pod cenou?“",
+    praxe3_desc: "Do kalkulace zadáte hrozny, přípravky, obaly a práci. U šarže pak vidíte náklad na láhev, zisk a marži podle ceníku.",
+    price_trial: "Chcete Pro vyzkoušet? Po registraci zadejte v Nastavení kód <strong>VINE-TRIAL-14</strong> a 14 dní máte plnou verzi zdarma, bez karty.",
+    poradna_label: "Poradna",
+    poradna_title: "Nevíte, jak začít? <em>Ozvěte se.</em>",
+    poradna_sub: "Poradím s nastavením vinařství, přenosem dat z Excelu i s první sezónou. Odpovídá přímo autor VineOS, vinař.",
+    poradna_list_title: "S čím vám poradím",
+    poradna_l1: "Jak založit vinici, nádoby a první šarže",
+    poradna_l2: "Jak převést data z Excelu nebo ze sešitu",
+    poradna_l3: "Jak v aplikaci připravit podklady pro hlášení",
+    poradna_l4: "Který plán se hodí pro vaše vinařství",
+    poradna_l5: "Jak zapnout AI asistenta s vlastním klíčem",
+    poradna_phone_label: "Telefon",
+    poradna_mail_label: "E-mail",
+    poradna_call: "Zavolat",
+    poradna_mail: "Napsat e-mail",
+    poradna_demo: "Domluvit ukázku",
+    faq_label: "Časté otázky",
+    faq_title: "Co potřebujete <em>vědět.</em>",
+    faq_sub: "Nenašli jste odpověď? Ozvěte se do poradny.",
+    footer_faq: "Časté otázky",
+    footer_poradna: "Poradna",
+    faq1_q: "Co je VineOS a pro koho je?",
+    faq1_a: "VineOS je aplikace pro vinaře. Drží evidenci vinice, sklepa, lahvování, skladu a prodeje na jednom místě a pomáhá připravit podklady pro hlášení. Hodí se pro rodinná vinařství i větší producenty.",
+    faq2_q: "Kolik VineOS stojí?",
+    faq2_a: "Free je zdarma navždy, s limitem 3 vín a 2 parcel, včetně synchronizace mezi zařízeními. Pro stojí 2 490 Kč ročně (99 € ročně) a odemyká neomezené záznamy, exporty a QR kódy.",
+    faq3_q: "Můžu si VineOS vyzkoušet zdarma?",
+    faq3_a: "Ano. Založte si účet, v Nastavení zadejte kód VINE-TRIAL-14 a 14 dní máte plnou verzi Pro. Kartu nezadáváte a nic se samo neúčtuje.",
+    faq4_q: "Funguje VineOS na mobilu a bez internetu?",
+    faq4_a: "Ano. Aplikace běží na počítači, tabletu i telefonu. Bez signálu zapisujete dál a po připojení se data synchronizují.",
+    faq5_q: "Kde jsou moje data a můžu je dostat pryč?",
+    faq5_a: "Data jsou šifrovaně uložena na serverech v EU. Celé vinařství si kdykoli zálohujete do souboru JSON a obnovíte zpět, takže nejste na VineOS vázáni.",
+    faq6_q: "Připraví VineOS hlášení pro ÚKZÚZ?",
+    faq6_a: "Z vašich záznamů vyplní podklady pro hlášení (zásoby, produkce, Vinařský fond) a exportuje je do PDF, XLSX nebo XML. Správnost a včasné podání hlášení ale zůstává na vás, proto podklady vždy zkontrolujte.",
+    faq7_q: "Zvládne VineOS i šumivá vína?",
+    faq7_a: "Ano. Evidence výroby šumivých vín zahrnuje tradiční metodu, pét-nat i sekundární kvašení s hroznovým moštem: tiráž, degoržování, dosage i tlak v lahvích.",
+    faq8_q: "Co je QR stránka vína a e-label?",
+    faq8_a: "Je to veřejná stránka vína, na kterou vede QR kód na etiketě. Ukáže údaje o víně, nutriční hodnoty, složení a alergeny podle nařízení (EU) 2021/2117 a (EU) 2023/1606, platných od 8. 12. 2023. Za správnost údajů na etiketě je vždy odpovědný výrobce.",
+    faq9_q: "Jak je to s fakturami a účetnictvím?",
+    faq9_a: "Fakturu z objednávky vystavíte ve Fakturoidu nebo iDokladu. Sklad lahví můžete předat do Pohody jako XML soubor. Účetnictví samotné VineOS nevede.",
+    faq10_q: "Můžu přenést data z Excelu?",
+    faq10_a: "Vína nahrajete z Excelu (import xlsx). S většími tabulkami nebo se sešitem vám rádi pomůžeme v poradně.",
+    faq11_q: "Co je AI asistent Vinnie a kolik stojí?",
+    faq11_a: "Vinnie odpovídá na otázky o vašich datech. Použijete vlastní klíč ke Gemini (zdarma), Claude nebo ChatGPT. VineOS za AI nic neúčtuje.",
+    faq12_q: "Můžu předplatné zrušit a kde sehnat pomoc?",
+    faq12_a: "Předplatné zrušíte kdykoli a Pro vám zůstane do konce zaplaceného období. Pomoc dostanete přímo v poradně.",
   },
 
   en: {
@@ -1285,7 +2288,8 @@ const i18n = {
     hero_cta1: "Start for free",
     hero_cta2: "Book a demo",
     hero_cta3: "Open the app",
-    hero_note: "No credit card · No commitment · Up and running in 5 minutes",
+    hero_note: "14 days of the full version free · No credit card · Up and running in 5 minutes",
+    hero_tag: "Trial code",
     screenshot_sync: "Synchronised",
     screenshot_placeholder: "App screenshot goes here",
     story_label: "Story",
@@ -1319,8 +2323,8 @@ const i18n = {
     feat4_desc: "Legal PDF reports in one click. VineOS tracks regulatory changes and notifies you.",
     feat4_badge: "🇨🇿 Now for Czech Republic · more countries coming",
     feat5_name: "Mandatory labels, no extra busywork",
-    feat5_desc: "QR codes with nutritional values per EU 2023/1615, generated from data already in VineOS.",
-    feat6_name: "&#8222;How much free Chardonnay do I have?&#8220;",
+    feat5_desc: "QR codes with nutritional values per Regulations (EU) 2021/2117 and (EU) 2023/1606, applicable since 8 Dec 2023, generated from data already in VineOS.",
+    feat6_name: "AI assistant Vinnie",
     feat6_desc: "\"How much free Chardonnay do I have?\" Vinnie answers questions about your data. Use your own API key for Gemini (free), Claude or ChatGPT — VineOS bills nothing.",
     feat6_badge: "Available with your own API key",
     price_label: "Pricing",
@@ -1329,10 +2333,10 @@ const i18n = {
     plan1_name: "Free",
     plan1_currency: "€",
     plan1_period: "free, forever",
-    plan1_f1: "Manage up to 3 batches",
+    plan1_f1: "Up to 3 wines and 2 plots",
     plan1_f2: "Basic vineyard & cellar records",
     plan1_f3: "Offline logging",
-    plan1_f4: "Cloud sync",
+    plan1_f4: "Cloudová synchronizace",
     plan1_f5: "PDF wine book",
     plan1_f6: "EU e-Label QR codes",
     plan1_btn: "Start for free",
@@ -1362,15 +2366,15 @@ const i18n = {
     trust_label: "Technology",
     trust_title: "Built on solid foundations.",
     trust1_name: "EU Security",
-    trust1_desc: "Encrypted data on servers in Frankfurt. GDPR compliant.",
+    trust1_desc: "Encrypted data on servers in the EU. Personal data processed under GDPR.",
     trust2_name: "Multi-platform",
     trust2_desc: "Windows, Android, iOS. One app, all your devices.",
     trust3_name: "Offline-First",
     trust3_desc: "Works without internet. Syncs automatically on reconnect.",
-    trust4_name: "Support CZ",
-    trust4_desc: "From setting up your first tank to your first regulatory export.",
+    trust4_name: "Your data is yours",
+    trust4_desc: "Back up your whole winery to a JSON file at any time and restore it again.",
     cta_title: "Try it. Free. <em>No risk.</em>",
-    cta_sub: "Five minutes and you'll see if it makes sense for you. If not, you've lost nothing.",
+    cta_sub: "Start for free, and the code VINE-TRIAL-14 gives you 14 days of the full version. Or book a personal walkthrough, we are happy to show you everything live.",
     cta_btn1: "Start for free",
     cta_btn2: "Book a demo",
     footer_privacy: "Privacy",
@@ -1382,7 +2386,7 @@ const i18n = {
     cookie_text: "🍪 This website uses only essential cookies required for it to function. We use no advertising or tracking cookies.",
     cookie_more: "More info",
     cookie_ok: "Got it",
-    cookie_detail: "We use only technical cookies required for login and app functionality (Supabase session). We do not use Google Analytics, Facebook Pixel, or any other tracking tools. Data is stored on EU servers (Frankfurt) in compliance with GDPR. See our <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Privacy Policy</a> (Czech).",
+    cookie_detail: "We use only technical cookies required for login and app functionality (Supabase session). We do not use Google Analytics, Facebook Pixel, or any other tracking tools. Data is stored on EU servers in compliance with GDPR. See our <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Privacy Policy</a> (Czech).",
     showcase_label: "VineOS in action",
     showcase_title: "See for yourself.<br><em>Words aren't enough.</em>",
     sp1_tag: "Compliance & Reporting",
@@ -1416,7 +2420,141 @@ const i18n = {
     ag5_name: "48-hour risk forecast",
     ag5_desc: "Downy mildew, temperature and rainfall charts per plot — 24h back and 24h ahead.",
     ag6_name: "AI and accounting integration",
-    ag6_desc: "AI assistant Vinnie answers questions about your data. Invoices to Fakturoid in one click.",
+    ag6_desc: "AI assistant Vinnie answers questions about your data. Invoices via Fakturoid or iDoklad in one click.",
+    gal_label: "The app up close",
+    gal_title: "This is what VineOS <em>really looks like.</em>",
+    gal_sub: "Screenshots from a sample winery with fictional data. It works the same way with your own data.",
+    gal_t1: "Overview",
+    gal_t2: "Vineyard",
+    gal_t3: "Cellar",
+    gal_t4: "Wine",
+    gal_t5: "Stock",
+    gal_t6: "Wine book",
+    gal_c1_t: "Your whole winery on one screen",
+    gal_c1_d: "Tank contents, bottles in stock and sales the moment you open the app.",
+    gal_c2_t: "Plots and varieties",
+    gal_c2_d: "Cadastre, vineyard code, varieties and areas. Each plot has its history, treatments and harvests.",
+    gal_c3_t: "Every vessel and what is in it",
+    gal_c3_d: "Fill level, the wine inside, racking and the history of operations in one click.",
+    gal_c4_t: "A birth certificate for every wine",
+    gal_c4_d: "From harvest through vessel and bottling to sale. With varieties, lab results and a QR code for customers.",
+    gal_c5_t: "Stock by storage location",
+    gal_c5_d: "Bottles by cellar, sales and reservations, wholesale and retail prices for every wine.",
+    gal_c6_t: "Chronological records",
+    gal_c6_d: "Grape intake, production, bottling and dispatch in one table, with PDF export.",
+    gal_note: "Sample data from a fictional winery.",
+    gal_m_title: "And the same app on your phone.",
+    gal_m_sub: "The interface adapts to phone and tablet. You keep logging in the vineyard and the cellar, even without signal.",
+    gal_m1: "Overview",
+    gal_m2: "Vessels",
+    gal_m3: "Bottling",
+    gal_m4: "Stock",
+    nav_poradna: "Advice",
+    nav_faq: "FAQ",
+    nav_app: "The app",
+    start_label: "Getting started",
+    start_title: "Up and running in <em>5 minutes.</em>",
+    start_sub: "No installation, no training. An e-mail address and a few clicks are enough.",
+    start1_name: "Create an account",
+    start1_desc: "E-mail and password, no credit card needed. The account is free.",
+    start2_name: "Unlock 14 days of the full version",
+    start2_desc: "In Settings, enter <strong>VINE-TRIAL-14</strong> in the “Have an activation code?” field. You can try exports and QR codes too.",
+    start3_name: "Log your first wine",
+    start3_desc: "Add vessels and batches, or upload your wines from Excel (xlsx import).",
+    start4_name: "Work wherever you are",
+    start4_desc: "On your computer, tablet or phone. Without signal you keep logging, and the data syncs once you are back online.",
+    start_cta: "Create a free account",
+    start_note: "Nothing is charged after 14 days. The account moves to the Free plan.",
+    diff_label: "What sets us apart",
+    diff_title: "Built by a winemaker. <em>You can tell.</em>",
+    diff_sub: "Not yet another all-purpose record keeper. VineOS was born in the cellar and the vineyard, and it works that way.",
+    diff1_name: "Records that are never overwritten",
+    diff1_desc: "Entries are neither deleted nor overwritten. A correction is saved with a reason and a time, and the whole chain of records can be verified.",
+    diff2_name: "Sparkling wine from the first tirage bottle",
+    diff2_desc: "Traditional method, pét-nat and secondary fermentation with grape must. Tirage, disgorging, dosage and bottle pressure in one place.",
+    diff3_name: "An AI assistant with your own key",
+    diff3_desc: "You ask questions about your own data. Use a key for Gemini, Claude or ChatGPT; VineOS charges nothing for the AI.",
+    diff4_name: "Works without signal",
+    diff4_desc: "Keep logging in the cellar and in the vineyard. Everything syncs by itself when you reconnect, including to your other devices.",
+    diff5_name: "A QR page for every wine",
+    diff5_desc: "The data you already have becomes a wine page for your customers. A QR code on the label is all it takes.",
+    diff6_name: "By a winemaker, for winemakers",
+    diff6_desc: "The author of VineOS makes wine and uses the app every day. You talk to someone who solves the same problems first-hand.",
+    qr_label: "Wine QR page",
+    qr_title: "Give every bottle <em>its own story.</em>",
+    qr_sub: "The data you already have in VineOS becomes a public wine page. A customer scans the QR code on the label and within seconds sees what you want to show. The page is available in Czech, English, German and French.",
+    qr_f1: "Wine, vintage, batch, alcohol and type",
+    qr_f2: "Varieties, vineyard and winemaking",
+    qr_f3: "Nutrition, ingredients and allergens (EU e-label)",
+    qr_f4: "You decide which sections are shown",
+    qr_flow1: "Bottle",
+    qr_flow2: "QR code on the label",
+    qr_flow3: "Customer’s phone",
+    qr_flow4: "Wine page",
+    qr_note: "QR codes are included in Pro and in the 14-day trial.",
+    acc_label: "Invoices & accounting",
+    acc_title: "From order to invoice <em>without retyping.</em>",
+    acc_sub: "You enter a sale once. You issue the invoice in Fakturoid or iDoklad and hand the bottle stock over to Pohoda.",
+    acc_f1: "Invoice from an order in one click (Fakturoid or iDoklad, connect it in Settings)",
+    acc_f2: "Bottle stock cards for Pohoda as an XML file",
+    acc_f3: "Wholesale and retail prices and a stock overview with every sale",
+    acc_f4: "Cost calculation per bottle, so you know what you earn on it",
+    praxe_label: "In practice",
+    praxe_title: "Three situations <em>you know.</em>",
+    praxe_sub: "Illustrative examples of what working with VineOS looks like.",
+    praxe1_tag: "Vineyard season",
+    praxe1_title: "“Can I harvest yet?”",
+    praxe1_desc: "You log a spray and VineOS tracks the pre-harvest interval and the product stock for that plot. Before harvest you open your phone and know which plots are clear.",
+    praxe2_tag: "Cellar",
+    praxe2_title: "“How much free Chardonnay do I have?”",
+    praxe2_desc: "Volume in the vessels, batch history and the latest analyses are in one place. No more paging through a notebook.",
+    praxe3_tag: "Bottle price",
+    praxe3_title: "“Am I selling below cost?”",
+    praxe3_desc: "You enter grapes, products, packaging and labour into the calculation. For each batch you then see the cost per bottle, profit and margin based on your price list.",
+    price_trial: "Want to try Pro? After signing up, enter the code <strong>VINE-TRIAL-14</strong> in Settings and get 14 days of the full version free, no card needed.",
+    poradna_label: "Advice",
+    poradna_title: "Not sure how to start? <em>Get in touch.</em>",
+    poradna_sub: "I will help with setting up your winery, moving data from Excel and your first season. You get an answer straight from the author of VineOS, a winemaker.",
+    poradna_list_title: "What I can help with",
+    poradna_l1: "Setting up the vineyard, vessels and first batches",
+    poradna_l2: "Moving data from Excel or a notebook",
+    poradna_l3: "Preparing the figures for your reports in the app",
+    poradna_l4: "Which plan suits your winery",
+    poradna_l5: "Turning on the AI assistant with your own key",
+    poradna_phone_label: "Phone",
+    poradna_mail_label: "E-mail",
+    poradna_call: "Call",
+    poradna_mail: "Send an e-mail",
+    poradna_demo: "Book a walkthrough",
+    faq_label: "FAQ",
+    faq_title: "What you <em>need to know.</em>",
+    faq_sub: "Did not find an answer? Get in touch with the advice line.",
+    footer_faq: "FAQ",
+    footer_poradna: "Advice",
+    faq1_q: "What is VineOS and who is it for?",
+    faq1_a: "VineOS is an app for winemakers. It keeps your vineyard, cellar, bottling, stock and sales records in one place and helps you prepare figures for your reports. It suits family wineries as well as larger producers.",
+    faq2_q: "How much does VineOS cost?",
+    faq2_a: "Free is free forever, limited to 3 wines and 2 plots, including sync across devices. Pro costs 99 € per year (2,490 CZK) and unlocks unlimited records, exports and QR codes.",
+    faq3_q: "Can I try VineOS for free?",
+    faq3_a: "Yes. Create an account, enter the code VINE-TRIAL-14 in Settings and you get the full Pro version for 14 days. No card is required and nothing is charged automatically.",
+    faq4_q: "Does VineOS work on a phone and without internet?",
+    faq4_a: "Yes. The app runs on a computer, tablet and phone. Without signal you keep logging and the data syncs when you are back online.",
+    faq5_q: "Where is my data, and can I take it with me?",
+    faq5_a: "Your data is stored encrypted on servers in the EU. You can back up your whole winery to a JSON file at any time and restore it, so you are not locked in to VineOS.",
+    faq6_q: "Does VineOS prepare reports for ÚKZÚZ?",
+    faq6_a: "It fills in the figures for your reports from your records (stocks, production, Wine Fund) and exports them to PDF, XLSX or XML. You remain responsible for the accuracy and timely submission of the report, so always check the figures.",
+    faq7_q: "Can VineOS handle sparkling wine?",
+    faq7_a: "Yes. Sparkling wine production records cover the traditional method, pét-nat and secondary fermentation with grape must: tirage, disgorging, dosage and bottle pressure.",
+    faq8_q: "What is the wine QR page and the e-label?",
+    faq8_a: "It is a public wine page that the QR code on the label points to. It shows wine details, nutrition values, ingredients and allergens as set out in Regulations (EU) 2021/2117 and (EU) 2023/1606, applicable since 8 Dec 2023. The producer is always responsible for the accuracy of the label information.",
+    faq9_q: "What about invoices and accounting?",
+    faq9_a: "You issue the invoice from an order in Fakturoid or iDoklad. You can hand the bottle stock over to Pohoda as an XML file. VineOS itself does not keep your books.",
+    faq10_q: "Can I move my data over from Excel?",
+    faq10_a: "You can upload your wines from Excel (xlsx import). With bigger spreadsheets or a notebook, we are happy to help in the advice line.",
+    faq11_q: "What is the AI assistant Vinnie and what does it cost?",
+    faq11_a: "Vinnie answers questions about your data. You use your own key for Gemini (free), Claude or ChatGPT. VineOS charges nothing for the AI.",
+    faq12_q: "Can I cancel the subscription, and where do I get help?",
+    faq12_a: "You can cancel at any time and Pro stays active until the end of the paid period. You get help straight from the advice line.",
   },
 
   de: {
@@ -1431,7 +2569,8 @@ const i18n = {
     hero_cta1: "Kostenlos starten",
     hero_cta2: "Demo vereinbaren",
     hero_cta3: "App öffnen",
-    hero_note: "Keine Kreditkarte · Keine Verpflichtung · In 5 Minuten einsatzbereit",
+    hero_note: "14 Tage Vollversion gratis · Keine Kreditkarte · In 5 Minuten startklar",
+    hero_tag: "Testcode",
     screenshot_sync: "Synchronisiert",
     screenshot_placeholder: "Hier kommt der App-Screenshot",
     story_label: "Geschichte",
@@ -1465,8 +2604,8 @@ const i18n = {
     feat4_desc: "Rechtskonforme PDF-Berichte auf Knopfdruck. VineOS überwacht Rechtsänderungen und informiert Sie.",
     feat4_badge: "🇨🇿 Jetzt für Tschechien · weitere Länder folgen",
     feat5_name: "Pflicht-Etiketten ohne Mehrarbeit",
-    feat5_desc: "QR-Codes mit Nährwertangaben gemäß EU 2023/1615 direkt aus bereits in VineOS erfassten Daten.",
-    feat6_name: "&#8222;Wie viel freier Chardonnay ist verfügbar?&#8220;",
+    feat5_desc: "QR-Codes mit Nährwertangaben gemäß den Verordnungen (EU) 2021/2117 und (EU) 2023/1606, gültig seit 8. 12. 2023, direkt aus bereits in VineOS erfassten Daten.",
+    feat6_name: "KI-Assistent Vinnie",
     feat6_desc: "&#8222;Wie viel freier Chardonnay ist verfügbar?&#8220; Vinnie beantwortet Fragen zu Ihren Daten. Mit eigenem API-Schlüssel für Gemini (kostenlos), Claude oder ChatGPT — VineOS berechnet nichts.",
     feat6_badge: "Verfügbar mit eigenem API-Schlüssel",
     price_label: "Preise",
@@ -1475,7 +2614,7 @@ const i18n = {
     plan1_name: "Free",
     plan1_currency: "€",
     plan1_period: "kostenlos, für immer",
-    plan1_f1: "Verwaltung von bis zu 3 Chargen",
+    plan1_f1: "Bis zu 3 Weine und 2 Parzellen",
     plan1_f2: "Grundlegende Weinberg- & Kelleraufzeichnungen",
     plan1_f3: "Offline-Erfassung",
     plan1_f4: "Cloud-Synchronisierung",
@@ -1508,15 +2647,15 @@ const i18n = {
     trust_label: "Technologie",
     trust_title: "Auf soliden Grundlagen gebaut.",
     trust1_name: "EU-Sicherheit",
-    trust1_desc: "Verschlüsselte Daten auf Servern in Frankfurt. DSGVO-konform.",
+    trust1_desc: "Verschlüsselte Daten auf Servern in der EU. Verarbeitung personenbezogener Daten nach DSGVO.",
     trust2_name: "Multiplattform",
     trust2_desc: "Windows, Android, iOS. Eine App, alle Ihre Geräte.",
     trust3_name: "Offline-First",
     trust3_desc: "Funktioniert ohne Internet. Synchronisierung automatisch bei Verbindung.",
-    trust4_name: "Support CZ",
-    trust4_desc: "Von der Einrichtung des ersten Tanks bis zum ersten Behördenexport.",
+    trust4_name: "Ihre Daten gehören Ihnen",
+    trust4_desc: "Sichern Sie Ihr ganzes Weingut jederzeit als JSON-Datei und stellen Sie es wieder her.",
     cta_title: "Probieren Sie's. Kostenlos. <em>Risikofrei.</em>",
-    cta_sub: "Fünf Minuten und Sie sehen, ob es für Sie Sinn ergibt. Wenn nicht, haben Sie nichts verloren.",
+    cta_sub: "Starten Sie kostenlos, mit dem Code VINE-TRIAL-14 erhalten Sie 14 Tage die Vollversion. Oder vereinbaren Sie eine persönliche Vorführung, wir zeigen Ihnen gern alles live.",
     cta_btn1: "Kostenlos starten",
     cta_btn2: "Demo vereinbaren",
     footer_privacy: "Datenschutz",
@@ -1528,7 +2667,7 @@ const i18n = {
     cookie_text: "🍪 Diese Website verwendet nur technisch notwendige Cookies. Wir verwenden keine Werbe- oder Tracking-Cookies.",
     cookie_more: "Mehr Info",
     cookie_ok: "Verstanden",
-    cookie_detail: "Wir verwenden ausschließlich technische Cookies für Login und App-Betrieb (Supabase Session). Wir nutzen kein Google Analytics, kein Facebook Pixel und keine anderen Tracking-Tools. Daten werden auf EU-Servern (Frankfurt) gemäß DSGVO gespeichert. Mehr in der <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Datenschutzerklärung</a> (Tschechisch).",
+    cookie_detail: "Wir verwenden ausschließlich technische Cookies für Login und App-Betrieb (Supabase Session). Wir nutzen kein Google Analytics, kein Facebook Pixel und keine anderen Tracking-Tools. Daten werden auf EU-Servern gemäß DSGVO gespeichert. Mehr in der <a href='/ochrana-osobnich-udaju.html' style='color:#95d5b2;'>Datenschutzerklärung</a> (Tschechisch).",
     showcase_label: "VineOS in der Praxis",
     showcase_title: "Überzeugen Sie sich selbst.<br><em>Worte reichen nicht.</em>",
     sp1_tag: "Gesetzgebung & Meldungen",
@@ -1562,7 +2701,141 @@ const i18n = {
     ag5_name: "48-Stunden-Risikovorschau",
     ag5_desc: "Peronospora-, Temperatur- und Niederschlagsdiagramme je Flurstück — 24h zurück und 24h voraus.",
     ag6_name: "KI und Buchhaltungsintegration",
-    ag6_desc: "KI-Assistent Vinnie beantwortet Fragen zu Ihren Daten. Rechnungen an Fakturoid mit einem Klick.",
+    ag6_desc: "KI-Assistent Vinnie beantwortet Fragen zu Ihren Daten. Rechnungen über Fakturoid oder iDoklad mit einem Klick.",
+    gal_label: "Die App im Detail",
+    gal_title: "So sieht VineOS <em>wirklich aus.</em>",
+    gal_sub: "Bilder aus einem Beispielweingut mit fiktiven Daten. Mit Ihren Daten funktioniert es genauso.",
+    gal_t1: "Übersicht",
+    gal_t2: "Weinberg",
+    gal_t3: "Keller",
+    gal_t4: "Wein",
+    gal_t5: "Lager",
+    gal_t6: "Weinbuch",
+    gal_c1_t: "Ihr ganzer Betrieb auf einem Bildschirm",
+    gal_c1_d: "Tankinhalte, Flaschen im Lager und Verkäufe, sobald Sie die App öffnen.",
+    gal_c2_t: "Parzellen und Rebsorten",
+    gal_c2_d: "Gemarkung, Weinbergscode, Rebsorten und Flächen. Zu jeder Parzelle Verlauf, Behandlungen und Lesen.",
+    gal_c3_t: "Jeder Behälter und sein Inhalt",
+    gal_c3_d: "Füllstand, Wein im Behälter, Umpumpen und Verlauf der Arbeitsgänge mit einem Klick.",
+    gal_c4_t: "Der Lebenslauf jedes Weins",
+    gal_c4_d: "Von der Lese über Behälter und Abfüllung bis zum Verkauf. Mit Rebsorten, Laborwerten und QR-Code für Kunden.",
+    gal_c5_t: "Bestände nach Lagerort",
+    gal_c5_d: "Flaschen nach Keller, Verkäufe und Reservierungen, Großhandels- und Einzelhandelspreise je Wein.",
+    gal_c6_t: "Chronologische Aufzeichnung",
+    gal_c6_d: "Traubenannahme, Produktion, Abfüllung und Versand in einer Tabelle, mit PDF-Export.",
+    gal_note: "Beispieldaten eines fiktiven Weinguts.",
+    gal_m_title: "Und dieselbe App auf dem Smartphone.",
+    gal_m_sub: "Die Oberfläche passt sich Smartphone und Tablet an. Im Weinberg und im Keller erfassen Sie weiter, auch ohne Netz.",
+    gal_m1: "Übersicht",
+    gal_m2: "Behälter",
+    gal_m3: "Abfüllung",
+    gal_m4: "Lager",
+    nav_poradna: "Beratung",
+    nav_faq: "FAQ",
+    nav_app: "App",
+    start_label: "So starten Sie",
+    start_title: "In <em>5 Minuten</em> startklar.",
+    start_sub: "Keine Installation, keine Schulung. Eine E-Mail-Adresse und ein paar Klicks genügen.",
+    start1_name: "Konto anlegen",
+    start1_desc: "E-Mail und Passwort, eine Kreditkarte ist nicht nötig. Das Konto ist kostenlos.",
+    start2_name: "14 Tage Vollversion freischalten",
+    start2_desc: "Geben Sie in den Einstellungen im Feld „Haben Sie einen Aktivierungscode?“ den Code <strong>VINE-TRIAL-14</strong> ein. Sie testen auch Exporte und QR-Codes.",
+    start3_name: "Ersten Wein erfassen",
+    start3_desc: "Legen Sie Tanks und Chargen an oder laden Sie Ihre Weine aus Excel hoch (xlsx-Import).",
+    start4_name: "Arbeiten, wo Sie gerade sind",
+    start4_desc: "Am Computer, Tablet und Smartphone. Ohne Netz erfassen Sie weiter, die Daten synchronisieren sich bei Verbindung.",
+    start_cta: "Kostenloses Konto anlegen",
+    start_note: "Nach 14 Tagen wird nichts berechnet. Das Konto wechselt in die Free-Version.",
+    diff_label: "Was uns unterscheidet",
+    diff_title: "Von einem Winzer gebaut. <em>Das merkt man.</em>",
+    diff_sub: "Keine weitere Allerwelts-Verwaltung. VineOS entstand im Keller und im Weinberg und bedient sich auch so.",
+    diff1_name: "Aufzeichnungen, die nicht überschrieben werden",
+    diff1_desc: "Einträge werden weder gelöscht noch überschrieben. Eine Korrektur wird mit Grund und Zeitpunkt erfasst, die gesamte Kette lässt sich prüfen.",
+    diff2_name: "Schaumwein von der Tirage an",
+    diff2_desc: "Traditionelle Methode, Pet-Nat und Zweitgärung mit Traubenmost. Tirage, Degorgieren, Dosage und Flaschendruck an einem Ort.",
+    diff3_name: "KI-Assistent mit Ihrem Schlüssel",
+    diff3_desc: "Sie fragen Ihre eigenen Daten ab. Nutzen Sie einen Schlüssel für Gemini, Claude oder ChatGPT; VineOS berechnet für die KI nichts.",
+    diff4_name: "Funktioniert ohne Netz",
+    diff4_desc: "Im Keller und im Weinberg erfassen Sie weiter. Bei Verbindung synchronisiert sich alles von selbst, auch auf Ihre weiteren Geräte.",
+    diff5_name: "QR-Seite für jeden Wein",
+    diff5_desc: "Aus Ihren vorhandenen Daten entsteht eine Weinseite für Kunden. Ein QR-Code auf dem Etikett genügt.",
+    diff6_name: "Von Winzern für Winzer",
+    diff6_desc: "Der Autor von VineOS macht Wein und nutzt die App täglich. Sie sprechen mit jemandem, der dieselben Probleme selbst löst.",
+    qr_label: "QR-Seite des Weins",
+    qr_title: "Geben Sie jeder Flasche <em>ihre Geschichte.</em>",
+    qr_sub: "Aus den Daten, die Sie in VineOS haben, entsteht eine öffentliche Weinseite. Der Kunde scannt den QR-Code auf dem Etikett und sieht in Sekunden, was Sie zeigen möchten. Die Seite gibt es auf Tschechisch, Englisch, Deutsch und Französisch.",
+    qr_f1: "Wein, Jahrgang, Charge, Alkohol und Typ",
+    qr_f2: "Rebsorten, Weinberg und Herstellung",
+    qr_f3: "Nährwerte, Zutaten und Allergene (EU-E-Label)",
+    qr_f4: "Sie bestimmen, welche Abschnitte angezeigt werden",
+    qr_flow1: "Flasche",
+    qr_flow2: "QR-Code auf dem Etikett",
+    qr_flow3: "Smartphone des Kunden",
+    qr_flow4: "Weinseite",
+    qr_note: "QR-Codes sind in der Pro-Version und in der 14-Tage-Testphase enthalten.",
+    acc_label: "Rechnungen & Buchhaltung",
+    acc_title: "Von der Bestellung zur Rechnung <em>ohne Abtippen.</em>",
+    acc_sub: "Sie erfassen den Verkauf einmal. Die Rechnung stellen Sie in Fakturoid oder iDoklad aus, den Flaschenbestand übergeben Sie an Pohoda.",
+    acc_f1: "Rechnung aus der Bestellung mit einem Klick (Fakturoid oder iDoklad, in den Einstellungen verbinden)",
+    acc_f2: "Lagerkarten der Flaschen als XML-Datei für Pohoda",
+    acc_f3: "Großhandels- und Einzelhandelspreise und Bestandsübersicht bei jedem Verkauf",
+    acc_f4: "Kostenkalkulation pro Flasche, damit Sie wissen, was Sie daran verdienen",
+    praxe_label: "Aus der Praxis",
+    praxe_title: "Drei Situationen, die <em>Sie kennen.</em>",
+    praxe_sub: "Illustrative Beispiele, wie die Arbeit mit VineOS aussieht.",
+    praxe1_tag: "Saison im Weinberg",
+    praxe1_title: "„Darf ich schon lesen?“",
+    praxe1_desc: "Sie tragen die Spritzung ein, VineOS überwacht je Parzelle die Wartezeit vor der Lese und den Bestand des Mittels. Vor der Lese öffnen Sie das Smartphone und wissen, welche Parzellen frei sind.",
+    praxe2_tag: "Keller",
+    praxe2_title: "„Wie viel freien Chardonnay habe ich?“",
+    praxe2_desc: "Volumen in den Tanks, Chargenhistorie und letzte Analysen sehen Sie an einem Ort. Ohne Blättern im Heft.",
+    praxe3_tag: "Flaschenpreis",
+    praxe3_title: "„Verkaufe ich unter Preis?“",
+    praxe3_desc: "In die Kalkulation geben Sie Trauben, Mittel, Verpackung und Arbeit ein. Bei der Charge sehen Sie dann Kosten pro Flasche, Gewinn und Marge nach Preisliste.",
+    price_trial: "Pro ausprobieren? Geben Sie nach der Registrierung in den Einstellungen den Code <strong>VINE-TRIAL-14</strong> ein und nutzen Sie 14 Tage die Vollversion gratis, ohne Karte.",
+    poradna_label: "Beratung",
+    poradna_title: "Unsicher, wie Sie starten? <em>Melden Sie sich.</em>",
+    poradna_sub: "Ich helfe bei der Einrichtung, bei der Datenübernahme aus Excel und bei der ersten Saison. Es antwortet direkt der Autor von VineOS, ein Winzer.",
+    poradna_list_title: "Wobei ich helfe",
+    poradna_l1: "Weinberg, Tanks und erste Chargen anlegen",
+    poradna_l2: "Daten aus Excel oder Heft übernehmen",
+    poradna_l3: "Unterlagen für Meldungen in der App vorbereiten",
+    poradna_l4: "Welcher Plan zu Ihrem Weingut passt",
+    poradna_l5: "KI-Assistent mit eigenem Schlüssel aktivieren",
+    poradna_phone_label: "Telefon",
+    poradna_mail_label: "E-Mail",
+    poradna_call: "Anrufen",
+    poradna_mail: "E-Mail schreiben",
+    poradna_demo: "Vorführung vereinbaren",
+    faq_label: "Häufige Fragen",
+    faq_title: "Was Sie <em>wissen sollten.</em>",
+    faq_sub: "Keine Antwort gefunden? Melden Sie sich in der Beratung.",
+    footer_faq: "Häufige Fragen",
+    footer_poradna: "Beratung",
+    faq1_q: "Was ist VineOS und für wen ist es?",
+    faq1_a: "VineOS ist eine App für Winzer. Sie hält Weinberg, Keller, Abfüllung, Lager und Verkauf an einem Ort zusammen und hilft, Unterlagen für Meldungen vorzubereiten. Geeignet für Familienweingüter wie für größere Erzeuger.",
+    faq2_q: "Was kostet VineOS?",
+    faq2_a: "Free ist dauerhaft kostenlos, mit einem Limit von 3 Weinen und 2 Parzellen, inklusive Synchronisierung zwischen Geräten. Pro kostet 99 € pro Jahr (2.490 CZK) und schaltet unbegrenzte Einträge, Exporte und QR-Codes frei.",
+    faq3_q: "Kann ich VineOS kostenlos testen?",
+    faq3_a: "Ja. Legen Sie ein Konto an, geben Sie in den Einstellungen den Code VINE-TRIAL-14 ein und nutzen Sie 14 Tage die Pro-Version. Es wird keine Karte verlangt und nichts automatisch abgebucht.",
+    faq4_q: "Läuft VineOS auf dem Smartphone und ohne Internet?",
+    faq4_a: "Ja. Die App läuft auf Computer, Tablet und Smartphone. Ohne Netz erfassen Sie weiter, bei Verbindung werden die Daten synchronisiert.",
+    faq5_q: "Wo liegen meine Daten und kann ich sie mitnehmen?",
+    faq5_a: "Die Daten liegen verschlüsselt auf Servern in der EU. Sie sichern Ihr gesamtes Weingut jederzeit als JSON-Datei und stellen es wieder her, Sie sind also nicht an VineOS gebunden.",
+    faq6_q: "Bereitet VineOS Meldungen für das ÚKZÚZ vor?",
+    faq6_a: "Aus Ihren Aufzeichnungen füllt es Unterlagen für Meldungen aus (Bestände, Produktion, Weinfonds) und exportiert sie als PDF, XLSX oder XML. Für die Richtigkeit und rechtzeitige Einreichung bleiben Sie verantwortlich, prüfen Sie die Unterlagen daher immer.",
+    faq7_q: "Kann VineOS auch Schaumwein?",
+    faq7_a: "Ja. Die Erfassung der Schaumweinherstellung umfasst die traditionelle Methode, Pet-Nat und Zweitgärung mit Traubenmost: Tirage, Degorgieren, Dosage und Flaschendruck.",
+    faq8_q: "Was sind QR-Weinseite und E-Label?",
+    faq8_a: "Eine öffentliche Weinseite, auf die der QR-Code am Etikett führt. Sie zeigt Weindaten, Nährwerte, Zutaten und Allergene nach den Verordnungen (EU) 2021/2117 und (EU) 2023/1606, gültig seit 8. 12. 2023. Für die Richtigkeit der Angaben auf dem Etikett ist stets der Erzeuger verantwortlich.",
+    faq9_q: "Wie funktionieren Rechnungen und Buchhaltung?",
+    faq9_a: "Die Rechnung aus der Bestellung stellen Sie in Fakturoid oder iDoklad aus. Den Flaschenbestand können Sie als XML-Datei an Pohoda übergeben. Die Buchhaltung selbst führt VineOS nicht.",
+    faq10_q: "Kann ich Daten aus Excel übernehmen?",
+    faq10_a: "Weine laden Sie aus Excel hoch (xlsx-Import). Bei größeren Tabellen oder einem Heft helfen wir gern in der Beratung.",
+    faq11_q: "Was ist der KI-Assistent Vinnie und was kostet er?",
+    faq11_a: "Vinnie beantwortet Fragen zu Ihren Daten. Sie nutzen Ihren eigenen Schlüssel für Gemini (kostenlos), Claude oder ChatGPT. VineOS berechnet für die KI nichts.",
+    faq12_q: "Kann ich das Abonnement kündigen und wo bekomme ich Hilfe?",
+    faq12_a: "Sie kündigen jederzeit, Pro bleibt bis zum Ende des bezahlten Zeitraums aktiv. Hilfe gibt es direkt in der Beratung.",
   }
 };
 
@@ -1638,6 +2911,18 @@ function updateAppLinks(lang) {
   });
 }
 
+// ── PORADNA: telefon ────────────────────
+// Doplňte číslo, např. '+420 123 456 789'. Dokud je prázdné, telefon ani tlačítko „Zavolat" se nezobrazí.
+const CONTACT_PHONE = '';
+if (CONTACT_PHONE) {
+  const row = document.getElementById('contactPhone');
+  const btn = document.getElementById('contactCallBtn');
+  const href = 'tel:' + CONTACT_PHONE.replace(/[^+\d]/g, '');
+  row.href = href; btn.href = href;
+  document.getElementById('contactPhoneVal').textContent = CONTACT_PHONE;
+  row.hidden = false; btn.hidden = false;
+}
+
 // Aplikuj výchozí jazyk (z localStorage / URL / navigator)
 setLang(currentLang);
 updateAppLinks(currentLang);
@@ -1676,12 +2961,12 @@ mobileMenu.querySelectorAll('a, button').forEach(el => {
         <span data-i18n="cookie_text">🍪 Tento web používá pouze nezbytné cookies pro správné fungování. Žádné reklamní ani sledovací cookies nepoužíváme.</span>
         <a href="#" id="cookie-more-link" style="color:#95d5b2;text-decoration:underline;margin-left:4px;" data-i18n="cookie_more">Více info</a>
       </span>
-      <button id="cookie-ok" style="background:#2d6a4f;color:#fff;border:none;border-radius:6px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;" data-i18n="cookie_ok">
+      <button id="cookie-ok" style="background:#c8a24b;color:#0d1b2a;border:none;border-radius:3px;padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;" data-i18n="cookie_ok">
         Rozumím
       </button>
     </div>
     <div id="cookie-detail" style="display:none;margin-top:10px;font-size:12px;color:#bbb;line-height:1.6;max-width:720px;" data-i18n="cookie_detail">
-      Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU (Frankfurt) v souladu s GDPR.
+      Používáme pouze technické cookies nezbytné pro přihlášení a provoz aplikace (Supabase session). Nepoužíváme Google Analytics, Facebook Pixel ani jiné sledovací nástroje. Data jsou uložena na serverech v EU v souladu s GDPR.
     </div>
   `;
   Object.assign(banner.style, {
@@ -1702,6 +2987,46 @@ mobileMenu.querySelectorAll('a, button').forEach(el => {
   });
   // apply current lang immediately
   setLang(currentLang);
+})();
+</script>
+<script>
+// Vrstevnice svahu — generovaná dekorace hrdinské sekce
+(function () {
+  var svg = document.getElementById('contours'); if (!svg) return;
+  var W = 1440, H = 760, N = 20, out = '';
+  for (var i = 0; i < N; i++) {
+    var y0 = 40 + i * (H - 80) / (N - 1), d = '';
+    for (var x = 0; x <= W; x += 20) {
+      var t = x / W;
+      var y = y0 + 38 * Math.sin(t * 5.1 + i * 0.4) + 20 * Math.sin(t * 11.7 - i * 0.33 + 1.3) + 9 * Math.sin(t * 21 + i * 0.21);
+      d += (x ? 'L' : 'M') + x + ' ' + y.toFixed(1);
+    }
+    var o = (0.06 + 0.16 * Math.sin(Math.PI * i / (N - 1))).toFixed(3);
+    out += '<path d="' + d + '" fill="none" stroke="' + (i % 5 === 0 ? '#c8a24b' : '#5cc392') + '" stroke-opacity="' + (i % 5 === 0 ? (o * 1.8).toFixed(3) : o) + '" stroke-width="1" vector-effect="non-scaling-stroke"/>';
+  }
+  svg.innerHTML = out;
+})();
+</script>
+<script>
+// Galerie aplikace — záložky (klávesnice: ← → Home End)
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.gal-tab')); if (!tabs.length) return;
+  function show(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+      var p = document.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t, false); });
+    t.addEventListener('keydown', function (e) {
+      var k = e.key, j = -1;
+      if (k === 'ArrowRight') j = (i + 1) % tabs.length; else if (k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+      else if (k === 'Home') j = 0; else if (k === 'End') j = tabs.length - 1;
+      if (j >= 0) { e.preventDefault(); show(tabs[j], true); }
+    });
+  });
 })();
 </script>
 </body>
